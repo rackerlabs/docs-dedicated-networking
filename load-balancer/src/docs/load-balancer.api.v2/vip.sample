@@ -1,0 +1,40 @@
+{
+  "load_balancer_data": {
+    "protocol": "TCP",
+    "description": "Some description",
+    "algorithm": {
+      "persistence_method": "client_ip",
+      "name": "LEAST_CONNECTION",
+      "persistence": "ENABLED",
+      "subnet_prefix_length": 0
+    },
+    "ip": "152.181.84.2",
+    "runtime_state": "UNHEALTHY",
+    "label": "Vip-Test-32fce25d",
+    "port_number": 80,
+    "port_name": "HTTP",
+    "admin_state": "ENABLED",
+    "stats": {
+      "conn_max": -1,
+      "pkts_out": -1,
+      "bytes_in": -1,
+      "pkts_in": 0,
+      "conn_tot": 0,
+      "conn_cur": 0,
+      "bytes_out": -1
+    },
+    "nodes": [
+      {
+        "label": "Node-Test-32fce25d",
+        "port_name": "HTTP",
+        "address": "29.181.84.2",
+        "port_number": 80,
+        "id": "Node-Test-32fce25d:29.181.84.2:80"
+      }
+    ],
+    "id": "Vip-Test-32fce25d:152.181.84.2:80",
+    "vendor_extensions": {
+      "none": "none"
+    }
+  }
+}

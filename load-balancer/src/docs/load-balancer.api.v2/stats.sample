@@ -1,0 +1,11 @@
+{
+    "load_balancer_data": {
+        "conn_max": -1,
+        "pkts_out": -1,
+        "bytes_in": -1,
+        "pkts_in": 0,
+        "conn_tot": 0,
+        "conn_cur": 0,
+        "bytes_out": -1
+    }
+}

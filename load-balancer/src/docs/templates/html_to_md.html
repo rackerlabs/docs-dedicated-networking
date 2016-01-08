@@ -1,0 +1,77 @@
+**Endpoint**: {{data.baseUri}}
+
+{% for path, resource in data.resources %} {# Start master loop #}
+	{% if resource.methods %}
+
+		{% for item in resource.methods %}
+			{% if resource.type %}
+				{% for key_type, value_type in resource.type %}
+
+
+
+				{% endfor %}
+			{% endif %}
+## {{resource.displayName}}
+					{% if resource.description %} 
+{{resource.description}}
+					{% endif %}
+
+
+```javascript
+    {{item.method|upper}} {{path}}
+```
+				{% if resource.uriParameters %}
+**Uri Parameters:**
+					{% for key, item in resource.uriParameters %}
+
+{{item.displayName}}
+```javascript
+{
+    required: {{item.required}},
+    type: {{item.type}}
+}
+```
+					{% endfor %}
+				{% endif %}
+				{% if item.description %}
+{{item.description}}
+				{% endif %}
+				{% if item.method == 'get' %}
+*This operation does not accept a request body.*
+				{% endif %}
+				{% if item.body %}
+*This operation accepts a request body:*
+
+**Request**
+					{% if item.body['application/json']['schema'] %}
+```javascript
+{{item.body['application/json']['schema']}}
+```
+					{% endif %}
+				{% endif %}
+			{% for key, res in item.responses %}
+
+
+### {{item.method|upper}} {{resource.displayName}} {{key}} Response
+				{% if res.description %}
+{{res.description}}
+				{% endif %}
+				{% if res.body['application/json'] %}
+					{% if res.body['application/json']['schema'] %}
+**Schema**
+```javascript
+{{res.body['application/json']['schema']}}
+```
+{% endif %}
+{% if res.body['application/json']['example'] %}
+**Example**
+```javascript
+{{res.body['application/json']['example']}}
+```
+
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endif %}
+{% endfor %} {# End of master looop #}

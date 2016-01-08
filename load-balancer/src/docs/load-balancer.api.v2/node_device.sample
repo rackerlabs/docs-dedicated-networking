@@ -1,0 +1,32 @@
+{
+  "load_balancer_data": [
+    {
+      "stats": {
+        "conn_max": 0,
+        "pkts_out": 0,
+        "bytes_in": 0,
+        "pkts_in": 0,
+        "conn_tot": 0,
+        "conn_cur": 0,
+        "bytes_out": 0
+      },
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+          "rel": "up"
+        }
+      },
+      "runtime_state": "UNHEALTHY",
+      "label": "Node-Test-c4b3b8a5",
+      "port_name": "12345",
+      "admin_state": "ENABLED",
+      "address": "29.235.243.3",
+      "port_number": 12345,
+      "id": "Node-Test-c4b3b8a5:29.235.243.3:12345"
+    }
+  ]
+}

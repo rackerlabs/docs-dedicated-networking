@@ -1,0 +1,8 @@
+{
+  "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
+  "@type": "Event",
+  "event_id": "0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
+  "status": "200",
+  "message": "Processing",
+  "timestamp": "2015-04-01T10:05:01.55Z",
+}

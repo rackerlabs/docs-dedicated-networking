@@ -1,0 +1,87 @@
+{
+  "load_balancer_data": {
+    "customer": "2222222",
+    "uptime": "unimplemented",
+    "hostname": "adx1000-cyberdyne.iad3.netdev.net",
+    "links": {
+      "device": {
+        "href": "https://api-qual.netsec.rackspace.net/devices/111111",
+        "rel": "alternate"
+      },
+      "lb": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers",
+        "rel": "up"
+      },
+      "self": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111",
+        "rel": "self"
+      },
+      "vips": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/vips",
+        "rel": "related"
+      },
+      "nodes": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/nodes",
+        "rel": "related"
+      }
+    },
+    "ha_role": "high",
+    "ram_mem": [
+      {
+        "total_kbytes": "2097152",
+        "free_kbytes": "1339548",
+        "name": "MP",
+        "used_kbytes": "757604"
+      },
+      {
+        "total_kbytes": "458752",
+        "free_kbytes": "348964",
+        "name": "BP1",
+        "used_kbytes": "109788"
+      }
+    ],
+    "id": "111111",
+    "os_version": "12.4.00sT403",
+    "management_ip": "10.17.25.108",
+    "role": "unimplemented",
+    "cpu_load": [
+      {
+        "mod_name": "MASTER_CPU",
+        "load_5_sec_avg": {
+          "percent_load": 1,
+          "seconds_since": 5
+        }
+      },
+      {
+        "mod_name": "ASB1/1",
+        "load_5_sec_avg": {
+          "percent_load": 1,
+          "seconds_since": 5
+        }
+      },
+      {
+        "mod_name": "ASB1/2",
+        "load_5_sec_avg": {
+          "percent_load": 1,
+          "seconds_since": 5
+        }
+      },
+      {
+        "mod_name": "ASB1/3",
+        "load_5_sec_avg": {
+          "percent_load": 1,
+          "seconds_since": 5
+        }
+      },
+      {
+        "mod_name": "ASB1/4",
+        "load_5_sec_avg": {
+          "percent_load": 1,
+          "seconds_since": 5
+        }
+      }
+    ],
+    "ha_status": "none",
+    "model_name": "SI-1216-4-PREM"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status_code": 404,
+  "response": {
+    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
+    "statusCode": 404,
+    "details": "The requested resource was not found.",
+    "title": "404 Not Found"
+  },
+  "source_of_error": "FIRE_ENGINE",
+  "error": "404 Client Error: Object Not Found"
+}

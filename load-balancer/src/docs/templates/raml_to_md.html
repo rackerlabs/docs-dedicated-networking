@@ -1,0 +1,72 @@
+**Endpoint:** {{ordered_load['base_uri']}}
+{% for (key, value) in ordered_load['parsed_data'].iteritems() %}
+		{% if value['methods'] != None %}
+            {% for (code, mthds) in value['methods'].iteritems() %}
+                {% if mthds['description'] %}
+## {{mthds['description']}}
+				{% elif value['displayName'] %}
+## {{value['displayName']}}
+				{% endif %}
+				{% if value['description'] %}
+{{value['description']}}
+				{% endif %}
+```javascript
+{{code|upper}} {{key}}
+```
+			{% if mthds['responses'] != None %}
+				{% if code == 'get' %}
+*This operation does not accept a request body.*
+				{% endif %}
+				{% for (status_code, resp) in mthds['responses'].iteritems() %}
+					{% if mthds['body'] %}
+*This operation accepts a request body:*
+
+**Request**
+						{% if mthds['body']['application/json']['schema'] %}
+{% set sample = mthds['body']['application/json']['schema'] %}
+						{% elif mthds['body']['application/json']['example'] %}
+{% set sample = mthds['body']['application/json']['example'] %}
+						{% endif %}
+```javascript
+{{sample}}
+```
+					{% endif %}
+					{% for (app_type, details) in resp['body'].iteritems(): %}
+						{% if details['example'] %}
+							{% if code != 'get' %}
+								{% if value['displayName'] %}
+#### {{code|upper}} {{value['displayName']}} {{status_code}} response
+								{% else %}
+#### {{code|upper}} {{status_code}} response
+							{% endif %}
+						{% else %}
+#### {{code|upper}} {{status_code}} response
+						{% endif %}
+{# Display only if the description is provided for the response #}
+						{% if resp['description'] %}
+{{resp['description']}}
+{% endif %}
+```javascript
+{{details['example']}}
+```
+						{% else %}
+```javascript
+{}
+```
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			{% endif %}
+        {% endfor %}
+    {% else %}
+				{% if value['displayName'] %}
+## {{value['displayName']}}
+				{% endif %}
+				{% if value['description'] %}
+{{value['description']}}
+				{% endif %}
+```javascript
+{{code|upper}} {{key}}
+```
+	{% endif %}
+{% endfor %}

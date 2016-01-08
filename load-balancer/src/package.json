@@ -1,0 +1,27 @@
+{
+  "name": "ramltomd",
+  "version": "1.0.0",
+  "description": "Docs",
+  "main": "raml_parser.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "nunjucks": "^2.2.0",
+    "raml-parser": "^0.8.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NOne"
+  },
+  "keywords": [
+    "raml"
+  ],
+  "author": "Automation Integration",
+  "license": "ISC",
+  "private": true
+}

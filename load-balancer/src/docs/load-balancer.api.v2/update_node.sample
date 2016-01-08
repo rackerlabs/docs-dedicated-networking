@@ -1,0 +1,10 @@
+{
+  "account_number": req"<Account Number>",
+  "ip": "<ip>",
+  "port": "<port>",
+  "label": "<Node Label>",
+  "health_strategy": {},
+  "admin_state": "<enabled|disabled>"
+  "vendor_extensions": {},
+  "comment": req"comment"
+}
