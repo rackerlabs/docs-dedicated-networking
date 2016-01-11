@@ -1,3 +1,5 @@
+:orphan:
+
 .. _release-notes:
 
 ===================
@@ -12,4 +14,4 @@ resolved issues, and other important details about |apiservice| |contract versio
 .. toctree::
    :maxdepth: 2
 
-   June 30, 2015 <release-notes/lbs-replace-the-date>
+

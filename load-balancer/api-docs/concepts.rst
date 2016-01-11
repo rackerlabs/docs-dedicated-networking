@@ -12,9 +12,9 @@ To use the |apiservice| effectively, you should understand the following termino
 Load balancer
 ~~~~~~~~~~~~~~~
 
-A load balancer is a logical device which belongs to a cloud account. It is used to 
-distribute workloads between multiple back-end systems or services, based on the criteria 
-defined as part of its configuration.
+A load balancer is a logical device which belongs to a Rackspace dedicated account. 
+It is used to distribute workloads between multiple back-end systems or services, 
+based on the criteria defined as part of its configuration.
 
 .. _node-concept:
 
@@ -34,8 +34,11 @@ use by clients connecting to a service that is load balanced. Incoming connectio
 distributed to back-end nodes based on the configuration of the load balancer.
 
 
-.. _high-availability:
+.. _event-concept:
 
-High availability
-~~~~~~~~~~~~~~~~~~~~
+Event
+~~~~~~~
 
+A request to create or modify load balancer resources. The load balancer API logs 
+information about each request. You can get information about events by using the 
+Event API operations.
