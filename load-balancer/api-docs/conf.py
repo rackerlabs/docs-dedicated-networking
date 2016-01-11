@@ -64,7 +64,7 @@ builder = 'deconst-single'
 
 # General information about the project.
 project = 'Rackspace Developer Documentation'
-copyright = '2015, Rackspace'
+copyright = '2016, Rackspace'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -81,13 +81,13 @@ release = '2'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
-today = 'November 2, 2015'
 # Else, today_fmt is used as the format for a strftime call.
 # today_fmt = '%B %d, %Y'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'samples', 'api-operations/methods']
+exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info', 
+                    'api-operations/methods', 'release-notes', ]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -136,12 +136,12 @@ extlinks = {
 # Global variables that are replaced by the specified value during the build process.
 
 rst_epilog = """
-.. |apiservice| replace:: Managed Load Balancer API
+.. |apiservice| replace:: Dedicated Load Balancer API
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0
-.. |product name| replace:: Managed Load Balancer
+.. |product name| replace:: Dedicated Load Balancer
 .. |release-update| replace:: release update date
-.. |product support email| replace:: CHANGE ME in config file
+.. |product support email| replace:: CHANGE ME IN CONF.PY file
 .. |prerequisites for using the API| replace::  Update info or remove topic
 .. |DFW| replace:: Fix me 
 .. |ORD| replace:: Fix me 
