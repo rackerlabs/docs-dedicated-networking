@@ -1,7 +1,9 @@
 .. _overview:
 
+About the API
+-----------------------------------------
 
-The |product name| API enables developers to ...
+The |apiservice| service enables developers to  ... 
 
 
 .. toctree:: :hidden:
@@ -12,4 +14,3 @@ The |product name| API enables developers to ...
    additional-resources
    pricing-service-level
    api-contract-changes
-   api-service-updates
