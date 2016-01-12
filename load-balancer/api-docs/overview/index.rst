@@ -10,7 +10,6 @@ The |apiservice| service enables developers to  ...
    :maxdepth: 2
    
    early-access-program
-   prerequisites
    additional-resources
    pricing-service-level
    api-contract-changes

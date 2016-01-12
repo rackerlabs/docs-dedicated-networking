@@ -87,7 +87,7 @@ release = '2'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info', 
-                    'api-operations/methods', 'release-notes', ]
+                    'api-operations/methods', 'release-notes','common-gs']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
