@@ -13,7 +13,7 @@
    Load Balancers API 2.0 <https://developer.rackspace.com/docs/dedicated-load-balancers/v2/dev-guide/#product-name-contract-version>
    About the API <overview/index>
    concepts
-   authentication
+   getting-started/index
    api-reference
    api-operations/index
 
