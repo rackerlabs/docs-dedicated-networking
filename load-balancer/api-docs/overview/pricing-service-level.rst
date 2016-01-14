@@ -3,12 +3,12 @@
 Pricing and terms of service
 ------------------------------
 
-|product name| is part of the Rackspace Cloud. The `cost for API usage`_ follows the pricing 
-for the service. 
+|product name| is included for customers who have Load Balancing as part of their Hosting Configuration. There is no
+additional `cost for API usage` beyond the hosting services charged for the hardware device.
 
-The service level agreement (SLA) for the service is included in the `Rackspace Cloud SLA`_.
+There is no additional service level agreement (SLA) for this service during the Early Access period.
 
-The terms of service are part of the `Rackspace Cloud Terms of Service`_. Periodically review these terms because they can be updated any time.
+The Early Access terms of service are part of the `Rackspace Test Terms`. Periodically review these terms because they can be updated any time.
 
 .. _cost for API usage: http://www.rackspace.com/cloud/big-data/pricing/
 .. _Rackspace Cloud SLA: http://www.rackspace.com/information/legal/cloud/sla

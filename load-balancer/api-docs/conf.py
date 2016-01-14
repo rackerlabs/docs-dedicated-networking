@@ -86,7 +86,7 @@ release = '2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info', 
+exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info',
                     'api-operations/methods', 'release-notes','common-gs']
 
 # The reST default role (used for this markup: `text`) to use for all
@@ -141,10 +141,11 @@ rst_epilog = """
 .. |contract version| replace:: 2.0
 .. |product name| replace:: Dedicated Load Balancer
 .. |release-update| replace:: release update date
-.. |product support email| replace:: CHANGE ME IN CONF.PY file
+.. |product support email| replace:: rjackson@rackspace.com
+.. |netdevice support email| replace:: netdevice_api_support@rackspace.com
 .. |prerequisites for using the API| replace::  Update info or remove topic
-.. |DFW| replace:: Fix me 
-.. |ORD| replace:: Fix me 
+.. |DFW| replace:: Fix me
+.. |ORD| replace:: Fix me
 .. |IAD| replace:: Fix me
 .. |LON| replace:: Fix me
 

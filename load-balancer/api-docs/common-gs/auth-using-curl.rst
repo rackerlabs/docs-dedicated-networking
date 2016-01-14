@@ -1,13 +1,11 @@
 .. _authenticate-using-curl:
 
 Follow these steps to authenticate to the Rackspace Cloud by 
-`using cURL`_. 
+using cURL. 
 
 - :ref:`Send authentication request<send-auth-req-curl>`
 - :ref:`Review the authentication response<review-auth-resp>`
 - :ref:`Configure environment variables <configure-environment-variables>`
-
-.. _using cURL: https://developer.rackspace.com/docs/cloud-identity/v2/developer-guide/#document-general-api-info/how-curl-works
 
 .. _send-auth-req-curl:
 
@@ -18,7 +16,10 @@ From a command prompt, send a **POST tokens** request to the Rackspace Cloud Ide
 service.  Include your API access username and :ref:`API key<get-credentials>` 
 as shown in the following example.
 
+
 .. include:: ../common-gs/samples/auth-req-curl.rst
+
+Replace **$APIAccessUserName** with your API access username and **$apiKey** with your API key.
 
 
 .. _review-auth-resp:
@@ -37,13 +38,10 @@ In the following example, the ellipsis (...)  represents other service endpoints
 are not shown. The values shown in this and other examples vary because the information 
 returned is specific to your account. 
 
-.. note:: 
-     For detailed information about the authentication response, see the 
-     :rax-devdocs:`annotated authentication request and response<cloud-identity/v2/developer-guide/#document-authentication-info/sample-auth-req-response>` in the Rackspace Cloud API documentation.
-      
-**Example: Authentication response**  
+
+    **Example: Authentication response**  
     
-.. include:: ../common-gs/samples/auth-resp-json.rst
+..    include:: ../common-gs/samples/auth-resp-json.rst
 
 
 If the request was successful, you can find the authentication token and other information in the
@@ -54,16 +52,12 @@ If the request failed, review the response message and
 the following error message descriptions to determine next steps.
 
 ``400 Invalid request body: unable to parse Auth data. Please review XML or JSON formatting``: Review 
-the authentication request for syntax or coding errors. See `using cURL`_.
+the authentication request for syntax or coding errors. See using cURL.
           
 
 ``401 Unable to authenticate user with credentials provided.``: Verify the authentication credentials 
 submitted in the authentication request. If necessary, contact your Rackspace Cloud Administrator or 
 Rackspace Support to get valid credentials.
-
-..  note:: 
-       For additional information about authentication errors, see the 
-       :rax-devdocs:`Identity API Reference documentation <cloud-identity/v2/developer-guide/#document-api-operations/token-operations>`.
 
 
 .. _configure-environment-variables:
@@ -75,7 +69,7 @@ The authentication response returns the following values that you
 need to include when you send a service requests to the |apiservice|. 
 
 
-token ID
+*token ID*
     The token ID value is required to confirm your identity each time you access the service.
     Include it in the ``X-Auth-Token`` header for each API request. 
     
@@ -86,7 +80,7 @@ token ID
     :rax-devdocs:`Manage tokens and token expiration 
     <cloud-identity/v2/developer-guide/#manage-authentication-tokens>`.
     
-endpoint 
+*endpoint* 
 	The API endpoint provides the URL that you use to access the API service.
         
 
@@ -119,11 +113,7 @@ To reference the value in an API request, prefix the variable name with a $, for
         
 #. In the ``service catalog`` section of the authentication response, copy the ``publicURL`` 
    value for the |apiservice|, version, and region that you want to access. 
-   
-   This example shows the endpoints available for the |apiservice|. 
-   
-   .. include:: ../common-gs/samples/service-catalog-endpoint.rst
-          
+ 
    
 #. Copy the URL, and then export it to an environment variable.
 
