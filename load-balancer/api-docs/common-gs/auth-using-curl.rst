@@ -52,7 +52,7 @@ If the request failed, review the response message and
 the following error message descriptions to determine next steps.
 
 ``400 Invalid request body: unable to parse Auth data. Please review XML or JSON formatting``: Review 
-the authentication request for syntax or coding errors. See using cURL.
+the authentication request for syntax or coding errors.
           
 
 ``401 Unable to authenticate user with credentials provided.``: Verify the authentication credentials 
