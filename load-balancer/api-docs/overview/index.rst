@@ -3,7 +3,7 @@
 About the API
 -----------------------------------------
 
-The |apiservice| service enables developers to  ... 
+The |apiservice| service enables developers to programmatically view and configure their existing dedicated hardware load balancer resources such as VIPs, nodes and health checks. The API does NOT allow programmers to provision dedicated hardware load balancers
 
 
 .. toctree:: :hidden:
@@ -11,5 +11,4 @@ The |apiservice| service enables developers to  ...
    
    early-access-program
    additional-resources
-   pricing-service-level
    api-contract-changes

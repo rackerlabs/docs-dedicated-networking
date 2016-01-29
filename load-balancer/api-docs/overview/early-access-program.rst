@@ -17,7 +17,8 @@ participate in the Rackspace Metrics Ingestion Early Access program.
 
 To
 obtain access to the |product name| or to provide
-feedback, please contact |product support email|
+feedback, please contact your account team or Product manager,
+|product support email|.
 The |product name| Early Access program is provided to
 customers subject to the Test Terms located at
-http://www.rackspace.com/information/legal/cloud/tos.
+https://www.rackspace.com/information/legal/testterms.
