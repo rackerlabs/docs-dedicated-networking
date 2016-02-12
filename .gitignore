@@ -1,3 +1,4 @@
 **/api-docs/_build
 docenv
 .DS_store
+.idea

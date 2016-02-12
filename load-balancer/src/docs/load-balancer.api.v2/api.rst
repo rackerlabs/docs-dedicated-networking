@@ -1,16 +1,5 @@
 **Endpoint:**
-https://bpi.automation.api.rackspacecloud.com/2.0/{tenant\_id}
-
-Load balancer API Operations
-----------------------------
-
-Use the Load balancer API operations to view and manage load balancer
-devices, device configuration, and to get information about usage
-statistics and events.
-
-.. code:: javascript
-
-     /loadbalancer
+https://bpi.automation.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
 
 Retrieve device information
 ---------------------------
@@ -21,7 +10,7 @@ and configuration details for nodes, virtual IPs, and high availability.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}
+    GET /{device_id}
 
 *This operation does not accept a request body.*
 
@@ -147,7 +136,7 @@ device ID.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/configuration
+    GET /{device_id}/configuration
 
 *This operation does not accept a request body.*
 
@@ -172,7 +161,7 @@ the specified ID.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/ha
+    GET /{device_id}/ha
 
 *This operation does not accept a request body.*
 
@@ -191,18 +180,13 @@ Retrieve virtual IPs configuration
 ----------------------------------
 
 Load balancers must have at least one virtual IP address that clients
-can use to access the device. You can use the manage virtual IPs
-operations to configure and manage the virtual IP addresses for the load
-balancer with the specified device ID.
-
-After you update the device configuration, use the update virtual IP
-node configuration operation to configure the services associated with
-the specified virtual IP address. Then, use the enable virtual IP
-operation to apply the changes to the device.
+can use to balance traffic across nodes. You can use the manage virtual
+IPs operations to configure and manage the virtual IP addresses for the
+load balancer with the specified device ID.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/vips
+    GET /{device_id}/vips
 
 *This operation does not accept a request body.*
 
@@ -284,18 +268,13 @@ Add a virtual IP
 ----------------
 
 Load balancers must have at least one virtual IP address that clients
-can use to access the device. You can use the manage virtual IPs
-operations to configure and manage the virtual IP addresses for the load
-balancer with the specified device ID.
-
-After you update the device configuration, use the update virtual IP
-node configuration operation to configure the services associated with
-the specified virtual IP address. Then, use the enable virtual IP
-operation to apply the changes to the device.
+can use to balance traffic across nodes. You can use the manage virtual
+IPs operations to configure and manage the virtual IP addresses for the
+load balancer with the specified device ID.
 
 .. code:: javascript
 
-    POST /loadbalancer/{device_id}/vips
+    POST /{device_id}/vips
 
 *This operation accepts a request body:*
 
@@ -304,17 +283,17 @@ operation to apply the changes to the device.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>",
-      "label": req"<Label>",
+      "account_number": "<Account Number> (required)",
+      "label": "<Label> (required)",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": req"<protocol>",
-      "port": req"<port>",
-      "algorithm": req{},
-      "persistence": req{},
+      "protocol": "<protocol> (required)",
+      "port": "<port> (required)",
+      "algorithm": {} (required),
+      "persistence": {} (required),
       "nodes": {},
-      "admin_state": req"<enabled|disabled>",
-      "comment": req"comment"
+      "admin_state": "<enabled|disabled> (required)",
+      "comment": "<comment> (required)"
     }
 
 POST Manage Virtual IPs 202 response
@@ -347,7 +326,7 @@ virtual IPs operation to find it.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/vips/{vip_id}
+    GET /{device_id}/vips/{vip_id}
 
 *This operation does not accept a request body.*
 
@@ -432,7 +411,7 @@ virtual IPs operation to find it.
 
 .. code:: javascript
 
-    PUT /loadbalancer/{device_id}/vips/{vip_id}
+    PUT /{device_id}/vips/{vip_id}
 
 *This operation accepts a request body:*
 
@@ -441,17 +420,17 @@ virtual IPs operation to find it.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>",
-      "label": req"<Label>",
+      "account_number": "<Account Number> (required)",
+      "label": "<Label> (required)",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": req"<protocol>",
-      "port": req"<port>",
-      "algorithm": req{},
-      "persistence": req{},
+      "protocol": "<protocol> (required)",
+      "port": "<port> (required)",
+      "algorithm": {} (required),
+      "persistence": {} (required),
       "nodes": {},
-      "admin_state": req"<enabled|disabled>",
-      "comment": req"comment"
+      "admin_state": "<enabled|disabled> (required)",
+      "comment": "<comment> (required)"
     }
 
 PUT Virtual IPs information 202 response
@@ -484,7 +463,7 @@ virtual IPs operation to find it.
 
 .. code:: javascript
 
-    DELETE /loadbalancer/{device_id}/vips/{vip_id}
+    DELETE /{device_id}/vips/{vip_id}
 
 *This operation accepts a request body:*
 
@@ -493,8 +472,8 @@ virtual IPs operation to find it.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>",
-      "comment": req"comment"
+      "account_number": "<Account Number> (required)",
+      "comment": "<comment> (required)"
     }
 
 DELETE Virtual IPs information 202 response
@@ -521,7 +500,7 @@ IP.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/vips/{vip_id}/nodes
+    GET /{device_id}/vips/{vip_id}/nodes
 
 *This operation does not accept a request body.*
 
@@ -562,7 +541,7 @@ specified node from the virtual IP configuration.
 
 .. code:: javascript
 
-    POST /loadbalancer/{device_id}/vips/{vip_id}/nodes/{node_id}
+    POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 
 *This operation accepts a request body:*
 
@@ -571,7 +550,7 @@ specified node from the virtual IP configuration.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>"
+      "account_number": "<Account Number> (required)"
     }
 
 POST Manage virtual IP node configuration 202 response
@@ -598,17 +577,7 @@ specified node from the virtual IP configuration.
 
 .. code:: javascript
 
-    DELETE /loadbalancer/{device_id}/vips/{vip_id}/nodes/{node_id}
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 
 DELETE Manage virtual IP node configuration 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -634,17 +603,7 @@ virtual IP configured for a specified device.
 
 .. code:: javascript
 
-    POST /loadbalancer/{device_id}/vips/{vip_id}/configuration
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    POST /{device_id}/vips/{vip_id}/configuration
 
 POST Manage Virtual IP status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -670,17 +629,7 @@ virtual IP configured for a specified device.
 
 .. code:: javascript
 
-    DELETE /loadbalancer/{device_id}/vips/{vip_id}/configuration
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    DELETE /{device_id}/vips/{vip_id}/configuration
 
 DELETE Manage Virtual IP status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -705,7 +654,7 @@ Retrieves usage data for the specified virtual IP.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/vips/{vip_id}/stats
+    GET /{device_id}/vips/{vip_id}/stats
 
 *This operation does not accept a request body.*
 
@@ -762,7 +711,7 @@ operations to assign the node to one or more virtual IPs.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/nodes
+    GET /{device_id}/nodes
 
 *This operation does not accept a request body.*
 
@@ -838,7 +787,7 @@ operations to assign the node to one or more virtual IPs.
 
 .. code:: javascript
 
-    POST /loadbalancer/{device_id}/nodes
+    POST /{device_id}/nodes
 
 *This operation accepts a request body:*
 
@@ -847,15 +796,15 @@ operations to assign the node to one or more virtual IPs.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>",
-      "label": req"<Node Label>",
+      "account_number": "<Account Number> (required)",
+      "label": "<Node Label> (required)",
       "description": "<description>",
-      "ip": req"<ip>",
-      "port": req"<port>",
-      "admin_state": req"<enabled|disabled>",
-      "health_strategy": req"<health_strategy JSON Object>",
-      "vendor_extensions": req"<vendor_extension JSON object>",
-      "comment": req"comment"
+      "ip": "<ip> (required)",
+      "port": "<port> (required)",
+      "admin_state": "<enabled|disabled> (required)",
+      "health_strategy": "<health_strategy JSON Object> (required)",
+      "vendor_extensions": "<vendor_extension JSON object> (required)",
+      "comment": "comment (required)"
     }
 
 POST Nodes 202 response
@@ -881,7 +830,7 @@ Use the node operations to view, update, or remove a specified node.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/nodes/{node_id}
+    GET /{device_id}/nodes/{node_id}
 
 *This operation does not accept a request body.*
 
@@ -967,7 +916,7 @@ Use the node operations to view, update, or remove a specified node.
 
 .. code:: javascript
 
-    PUT /loadbalancer/{device_id}/nodes/{node_id}
+    PUT /{device_id}/nodes/{node_id}
 
 *This operation accepts a request body:*
 
@@ -976,14 +925,14 @@ Use the node operations to view, update, or remove a specified node.
 .. code:: javascript
 
     {
-      "account_number": req"<Account Number>",
+      "account_number": "<Account Number> (required)",
       "ip": "<ip>",
       "port": "<port>",
       "label": "<Node Label>",
       "health_strategy": {},
       "admin_state": "<enabled|disabled>"
       "vendor_extensions": {},
-      "comment": req"comment"
+      "comment": "<comment> (required)"
     }
 
 PUT Manage node information 202 response
@@ -1009,17 +958,7 @@ Use the node operations to view, update, or remove a specified node.
 
 .. code:: javascript
 
-    DELETE /loadbalancer/{device_id}/nodes/{node_id}
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    DELETE /{device_id}/nodes/{node_id}
 
 DELETE Manage node information 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1048,17 +987,7 @@ delete node operation.
 
 .. code:: javascript
 
-    POST /loadbalancer/{device_id}/nodes/{node_id}/configuration
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    POST /{device_id}/nodes/{node_id}/configuration
 
 POST Manage node status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1087,17 +1016,7 @@ delete node operation.
 
 .. code:: javascript
 
-    DELETE /loadbalancer/{device_id}/nodes/{node_id}/configuration
-
-*This operation accepts a request body:*
-
-**Request**
-
-.. code:: javascript
-
-    {
-      "account_number": req"<Account Number>"
-    }
+    DELETE /{device_id}/nodes/{node_id}/configuration
 
 DELETE Manage node status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1122,7 +1041,7 @@ Retrieves usage data for a specified node ID.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/nodes/{node_id}/stats
+    GET /{device_id}/nodes/{node_id}/stats
 
 *This operation does not accept a request body.*
 
@@ -1172,7 +1091,7 @@ modify load balancer resources.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/events
+    GET /{device_id}/events
 
 *This operation does not accept a request body.*
 
@@ -1220,7 +1139,7 @@ specific event including event type, status, message, and timestamp.
 
 .. code:: javascript
 
-    GET /loadbalancer/{device_id}/events/{event_id}
+    GET /{device_id}/events/{event_id}
 
 *This operation does not accept a request body.*
 
