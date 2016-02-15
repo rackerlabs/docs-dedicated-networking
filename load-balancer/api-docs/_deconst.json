@@ -1,3 +1,8 @@
 {
-  "contentIDBase": "https://github.com/rackerlabs/docs-dedicated-networking/"
+  "contentIDBase": "https://github.com/rackerlabs/docs-dedicated-networking/",
+  "githubUrl": "https://github.com/rackerlabs/docs-dedicated-networking/",
+  "githubBranch": "master",
+  "meta": {
+    "preferGithubIssues": true
+  }
 }
