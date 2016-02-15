@@ -1,13 +1,13 @@
 {
-  "account_number": req"<Account Number>",
-  "label": req"<Label>",
+  "account_number": "<Account Number> (required)",
+  "label": "<Label> (required)",
   "description": "<description>",
   "ip": "<ip>",
-  "protocol": req"<protocol>",
-  "port": req"<port>",
-  "algorithm": req{},
-  "persistence": req{},
+  "protocol": "<protocol> (required)",
+  "port": "<port> (required)",
+  "algorithm": {} (required),
+  "persistence": {} (required),
   "nodes": {},
-  "admin_state": req"<enabled|disabled>",
-  "comment": req"comment"
+  "admin_state": "<enabled|disabled> (required)",
+  "comment": "<comment> (required)"
 }

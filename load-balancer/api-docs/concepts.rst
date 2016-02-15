@@ -39,6 +39,6 @@ distributed to back-end nodes based on the configuration of the load balancer.
 Event
 ~~~~~~~
 
-A request to create or modify load balancer resources. The load balancer API logs 
-information about each request. You can get information about events by using the 
-Event API operations.
+An event is an occurence of an API request to retrieve, create or modify load 
+balancer resources. The load balancer API logs information about each event/request. 
+Each event is assigned an event ID which can be used to request details about the event.

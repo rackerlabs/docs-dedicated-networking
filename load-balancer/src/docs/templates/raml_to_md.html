@@ -58,15 +58,5 @@
 				{% endfor %}
 			{% endif %}
         {% endfor %}
-    {% else %}
-				{% if value['displayName'] %}
-## {{value['displayName']}}
-				{% endif %}
-				{% if value['description'] %}
-{{value['description']}}
-				{% endif %}
-```javascript
-{{code|upper}} {{key}}
-```
 	{% endif %}
 {% endfor %}
