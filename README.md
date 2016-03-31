@@ -1,6 +1,6 @@
 # docs-dedicated-networking
 
-[![Build Status](https://travis-ci.org/rackerlabs/docs-dedicated-networking.svg?branch=master)](https://travis-ci.org/rackerlabs/docs-dedicated-networking)
+[![build badge](https://build.developer.rackspace.com/rackerlabs/docs-dedicated-dedicated-networking/badge?branch=master)](https://build.developer.rackspace.com/rackerlabs/docs-dedicated-networking/)
 
 Developer documentation source and builds for Automation Integration networking offerings for dedicated customers.
 
