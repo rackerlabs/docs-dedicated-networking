@@ -102,6 +102,8 @@ securedBy: [internalIdentity]
              An IP can be passed into the add Virtual IP call as part of the request body,
              only if the IP exists within an existing Virtual.
 
+             *When adding a Virtual IP, these fields are required: account_number, label, protocol,
+             port, algorithm, persistence, admin_state, comment*
         get:
             description: Retrieve virtual IPs configuration
             responses:
@@ -141,6 +143,8 @@ securedBy: [internalIdentity]
 
                If you don't know the ID for a specified virtual IP, use the retrieve
                virtual IPs operation to find it.
+
+               *When deleting, these fields are required: account_number, comment*
             get:
                 description: Retrieve virtual IP information
                 responses:
@@ -173,8 +177,8 @@ securedBy: [internalIdentity]
                     application/json:
                         example: |
                             {
-                              "account_number": "<Account Number> (required)",
-                              "comment": "<comment> (required)"
+                              "account_number": "<Account Number>",
+                              "comment": "<comment>"
                             }
                 responses:
                     202:
@@ -202,13 +206,15 @@ securedBy: [internalIdentity]
                     description: |
                        Use the virtual IP node configuration operations to add or
                        remove a specified node from the virtual IP configuration.
+
+                       *When assigning a node to a virtual, this field is required: account_number*
                     post:
                         description: Assign node to virtual IP
                         body:
                             application/json:
                                 example: |
                                     {
-                                      "account_number": "<Account Number> (required)"
+                                      "account_number": "<Account Number>"
                                     }
                         responses:
                             202:
@@ -278,6 +284,9 @@ securedBy: [internalIdentity]
 
            After a node has been defined, use the virtual IP nodes configuration
            operations to assign the node to one or more virtual IPs.
+
+           *When adding a node to a device, these fields are rquired: account_number, label,
+           ip, port, admin_state, health_strategy, vendor_extensions, comment*
         get:
             description: Nodes in a device for the given device id
             responses:
