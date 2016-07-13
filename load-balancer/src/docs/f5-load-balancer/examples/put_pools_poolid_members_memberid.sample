@@ -1,0 +1,10 @@
+{
+    "appService": null,
+    "connectionLimit": 0,
+    "description": null,
+    "dynamicRatio": 1,
+    "inheritProfile": "enabled",
+    "logging": "enabled",
+    "priorityGroup": 0,
+    "rateLimit": "enabled"
+ }

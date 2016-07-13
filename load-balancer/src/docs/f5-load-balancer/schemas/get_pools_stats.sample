@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "poolsStatsGET",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "poolStats.json"
+          }
+        ],
+        "links": {
+          "$ref": "links.json"
+        },
+        "required": [
+          "links"
+        ]
+      }
+    }
+  },
+  "required": [
+    "items"
+  ]
+}

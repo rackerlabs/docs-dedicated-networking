@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "member-monitor-rule-POST",
+  "description": "Creates a Member of a Pool in a Load Balancer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "member.json"
+    }
+  ],
+  "properties": {
+    "id": {
+      "not": {}
+    },
+    "port": {
+      "not": {}
+    },
+    "metadata": {
+      "not": {}
+    },
+    "monitorRule": {
+      "not": {}
+    }
+  }
+}

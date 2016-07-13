@@ -1,0 +1,28 @@
+{
+    "data": [        
+        {
+            "id": "MON-TCP-80",
+            "type": "tcp",
+            "address":"any",
+            "port": {
+                "type": "equal",
+                "value": 80
+            },
+            "appService": "none",
+            "defaultsFrom": "tcp",
+            "description": "none",
+            "interval": 5,
+            "ipDscp": 0,
+            "manualResume": "disabled",
+            "partition": "Common",
+            "recv": "none",
+            "recvDisable": "none",
+            "reverse": "disabled",
+            "send": "none",
+            "timeUntilUp": 0,
+            "timeout": 16,
+            "transparent": "disabled",
+            "upInterval": 0
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "data": {
+        "eventId": "e5f5a509-9466-4777-abf2-6fa909941223c",
+        "status": "PROCESSING",
+        "resource": "<virtualId:str>",
+        "timestamp": "2016-03-08T17:22:33.6249648Z",
+        "eventRef": "/events/<eventId:str>"
+    }
+}

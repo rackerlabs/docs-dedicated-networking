@@ -1,0 +1,10 @@
+{
+    "data": {
+		"eventId": "<eventId:str>",
+		"resource": "<poolId:str>",
+		"type": "<memberId:str>",
+		"eventRef": "/events/<eventId:str}",
+		"status": "PROCESSING",
+		"timestamp": "2016-03-08T17:22:33.6249648Z"
+	}
+}

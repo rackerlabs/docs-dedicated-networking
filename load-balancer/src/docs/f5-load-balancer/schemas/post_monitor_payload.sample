@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "monitorCreatePUT",
+  "description": "Create a Monitor on a Load Balancer",
+  "type": "object",
+  "anyOf": [
+    {
+      "$ref": "monitor-http.json"
+    },
+    {
+      "$ref": "monitor-https.json"
+    },
+    {
+      "$ref": "monitor-tcp.json"
+    },
+    {
+      "$ref": "monitor-udp.json"
+    },
+    {
+      "$ref": "monitor-tcp.json"
+    }
+  ],
+  "required": [
+    "type"
+  ]
+}

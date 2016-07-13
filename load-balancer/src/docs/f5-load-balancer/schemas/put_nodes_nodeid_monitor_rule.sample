@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "node-monitor-rule-PUT",
+  "description": "Set a node's monitor rule",
+  "$ref": "monitor.json",
+  "required": [
+    "names"
+  ]
+}

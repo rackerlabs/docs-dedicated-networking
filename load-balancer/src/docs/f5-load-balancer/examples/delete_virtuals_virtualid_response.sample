@@ -1,0 +1,9 @@
+{
+    "data": {
+        "eventId": "<eventid:str>",
+        "status": "PROCESSING",
+        "resource": "<virtualId:str>",
+        "timestamp": "2016-03-18T03:18:35.5077939Z",
+        "eventRef": "/events/<eventId:str>"
+    }
+}

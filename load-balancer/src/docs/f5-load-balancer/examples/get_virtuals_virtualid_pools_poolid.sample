@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "id": "POOL-162.242.187.83-80",
+            "allowNat": "yes",
+            "allowSnat": "yes",
+            "appService": null,
+            "gatewayFailsafeDevice": null,
+            "ignorePersistedWeight": "disabled",
+            "ipTosToClient": "pass-through",
+            "ipTosToServer": "pass-through",
+            "linkQosToClient": "pass-through",
+            "linkQosToServer": "pass-through",
+            "loadBalancingMode": "round-robin",
+            "metadata": {
+                "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80/metadata"
+            },
+            "minActiveMembers": 0,
+            "minUpMembers": 0,
+            "minUpMembersAction": "failover",
+            "minUpMembersChecking": "disabled",
+            "partition": "Common",
+            "profiles": "none",
+            "queueDepthLimit": 0,
+            "queueOnConnectionLimit": "disabled",
+            "queueTimeLimit": 0,
+            "reselectTries": 0,
+            "serviceDownAction": null,
+            "slowRampTime": 10,
+            "description": "none",
+            "members": {
+                "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80/members"
+            },
+            "monitors": {
+                "href": "http://fe.netsec.rackspace.net/f5/535908/healthmonitors/MON-TCP-80"
+            }
+        }
+    ]
+}

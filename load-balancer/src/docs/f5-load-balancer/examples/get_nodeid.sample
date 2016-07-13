@@ -1,0 +1,23 @@
+{
+    "data": [  
+        {
+            "id": "10.1.2.3",
+            "address": "10.1.2.3",
+            "appService": "none",
+            "connectionLimit": 0,
+            "description": "a node",
+            "dynamicRatio": 1,
+            "logging": "disabled",
+            "monitors": {
+              "href": "https://localhost/f5/23232/nodes/10.1.2.3/monitors"
+            },
+            "metadata": {
+              "href": "https://localhost/f5/23232/nodes/10.1.2.3/metadata"
+            },
+            "partition": "Common",
+            "rateLimit": "disabled",
+            "session": "user-enabled",
+            "state": "unchecked"
+        }
+    ]
+}

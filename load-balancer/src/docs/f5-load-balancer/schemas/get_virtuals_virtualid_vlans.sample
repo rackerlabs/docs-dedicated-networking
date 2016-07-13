@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "virtual-vlans-GET",
+  "description": "Get vlans in the Load Balancer",
+  "$ref": "vlans.json",
+  "required": [
+      "names"
+    ]
+}

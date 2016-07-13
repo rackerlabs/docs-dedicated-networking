@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": "POOL-162.242.187.83-80",
+      "activeMemberCnt": 1,
+      "connq": {
+        "ageEdm": 0,
+        "ageEma": 0,
+        "ageHead": 0,
+        "ageMax": 0,
+        "depth": 0,
+        "serviced": 0
+      },
+      "connqAll": {
+        "ageEdm": 0,
+        "ageEma": 0,
+        "ageHead": 0,
+        "ageMax": 0,
+        "depth": 0,
+        "serviced": 0
+      },
+      "curSessions": 0,
+      "minActiveMembers": 0,
+      "monitorRule": {
+        "monitors": [
+          "MON-TCP-80"
+        ],
+        "minimum": "all"
+      },
+      "name": "POOL-162.242.187.83-80",
+      "totRequests": 0,
+      "serverside": {
+        "bitsIn": 0,
+        "bitsOut": 0,
+        "curConns": 0,
+        "maxConns": 0,
+        "pktsIn": 0,
+        "pktsOut": 0,
+        "totConns": 0
+      },
+      "status": {
+        "availabilityState": "available",
+        "enabledState": "enabled",
+        "statusReason": "The pool is available"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://localhost/f5/232323/pools/POOL-162.242.187.83-80/stats"
+        },
+        {
+          "rel": "pool",
+          "href": "https://localhost/f5/232323/pools/POOL-162.242.187.83-80"
+        }
+      ]
+    }
+  ]
+}

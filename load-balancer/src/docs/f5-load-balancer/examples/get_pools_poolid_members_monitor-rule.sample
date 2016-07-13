@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "minimum": "all",
+      "address": "2.2.2.2",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://fe-staging.netsec.net/f5/232323/pools/ppol1/members/test1:80"
+        }
+      ]
+    }
+  ]
+}

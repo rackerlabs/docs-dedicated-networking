@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "virtual-authGET",
+  "description": "Get auth in the Load Balancer",
+  "$ref": "auth.json",
+  "required": [
+      "profileNames"
+    ]
+}

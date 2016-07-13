@@ -1,0 +1,73 @@
+{
+  "data": [{
+    "customer": "990036",
+    "uptime": "396 days,  9:22",
+    "ha_role": "true",
+    "links": {
+      "vips": {
+        "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/535908/vips",
+        "rel": "related"
+      },
+      "self": {
+        "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/535908",
+        "rel": "self"
+      },
+      "device": {
+        "href": "https://fe-staging.netsec.rackspace.net/devices/535908",
+        "rel": "alternate"
+      },
+      "lb": {
+        "href": "https://fe-staging.netsec.rackspace.net/loadbalancers",
+        "rel": "up"
+      },
+      "nodes": {
+        "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/535908/nodes",
+        "rel": "related"
+      },
+      "availability": {
+        "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/535908/availability",
+        "rel": "related"
+      }
+    },
+    "hostname": "535908-lb1.fdaat.rackspace.com",
+    "ram_mem": [{
+      "total_kbytes": "4158218",
+      "free_kbytes": "162846",
+      "name": "TMM",
+      "used_kbytes": "2860515"
+    }],
+    "model_name": "BIG-IP 1600",
+    "os_version": "11.5.1, build: 3.0.131, edition: Hotfix HF3",
+    "management_ip": "10.10.37.142",
+    "role": "unimplemented",
+    "cpu_load": [{
+      "load_1_sec_avg": {
+        "percent_load": 19,
+        "seconds_since": 0
+      },
+      "average": {
+        "percent_load": 17,
+        "seconds_since": 0
+      },
+      "load_60_sec_avg": {
+        "percent_load": -1,
+        "seconds_since": -1
+      },
+      "last_peak_load": {
+        "percent_load": 50,
+        "seconds_since": 0
+      },
+      "mod_name": "System CPU",
+      "load_5_sec_avg": {
+        "percent_load": -1,
+        "seconds_since": -1
+      },
+      "load_300_sec_avg": {
+        "percent_load": -1,
+        "seconds_since": -1
+      }
+    }],
+    "ha_status": "active",
+    "id": "535908"
+  }]
+}

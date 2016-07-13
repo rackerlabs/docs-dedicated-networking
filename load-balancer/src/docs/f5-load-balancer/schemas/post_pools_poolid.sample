@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "poolGET",
+  "description": "Created a new Poo;",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "pool.json"
+    }
+  ],
+  "properties": {
+    "metadata": {
+      "not": {}
+    },
+    "monitorRule": {
+      "not": {}
+    }
+  }
+}

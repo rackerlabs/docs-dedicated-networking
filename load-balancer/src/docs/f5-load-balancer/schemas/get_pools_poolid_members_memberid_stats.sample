@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "member-stats-GET",
+  "description": "A pool member's stats",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "connq": {
+      "$ref": "conn.json"
+    },
+    "curSessions": {
+      "type": "integer"
+    },
+    "monitorRule": {
+      "$ref": "monitor.json"
+    },
+    "monitorStatus": {
+      "type": "string"
+    },
+    "nodeName": {
+      "type": "string"
+    },
+    "poolName": {
+      "type": "string"
+    },
+    "port": {
+      "$ref": "port.json"
+    },
+    "serverside": {
+      "$ref": "stats.json"
+    },
+    "sessionStatus": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "status.json"
+    },
+    "totRequests": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "address",
+    "connq",
+    "curSessions",
+    "monitorRule",
+    "monitorStatus",
+    "nodeName",
+    "poolName",
+    "port",
+    "serverside",
+    "sessionStatus",
+    "status",
+    "totRequests"
+  ]
+}

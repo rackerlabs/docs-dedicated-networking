@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "name": "test_pool",
+            "_links": {
+                "self": {
+                    "href": "http://localhost:8000/f5/535908/virtuals/VIP-162.242.187.83-80/pool/"
+                }
+            }
+        } 
+    ]
+}

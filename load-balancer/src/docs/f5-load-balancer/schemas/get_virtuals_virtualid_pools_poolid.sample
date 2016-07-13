@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "poolGET",
+  "description": "Get a Pool in the Load Balancer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "pool.json"
+    }
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "link.json"
+    },
+    "monitors": {
+      "$ref": "link.json"
+    }
+  },
+  "required": [
+    "allowNat",
+    "allowSnat",
+    "appService",
+    "description",
+    "gatewayFailsafeDevice",
+    "id",
+    "ignorePersistedWeight",
+    "ipTosToClient",
+    "ipTosToServer",
+    "linkQosToClient",
+    "linkQosToServer",
+    "loadBalancingMode",
+    "members",
+    "metadata",
+    "minActiveMembers",
+    "minUpMembers",
+    "minUpMembersAction",
+    "minUpMembersChecking",
+    "monitors",
+    "partition",
+    "profiles",
+    "queueDepthLimit",
+    "queueOnConnectionLimit",
+    "queueTimeLimit",
+    "reselectTries",
+    "serviceDownAction",
+    "slowRampTime"
+  ]
+}

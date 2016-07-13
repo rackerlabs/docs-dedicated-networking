@@ -1,0 +1,18 @@
+{
+	"data": [
+		{
+		  "minimum": "all",
+		  "_links": {
+		    "self": {
+		      "href": "https://fe-staging.netsec.rackspace.net/f5/535908/pools/pool1/members/12.1.1.12:80"
+		    },
+		    "none": {
+		      "href": "https://fe-staging.netsec.rackspace.net/f5/535908/monitors/none"
+		    }
+		  },
+		  "names": [
+		    "none"
+		  ]
+		}
+	]
+}

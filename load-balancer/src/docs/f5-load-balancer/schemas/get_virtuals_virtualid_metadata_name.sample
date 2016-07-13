@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "metadata-object-GET",
+  "description": "Get a single metadata entry from an object's metadata",
+  "$ref": "metadata.json"
+}

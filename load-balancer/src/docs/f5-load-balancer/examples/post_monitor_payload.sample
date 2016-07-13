@@ -1,0 +1,21 @@
+{
+  "address": "1.2.3.27",
+  "port": {
+    "type": "any",
+    "value": "85"
+  },
+  "type": "tcp",
+  "defaultsFrom": "/Common/tcp",
+  "description": "A updated peg tcp monitor",
+  "interval": 5,
+  "ipDscp": 0,
+  "manualResume": "disabled",
+  "recv": "stuff",
+  "recvDisable": "disabled",
+  "reverse": "disabled",
+  "send": null,
+  "timeUntilUp": 0,
+  "timeout": 0,
+  "transparent": "enabled",
+  "upInterval": 0
+}

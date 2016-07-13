@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "nodeStatsGET",
+  "description": "Get a the stats of a node in the Load Balancer",
+  "type": "object",
+  "$ref": "node-stats.json"
+}
