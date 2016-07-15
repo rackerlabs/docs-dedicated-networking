@@ -1,35 +1,41 @@
-**Endpoint:** https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
+**Endpoint:** https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
+
 
 		
             
                 
 ## Retrieve device information
 				
-				
-Use the Device ID operation to get complete information about the device with 
-the specified ID including associated customer, usage statistics, and 
-configuration details for nodes, virtual IPs, and high availability. 
+                
+Use the Device ID operation to get complete information about the device with
+the specified ID including associated customer, usage statistics, and
+configuration details for nodes, virtual IPs, and high availability.
 
-				
-```javascript
+                
+```
 GET /{device_id}
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": {
     "customer": "2222222",
@@ -118,6 +124,7 @@ Successfully processed the request.
   }
 }
 ```
+							
 						
 					
 				
@@ -125,13 +132,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -144,43 +153,48 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Retrieve load balancer configuration details
 				
-				
-Retrieves the load balancer configuration information for the specified 
-device ID. 
+                
+Retrieves the load balancer configuration information for the specified
+device ID.
 
-				
-```javascript
+                
+```
 GET /{device_id}/configuration
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": {
     "b64": "key"
@@ -188,87 +202,100 @@ Successfully processed the request.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Show high availability template
 				
-				
-Retrieves the high availability configuration template for 
+                
+Retrieves the high availability configuration template for
 a device with the specified ID.
 
-				
-```javascript
+                
+```
 GET /{device_id}/ha
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "message": "This is a test template for High Availability"
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Retrieve virtual IPs configuration
 				
-				
-Load balancers must have at least one virtual IP address that clients 
-can use to balance traffic across nodes. You can use the manage virtual IPs 
-operations to configure and manage the virtual IP addresses for the load 
+                
+Load balancers must have at least one virtual IP address that clients
+can use to balance traffic across nodes. You can use the manage virtual IPs
+operations to configure and manage the virtual IP addresses for the load
 balancer with the specified device ID.
 
-				
-```javascript
+An IP can be passed into the add Virtual IP call as part of the request body,
+only if the IP exists within an existing Virtual.
+
+                
+```
 GET /{device_id}/vips
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "vips": [
     {
@@ -317,6 +344,7 @@ Successfully processed the request.
   ]
 }
 ```
+							
 						
 					
 				
@@ -324,13 +352,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -343,35 +373,40 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
 			
         
                 
-## Add a virtual IP
+## Add a Virtual IP
 				
-				
-Load balancers must have at least one virtual IP address that clients 
-can use to balance traffic across nodes. You can use the manage virtual IPs 
-operations to configure and manage the virtual IP addresses for the load 
+                
+Load balancers must have at least one virtual IP address that clients
+can use to balance traffic across nodes. You can use the manage virtual IPs
+operations to configure and manage the virtual IP addresses for the load
 balancer with the specified device ID.
 
-				
-```javascript
+An IP can be passed into the add Virtual IP call as part of the request body,
+only if the IP exists within an existing Virtual.
+
+                
+```
 POST /{device_id}/vips
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)",
   "label": "<Label> (required)",
@@ -388,18 +423,21 @@ POST /{device_id}/vips
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### POST Manage Virtual IPs 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -410,49 +448,54 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Retrieve virtual IP information
 				
-				
-Use the virtual IPs information operations to retrieve and update 
-information for a virtual IP configured for the specified device ID. 
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
 
-Use the delete operation to remove a virtual IP from the device 
-configuration. 
+Use the delete operation to remove a virtual IP from the device
+configuration.
 
 If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it. 
+virtual IPs operation to find it.
 
-				
-```javascript
+                
+```
 GET /{device_id}/vips/{vip_id}
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": {
     "protocol": "TCP",
@@ -494,6 +537,7 @@ Successfully processed the request.
   }
 }
 ```
+							
 						
 					
 				
@@ -501,13 +545,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -520,6 +566,7 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
@@ -528,31 +575,32 @@ Not found.
                 
 ## Update virtual IP information
 				
-				
-Use the virtual IPs information operations to retrieve and update 
-information for a virtual IP configured for the specified device ID. 
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
 
-Use the delete operation to remove a virtual IP from the device 
-configuration. 
+Use the delete operation to remove a virtual IP from the device
+configuration.
 
 If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it. 
+virtual IPs operation to find it.
 
-				
-```javascript
+                
+```
 PUT /{device_id}/vips/{vip_id}
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)",
   "label": "<Label> (required)",
@@ -569,18 +617,21 @@ PUT /{device_id}/vips/{vip_id}
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### PUT Virtual IPs information 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -591,6 +642,7 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
@@ -599,31 +651,32 @@ The request has been accepted for processing.
                 
 ## Delete a virtual IP
 				
-				
-Use the virtual IPs information operations to retrieve and update 
-information for a virtual IP configured for the specified device ID. 
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
 
-Use the delete operation to remove a virtual IP from the device 
-configuration. 
+Use the delete operation to remove a virtual IP from the device
+configuration.
 
 If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it. 
+virtual IPs operation to find it.
 
-				
-```javascript
+                
+```
 DELETE /{device_id}/vips/{vip_id}
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)",
   "comment": "<comment> (required)"
@@ -631,18 +684,21 @@ DELETE /{device_id}/vips/{vip_id}
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### DELETE Virtual IPs information 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -653,43 +709,48 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## List nodes for the specified virtual IP.
 				
-				
-Retrieve information about the nodes associated with a 
-specified virtual IP. 
+                
+Retrieve information about the nodes associated with a
+specified virtual IP.
 
-				
-```javascript
+                
+```
 GET /{device_id}/vips/{vip_id}/nodes
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": [
     {
@@ -712,56 +773,60 @@ Successfully processed the request.
   ]
 }
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Assign node to virtual IP
 				
-				
-Use the virtual IP node configuration operations to add or 
-remove a specified node from the virtual IP configuration. 
+                
+Use the virtual IP node configuration operations to add or
+remove a specified node from the virtual IP configuration.
 
-				
-```javascript
+                
+```
 POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)"
 }
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### POST Manage virtual IP node configuration 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -772,6 +837,7 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
@@ -780,30 +846,34 @@ The request has been accepted for processing.
                 
 ## Remove node from virtual IP configuration
 				
-				
-Use the virtual IP node configuration operations to add or 
-remove a specified node from the virtual IP configuration. 
+                
+Use the virtual IP node configuration operations to add or
+remove a specified node from the virtual IP configuration.
 
-				
-```javascript
+                
+```
 DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### DELETE Manage virtual IP node configuration 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -814,13 +884,13 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
@@ -828,30 +898,34 @@ The request has been accepted for processing.
 ## Enable a virtual IP
 
 				
-				
-Use the virtual IP configuration operations to enable or 
-disable a virtual IP configured for a specified device. 
+                
+Use the virtual IP configuration operations to enable or
+disable a virtual IP configured for a specified device.
 
-				
-```javascript
+                
+```
 POST /{device_id}/vips/{vip_id}/configuration
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### POST Manage Virtual IP status 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -862,6 +936,7 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
@@ -870,30 +945,34 @@ The request has been accepted for processing.
                 
 ## Disable a virtual IP
 				
-				
-Use the virtual IP configuration operations to enable or 
-disable a virtual IP configured for a specified device. 
+                
+Use the virtual IP configuration operations to enable or
+disable a virtual IP configured for a specified device.
 
-				
-```javascript
+                
+```
 DELETE /{device_id}/vips/{vip_id}/configuration
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### DELETE Manage Virtual IP status 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -904,41 +983,46 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Show virtual IP statistics
 				
-				
+                
 Retrieves usage data for the specified virtual IP.
-				
-```javascript
+                
+```
 GET /{device_id}/vips/{vip_id}/stats
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
     "load_balancer_data": {
         "conn_max": -1,
@@ -951,6 +1035,7 @@ Successfully processed the request.
     }
 }
 ```
+							
 						
 					
 				
@@ -958,13 +1043,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -977,48 +1064,53 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Nodes in a device for the given device id
 				
-				
+                
 A node is a back-end device providing a service on a specified IP and port.
 
-Use the nodes operations to get information about the nodes configured for  
+Use the nodes operations to get information about the nodes configured for
 a specified device and to add a node.
 
-After a node has been defined, use the virtual IP nodes configuration 
-operations to assign the node to one or more virtual IPs. 
+After a node has been defined, use the virtual IP nodes configuration
+operations to assign the node to one or more virtual IPs.
 
-				
-```javascript
+                
+```
 GET /{device_id}/nodes
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": [
     {
@@ -1052,6 +1144,7 @@ Successfully processed the request.
   ]
 }
 ```
+							
 						
 					
 				
@@ -1059,11 +1152,13 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
-```javascript
+							
+```
 {
   "status_code": 404,
   "response": {
@@ -1076,6 +1171,7 @@ Successfully processed the request.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
@@ -1084,30 +1180,31 @@ Successfully processed the request.
                 
 ## Add a node to a device
 				
-				
+                
 A node is a back-end device providing a service on a specified IP and port.
 
-Use the nodes operations to get information about the nodes configured for  
+Use the nodes operations to get information about the nodes configured for
 a specified device and to add a node.
 
-After a node has been defined, use the virtual IP nodes configuration 
-operations to assign the node to one or more virtual IPs. 
+After a node has been defined, use the virtual IP nodes configuration
+operations to assign the node to one or more virtual IPs.
 
-				
-```javascript
+                
+```
 POST /{device_id}/nodes
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)",
   "label": "<Node Label> (required)",
@@ -1122,18 +1219,21 @@ POST /{device_id}/nodes
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### POST Nodes 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1144,43 +1244,48 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Retrieve node information
 				
-				
-Use the node operations to view, update, or remove a 
+                
+Use the node operations to view, update, or remove a
 specified node.
 
-				
-```javascript
+                
+```
 GET /{device_id}/nodes/{node_id}
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": {
     "protocol": "TCP",
@@ -1230,6 +1335,7 @@ Successfully processed the request.
   }
 }
 ```
+							
 						
 					
 				
@@ -1237,13 +1343,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -1256,6 +1364,7 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
@@ -1264,25 +1373,26 @@ Not found.
                 
 ## Update node information
 				
-				
-Use the node operations to view, update, or remove a 
+                
+Use the node operations to view, update, or remove a
 specified node.
 
-				
-```javascript
+                
+```
 PUT /{device_id}/nodes/{node_id}
 ```
+
+
 			
 				
-				
-					
+            
 *This operation accepts a request body:*
 
 **Request**
 						
 
 						
-```javascript
+```
 {
   "account_number": "<Account Number> (required)",
   "ip": "<ip>",
@@ -1296,18 +1406,21 @@ PUT /{device_id}/nodes/{node_id}
 
 ```
 					
+                
+					
 					
 						
 							
 								
+									
 #### PUT Manage node information 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1318,6 +1431,7 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
@@ -1326,30 +1440,34 @@ The request has been accepted for processing.
                 
 ## Delete node from the device configuration
 				
-				
-Use the node operations to view, update, or remove a 
+                
+Use the node operations to view, update, or remove a
 specified node.
 
-				
-```javascript
+                
+```
 DELETE /{device_id}/nodes/{node_id}
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### DELETE Manage node information 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1360,46 +1478,50 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Enable a node
 				
-				
-Use the node status operations to enable or disable a specified 
+                
+Use the node status operations to enable or disable a specified
 node included in the device configuration.
 
-If you want to delete the node from the configuration file, use the 
-delete node operation. 
+If you want to delete the node from the configuration file, use the
+delete node operation.
 
-				
-```javascript
+                
+```
 POST /{device_id}/nodes/{node_id}/configuration
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### POST Manage node status 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1410,6 +1532,7 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
@@ -1418,33 +1541,37 @@ The request has been accepted for processing.
                 
 ## Disable a node
 				
-				
-Use the node status operations to enable or disable a specified 
+                
+Use the node status operations to enable or disable a specified
 node included in the device configuration.
 
-If you want to delete the node from the configuration file, use the 
-delete node operation. 
+If you want to delete the node from the configuration file, use the
+delete node operation.
 
-				
-```javascript
+                
+```
 DELETE /{device_id}/nodes/{node_id}/configuration
 ```
+
+
 			
 				
-				
+            
+                
 					
 					
 						
 							
 								
+									
 #### DELETE Manage node status 202 response
-								
-						
+									
+                                
 
-						
+							
 The request has been accepted for processing.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1455,41 +1582,46 @@ The request has been accepted for processing.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Show node statistics
 				
-				
+                
 Retrieves usage data for a specified node ID.
-				
-```javascript
+                
+```
 GET /{device_id}/nodes/{node_id}/stats
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "load_balancer_data": {
     "conn_max": 0,
@@ -1502,6 +1634,7 @@ Successfully processed the request.
   }
 }
 ```
+							
 						
 					
 				
@@ -1509,13 +1642,15 @@ Successfully processed the request.
 					
 						
 							
+								
+                                
 #### GET 404 response
-						
+							
 
-						
+							
 Not found.
 
-```javascript
+```
 {
   "status_code": 404,
   "response": {
@@ -1528,43 +1663,48 @@ Not found.
   "error": "404 Client Error: Object Not Found"
 }
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## List events
 				
-				
-Use the events operations to get information about requests to create or 
+                
+Use the events operations to get information about requests to create or
 modify load balancer resources.
 
-				
-```javascript
+                
+```
 GET /{device_id}/events
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "data": [
     {
@@ -1595,44 +1735,49 @@ Successfully processed the request.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	
 
 		
             
                 
 ## Retrieves event information by event ID.
 				
-				
-Use the event ID details operation to get information about 
-about a specific event including event type, status, message, and 
+                
+Use the event ID details operation to get information about
+about a specific event including event type, status, message, and
 timestamp.
 
-				
-```javascript
+                
+```
 GET /{device_id}/events/{event_id}
 ```
+
+
 			
 				
 *This operation does not accept a request body.*
-				
-				
+            
+            
+                
 					
 					
 						
 							
+								
+                                
 #### GET 200 response
-						
+							
 
-						
+							
 Successfully processed the request.
 
-```javascript
+```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
   "@type": "Event",
@@ -1643,10 +1788,10 @@ Successfully processed the request.
 }
 
 ```
+							
 						
 					
 				
 			
         
     
-	

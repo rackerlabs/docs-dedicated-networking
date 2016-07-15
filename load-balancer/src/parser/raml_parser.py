@@ -1,59 +1,41 @@
+# ~*~ coding: utf-8 ~*~
 import jinja2
 import pyraml.parser
-import os
+import sys
 
 from collections import OrderedDict
-from glob import glob
 
-DIR = os.curdir
-VALID_TYPES = [
-    'readOnlyCollection',
-    'creatableMember',
-    'member',
-    'collection',
-    'deletableMember'
-]
+# Set this value to disable stacktrace 0 - 5, 0 is disabled
+sys.tracebacklimit = 0
 
 
-def parse_raml():
+def parse_raml(path=None):
     """ Entry point for pyraml-parser implementation. """
 
     env = get_template_environment()
     temp = env.get_template('raml_to_md.html')
 
-    raml_docs = get_all_raml_docs()
-    for item in raml_docs:
-        if 'lbs-v2-docs' in item:
-            # Currently required, RAML doc is written in advance mode.
-            continue
-        api_doc = '{}/{}'.format(DIR, item)
-        load = pyraml.parser.load(api_doc)
+    if path:
+        load = pyraml.parser.load(path)
+    else:
+        raise Exception("Failed to load proper raml file")
 
-        ordered_load = create_payload(load)
-        rendered = temp.render(ordered_load=ordered_load)
+    ordered_load = create_payload(load)
+    rendered = temp.render(ordered_load=ordered_load)
 
-        rename = item.split('/')  # Convert to list
-        file_name = rename.pop().replace('.raml', '.md')
-        rename.append(file_name)
-        file_path = '/'.join(rename)
-
-        with open(file_path, 'w') as rendered_md:
-            rendered_md.write(str(rendered))
-    print('Parsing complete.')
-
-
-def get_all_raml_docs():
-    """ Return a list of raml docs with their relative paths."""
-
-    all_raml_docs = glob('docs/**/*.raml')
-    return all_raml_docs
+    rename = path.split('/')  # Convert to list
+    file_name = rename.pop().replace('.raml', '.md')
+    rename.append(file_name)
+    file_path = '/'.join(rename)
+    with open(file_path, 'w') as rendered_md:
+        rendered_md.write(str(rendered))
 
 
 def get_template_environment():
     """ Returns a Jinja2 environment object """
 
     env = jinja2.\
-        Environment(loader=jinja2.PackageLoader('docs', 'templates'))
+        Environment(loader=jinja2.FileSystemLoader('templates'))
     return env
 
 
@@ -100,11 +82,19 @@ def normalize_parsed_data(
 
 def create_payload(resource=None):
     """ Retrieves RAML data from RamlRoot object. """
+    resource_base_url = None
+    if resource.baseUri:
+        # This is making this bit of logic too smart...
+        if 'Load Balancer' in resource.title:
+            resource_base_url = resource.baseUri.replace(
+                "https://bpi.automation.api.rackspacecloud.com",
+                "https://lb.dedicated.api.rackspacecloud.com")
+    resource_base_url = resource_base_url or resource.baseUri
 
     if resource:
         ordered_load = OrderedDict()
         ordered_load.update({'title': resource.title})
-        ordered_load.update({'base_uri': resource.baseUri})
+        ordered_load.update({'base_uri': resource_base_url})
         ordered_load.update({'security_schemes': resource.securitySchemes})
         ordered_load.update({'version': resource.version})
 
@@ -116,4 +106,6 @@ def create_payload(resource=None):
     return ordered_load
 
 if __name__ == '__main__':
-    parse_raml()
+    if sys.argv:
+        path = sys.argv[1]
+    parse_raml(path)
