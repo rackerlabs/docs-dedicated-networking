@@ -187,6 +187,9 @@ load balancer with the specified device ID.
 An IP can be passed into the add Virtual IP call as part of the request
 body, only if the IP exists within an existing Virtual.
 
+*When adding a Virtual IP, these fields are required: account\_number,
+label, protocol, port, algorithm, persistence, admin\_state, comment*
+
 ::
 
     GET /{device_id}/vips
@@ -278,6 +281,9 @@ load balancer with the specified device ID.
 An IP can be passed into the add Virtual IP call as part of the request
 body, only if the IP exists within an existing Virtual.
 
+*When adding a Virtual IP, these fields are required: account\_number,
+label, protocol, port, algorithm, persistence, admin\_state, comment*
+
 ::
 
     POST /{device_id}/vips
@@ -289,17 +295,17 @@ body, only if the IP exists within an existing Virtual.
 ::
 
     {
-      "account_number": "<Account Number> (required)",
-      "label": "<Label> (required)",
+      "account_number": "<Account Number>",
+      "label": "<Label>",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": "<protocol> (required)",
-      "port": "<port> (required)",
-      "algorithm": {} (required),
-      "persistence": {} (required),
+      "protocol": "<protocol>",
+      "port": "<port>",
+      "algorithm": {},
+      "persistence": {},
       "nodes": {},
-      "admin_state": "<enabled|disabled> (required)",
-      "comment": "<comment> (required)"
+      "admin_state": "<enabled|disabled>",
+      "comment": "<comment>"
     }
 
 POST Manage Virtual IPs 202 response
@@ -329,6 +335,8 @@ configuration.
 
 If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
+
+*When deleting, these fields are required: account\_number, comment*
 
 ::
 
@@ -415,6 +423,8 @@ configuration.
 If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
 
+*When deleting, these fields are required: account\_number, comment*
+
 ::
 
     PUT /{device_id}/vips/{vip_id}
@@ -426,17 +436,17 @@ virtual IPs operation to find it.
 ::
 
     {
-      "account_number": "<Account Number> (required)",
-      "label": "<Label> (required)",
+      "account_number": "<Account Number>",
+      "label": "<Label>",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": "<protocol> (required)",
-      "port": "<port> (required)",
-      "algorithm": {} (required),
-      "persistence": {} (required),
+      "protocol": "<protocol>",
+      "port": "<port>",
+      "algorithm": {},
+      "persistence": {},
       "nodes": {},
-      "admin_state": "<enabled|disabled> (required)",
-      "comment": "<comment> (required)"
+      "admin_state": "<enabled|disabled>",
+      "comment": "<comment>"
     }
 
 PUT Virtual IPs information 202 response
@@ -467,6 +477,8 @@ configuration.
 If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
 
+*When deleting, these fields are required: account\_number, comment*
+
 ::
 
     DELETE /{device_id}/vips/{vip_id}
@@ -478,8 +490,8 @@ virtual IPs operation to find it.
 ::
 
     {
-      "account_number": "<Account Number> (required)",
-      "comment": "<comment> (required)"
+      "account_number": "<Account Number>",
+      "comment": "<comment>"
     }
 
 DELETE Virtual IPs information 202 response
@@ -545,6 +557,9 @@ Assign node to virtual IP
 Use the virtual IP node configuration operations to add or remove a
 specified node from the virtual IP configuration.
 
+*When assigning a node to a virtual, this field is required:
+account\_number*
+
 ::
 
     POST /{device_id}/vips/{vip_id}/nodes/{node_id}
@@ -556,7 +571,7 @@ specified node from the virtual IP configuration.
 ::
 
     {
-      "account_number": "<Account Number> (required)"
+      "account_number": "<Account Number>"
     }
 
 POST Manage virtual IP node configuration 202 response
@@ -580,6 +595,9 @@ Remove node from virtual IP configuration
 
 Use the virtual IP node configuration operations to add or remove a
 specified node from the virtual IP configuration.
+
+*When assigning a node to a virtual, this field is required:
+account\_number*
 
 ::
 
@@ -714,6 +732,10 @@ for a specified device and to add a node.
 After a node has been defined, use the virtual IP nodes configuration
 operations to assign the node to one or more virtual IPs.
 
+*When adding a node to a device, these fields are rquired:
+account\_number, label, ip, port, admin\_state, health\_strategy,
+vendor\_extensions, comment*
+
 ::
 
     GET /{device_id}/nodes
@@ -788,6 +810,10 @@ for a specified device and to add a node.
 
 After a node has been defined, use the virtual IP nodes configuration
 operations to assign the node to one or more virtual IPs.
+
+*When adding a node to a device, these fields are rquired:
+account\_number, label, ip, port, admin\_state, health\_strategy,
+vendor\_extensions, comment*
 
 ::
 

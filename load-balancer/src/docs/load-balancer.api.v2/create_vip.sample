@@ -1,13 +1,13 @@
 {
-  "account_number": "<Account Number> (required)",
-  "label": "<Label> (required)",
+  "account_number": "<Account Number>",
+  "label": "<Label>",
   "description": "<description>",
   "ip": "<ip>",
-  "protocol": "<protocol> (required)",
-  "port": "<port> (required)",
-  "algorithm": {} (required),
-  "persistence": {} (required),
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "algorithm": {},
+  "persistence": {},
   "nodes": {},
-  "admin_state": "<enabled|disabled> (required)",
-  "comment": "<comment> (required)"
+  "admin_state": "<enabled|disabled>",
+  "comment": "<comment>"
 }
