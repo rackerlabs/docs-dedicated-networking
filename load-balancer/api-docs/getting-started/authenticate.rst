@@ -1,7 +1,8 @@
 .. _authenticate-to-identity-service:
 
+============
 Authenticate
--------------------------------------------------
+============
 
 Whether you use cURL, a REST client, or a command line client (CLI) to send
 requests  to the |apiservice|, you need an authentication token to include in
