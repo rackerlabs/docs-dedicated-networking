@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Rackspace Developer Documentation documentation build configuration file,
-# created by sphinx-quickstart on Thu Mar 6 14:14:55 2014.
+# Rackspace Developer Documentation documentation build configuration file.
+# 
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -87,7 +87,7 @@ release = '2'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info',
-                    'api-operations/methods', 'release-notes','common-gs']
+                    'api-reference/methods', 'release-notes','common-gs']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -118,12 +118,9 @@ extlinks = {
     'rax-api': ('http:/developer.rackspace.com/docs/%s/developer-guide/#api-reference',''),
     'rax-git': ('https://github.com/rackspace/%s', ''),
     'mycloud': ('https://mycloud.rackspace.com/%s', ''),
-    'kc': ('http://www.rackspace.com/knowledge_center/%s', ''),
-    'kc-article': ('http://www.rackspace.com/knowledge_center/article/%s', ''),
-    'kc-faq': ('http://www.rackspace.com/knowledge_center/'
-               'frequently-asked-question/%s', ''),
-    'kc-product-faq': ('http://www.rackspace.com/knowledge_center/'
-                       'product-faq/%s', ''),
+    'rax-glossary': ('https://developer.rackspace.com/docs/glossary/%s', ''),
+    'mycloud': ('https://mycloud.rackspace.com/%s', ''),
+    'how-to': ('http://support.rackspace.com/how-to/%s', ''),
     'os': ('http://www.openstack.org/%s', ''),
     'os-docs': ('http://docs.openstack.org/%s', ''),
     'os-wiki': ('http://wiki.openstack.org/%s', ''),
@@ -162,7 +159,7 @@ rst_epilog = """
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-# html_theme = 'classic'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -177,7 +174,7 @@ rst_epilog = """
 # html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-# html_short_title = None
+# html_short_title = 'Rackspace Dedicated Load Balancers'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
