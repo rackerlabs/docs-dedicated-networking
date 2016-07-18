@@ -1,7 +1,8 @@
 .. _get-credentials:
 
+====================
 Get your credentials
---------------------
+====================
 
 Complete the following steps to get your API access credentials.
 
