@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-#
-# Rackspace Developer Documentation documentation build configuration file,
-# created by sphinx-quickstart on Thu Mar 6 14:14:55 2014.
+
+# Rackspace Developer documentation build configuration file, created by
+# sphinx-quickstart on Fri Jun 12 14:04:59 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -12,22 +12,20 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import os
-import sys
+try:
+    import sphinx_rtd_theme
+except ImportError:
+    sphinx_rtd_theme = None
 
-# -- Custom options for PHP output ----------------------------------------
-
-from pygments.lexers.web import PhpLexer
-
-from sphinx.highlighting import lexers
-
-lexers['php'] = PhpLexer(startinline=True)
-
+try:
+    from sphinxcontrib import spelling
+except:
+    spelling = None
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('.'))
+# sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -45,8 +43,12 @@ extensions = [
     'sphinx.ext.extlinks'
 ]
 
+
+if spelling is not None:
+    extensions.append('sphinxcontrib.spelling')
+
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -58,8 +60,13 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # The builder to use when running via the deconst preparer
-# builder = 'deconst-serial'
-builder = 'deconst-single'
+builder = 'deconst-serial'
+# builder = 'deconst-single'
+
+
+# General information about the project.
+project = 'Rackspace Developer Documentation'
+copyright = '2015, Rackspace'
 
 
 # General information about the project.
@@ -86,8 +93,9 @@ release = '2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info',
-                    'api-operations/methods', 'release-notes','common-gs']
+exclude_patterns = ['_build', 'samples', 'dev-guide',
+                    'getting-started/examples', 'api-reference/methods',
+                    'release-notes', 'common-gs']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -107,23 +115,26 @@ exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info',
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# External link library
+# For information about using the external link definitions, see
+# https://github.com/rackerlabs/docs-migration/tree/master/docs.
 
 # External link library
+
 extlinks = {
     'rax': ('http://www.rackspace.com/%s', ''),
+    'rax-cart': ('http://cart.rackspace.com/%s', ''),
+    'rax-special': ('http://%s.rackspace.com/', ''),
     'rax-cloud': ('http://www.rackspace.com/cloud/%s', ''),
     'rax-dev': ('https://developer.rackspace.com/%s', ''),
     'rax-devdocs': ('http://developer.rackspace.com/docs/%s', ''),
-    'rax-devguide':('http:/developer.rackspace.com/docs/%s/developer-guide/',''),
-    'rax-api': ('http:/developer.rackspace.com/docs/%s/developer-guide/#api-reference',''),
+    'rax-api':
+    ('http:/developer.rackspace.com/docs/%s/api-reference', ''),
     'rax-git': ('https://github.com/rackspace/%s', ''),
     'mycloud': ('https://mycloud.rackspace.com/%s', ''),
-    'kc': ('http://www.rackspace.com/knowledge_center/%s', ''),
-    'kc-article': ('http://www.rackspace.com/knowledge_center/article/%s', ''),
-    'kc-faq': ('http://www.rackspace.com/knowledge_center/'
-               'frequently-asked-question/%s', ''),
-    'kc-product-faq': ('http://www.rackspace.com/knowledge_center/'
-                       'product-faq/%s', ''),
+    'rax-glossary': ('https://developer.rackspace.com/docs/glossary/%s', ''),
+    'mycloud': ('https://mycloud.rackspace.com/%s', ''),
+    'how-to': ('http://support.rackspace.com/how-to/%s', ''),
     'os': ('http://www.openstack.org/%s', ''),
     'os-docs': ('http://docs.openstack.org/%s', ''),
     'os-wiki': ('http://wiki.openstack.org/%s', ''),
@@ -133,10 +144,12 @@ extlinks = {
     'rocket': ('https://objectrocket.com/%s', '')
 }
 
-# Global variables that are replaced by the specified value during the build process.
+# Global variables that are replaced by the specified value during the build
+# process.
 
 rst_epilog = """
 .. |apiservice| replace:: Dedicated Load Balancer API
+.. |service| replace:: Dedicated Load Balancer
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0
 .. |product name| replace:: Dedicated Load Balancer
@@ -162,7 +175,11 @@ rst_epilog = """
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-# html_theme = 'classic'
+
+if sphinx_rtd_theme:
+    html_theme = 'sphinx_rtd_theme'
+else:
+    html_theme = 'default'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -177,7 +194,7 @@ rst_epilog = """
 # html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-# html_short_title = None
+# html_short_title = 'Rackspace Dedicated Load Balancers'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -200,7 +217,7 @@ rst_epilog = """
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-html_last_updated_fmt = '%b %d, %Y'
+# html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -240,7 +257,7 @@ html_last_updated_fmt = '%b %d, %Y'
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BPILoadBalancerApiDeveloperDoc'
+htmlhelp_basename = 'BPILoadBalancerApiDoc'
 
 # this will change the 'paragraph' character to '#'
 html_add_permalinks = '#'
@@ -262,8 +279,8 @@ html_add_permalinks = '#'
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('index', 'RackspaceManaagedLoadBalancerApiDeveloperDoc.tex',
-     'BPI Load Balancer API 2.0 Developer Guide', 'Rackspace', 'manual')
+    ('index', 'RackspaceManaagedLoadBalancerApiDoc.tex',
+     'BPI Load Balancer API 2.0 Guide', 'Rackspace', 'manual')
 ]
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -292,8 +309,8 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 
 man_pages = [
-    ('index', 'BPILoadBalanceApiDeveloperDoc',
-     'BPI - Load Balancer API 2.0 Developer Guide', ['Rackspace'], 1)
+    ('index', 'BPILoadBalanceApiDoc',
+     'BPI - Load Balancer API Guide', ['Rackspace'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -306,8 +323,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'RackspaceBigDataDeveloperDoc',
-     'BPI Load Balancer API Developer Guide', 'Rackspace',
+    ('index', 'RackspaceBPILoadBalancerAPIGuide',
+     'BPI Load Balancer API Guide', 'Rackspace',
      'BPILoadBalancerAPIDeveloperDoc',
      'Learn about using the REST API for the BPI - Load Balancer service',
      'Miscellaneous'),
