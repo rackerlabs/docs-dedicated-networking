@@ -14,7 +14,7 @@ a script.
 
    If you are using Microsoft Windows, you need to adjust the cURL examples to
    run them. See
-   :ref:`Convert cURL examples to run on Windows /
+   :ref:`Convert cURL examples to run on Windows
    <convert-cURL-examples-for-windows>`.
 
 
