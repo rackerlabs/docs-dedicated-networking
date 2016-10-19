@@ -4,7 +4,7 @@
 Authenticate
 ============
 
-Whether you use cURL, a REST client, or a command line client (CLI) to send
+Whether you use cURL, a REST client, or a command-line client (CLI) to send
 requests  to the |apiservice|, you need an authentication token to include in
 the ``X-Auth-Token``  header of each API request.  You get a token by
 submitting an authentication request with valid account credentials to the
