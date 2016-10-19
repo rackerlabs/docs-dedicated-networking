@@ -4,12 +4,15 @@
 Get your credentials
 ====================
 
-Complete the following steps to get your API access credentials.
+To communicate with Rackspace Cloud services by using the REST API, you need
+your MyRackspace Cloud account username, API key, and account number.
+
+Complete the following steps to get your credentials:
 
 1. `Log in to the MyRackspace portal`_ with
-   your **Rackspace Account number**, **Username**, and **Password**.
+   your Rackspace account number, username, and password.
 
-2. After you log in, click your ``Username`` on the upper right side of the
+2. After you log in, click your **Username** on the upper right side of the
    top navigation menu. Then, click **Profile Settings** to open the user page.
 
 3. On the User page, copy and save the API access **Username** to a file.

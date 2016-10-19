@@ -24,8 +24,8 @@ guaranteed to be compatible with one another.
 
     .. _api-contract-changes:
 
-    API contract changes
-    ~~~~~~~~~~~~~~~~~~~~
+API contract changes
+~~~~~~~~~~~~~~~~~~~~
 
-    The API contract is not locked and might change. If the contract changes,
-    Rackspace will notify customers in release notes.
+The API contract is not locked and might change. If the contract changes,
+Rackspace notifies customers in release notes.

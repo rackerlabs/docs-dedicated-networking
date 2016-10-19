@@ -93,8 +93,9 @@ release = '2'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'samples', 'dev-guide', 'general-api-info',
-                    'api-reference/methods', 'release-notes', 'common-gs']
+exclude_patterns = ['_build', 'samples', 'dev-guide',
+                    'getting-started/examples', 'api-reference/methods',
+                    'release-notes', 'common-gs']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -143,10 +144,12 @@ extlinks = {
     'rocket': ('https://objectrocket.com/%s', '')
 }
 
-# Global variables that are replaced by the specified value during the build process.
+# Global variables that are replaced by the specified value during the build
+# process.
 
 rst_epilog = """
 .. |apiservice| replace:: Dedicated Load Balancer API
+.. |service| replace:: Dedicated Load Balancer
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0
 .. |product name| replace:: Dedicated Load Balancer
