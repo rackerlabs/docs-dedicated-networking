@@ -6,14 +6,15 @@ line or a shell script, which enables you to work with the API directly. cURL is
 available for Linux distributions, Mac OS® X, and Microsoft Windows®. For
 information about cURL, see `http://curl.haxx.se/ <http://curl.haxx.se/>`__.
 
-To run the cURL request examples shown in this guide on Mac OS® X or another
-Linux-based operating system, copy each example directly to the command line or
+To run the cURL request examples shown in this guide on Mac OS® X, Linux, and
+Unix systems, copy each example directly to the command line or
 a script.
 
 .. note::
 
    If you are using Microsoft Windows, you need to adjust the cURL examples to
-   run them. See :ref:`Convert cURL examples to run on Windows /
+   run them. See
+   :ref:`Convert cURL examples to run on Windows
    <convert-cURL-examples-for-windows>`.
 
 
@@ -37,14 +38,14 @@ variables, see :ref:`Configure environment variables
 ..  note::
 
     The carriage returns in the cURL request examples use a backslash (``\``)
-    as an escape character. The escape character allows continuation of the
+    as an line-contintuation symbol, which allows continuation of the
     command across multiple lines.
 
 
 The cURL examples in this guide use the following command-line options.
 
 .. list-table::
-   :widths: 50 50
+   :widths: 30 70
    :header-rows: 1
 
    * - Option
@@ -102,8 +103,9 @@ The cURL examples in this guide use the following command-line options.
        server. The specified method is used instead of the default method,
        which is **GET**.
 
-For commands that return a response, use json.tool to pretty-print the output by
-appending the following command to the cURL call:
+For commands that return a response, you can use
+json.tool to pretty-print the output. Append the following command to
+the cURL call:
 
 .. code::
 
@@ -125,20 +127,21 @@ If you do not want to pretty-print JSON output, omit this code.
    to pretty-print the output. Header information is not in JSON format, and
    the API service returns an error if you specify json.tool.
 
-.. _json encoder and decoder: http://docs.python.org/2/library/json.html
-.. _simplejson encoder and decoder: http://simplejson.googlecode.com/svn/tags/simplejson-2.0.9/docs/index.html
+.. _json encoder and decoder: https://docs.python.org/3/library/json.html
+.. _simplejson encoder and decoder: http://simplejson.readthedocs.io/en/latest/
 
 
 .. _convert-cURL-examples-for-windows:
 
 Convert cURL examples to run on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The cURL examples in the Rackspace API documentation use syntax supported
 on Mac OS® X, Linux and UNIX systems. Microsoft Windows does not support
-the same format. However, you can run the examples after making the following changes:
+the same format. However, you can run the examples on Windows after making the
+following changes:
 
-- Replace all the line continuation backslash characters (``\``) with a caret
+- Replace all the line-continuation backslash characters (``\``) with a caret
   (``^``), and remove any trailing spaces after the ``^``.
 
 - If an example includes JSON data, export the data to a text file. When you
@@ -146,7 +149,7 @@ the same format. However, you can run the examples after making the following ch
   Save the JSON data files in a directory, and run cURL commands from that
   directory.
 
-The following example shows the format for Linux and UNIX systems:
+The following example shows the cURL format for Linux and UNIX systems:
 
 .. code::
 

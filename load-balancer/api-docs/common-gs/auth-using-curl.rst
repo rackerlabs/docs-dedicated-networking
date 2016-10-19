@@ -10,16 +10,15 @@ using cURL.
 .. _send-auth-req-curl:
 
 Send an authentication request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-From a command prompt, send a **POST tokens** request to the Rackspace Cloud Identity
-service.  Include your API access username and :ref:`API key<get-credentials>`
-as shown in the following example.
-
+From a command prompt, send a **POST tokens** request to the Rackspace Cloud
+Identity service.  Include your API access username and
+:ref:`API key<get-credentials>` as shown in the following example.
+Replace ``$APIAccessUserName`` with your API access username and ``$apiKey``
+with your API key.
 
 .. include:: ../common-gs/samples/auth-req-curl.rst
-
-Replace **$APIAccessUserName** with your API access username and **$apiKey** with your API key.
 
 
 .. _review-auth-resp:
@@ -27,8 +26,8 @@ Replace **$APIAccessUserName** with your API access username and **$apiKey** wit
 Review the authentication response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your credentials are valid, the Identity service returns an authentication response
-that includes the following information:
+If your credentials are valid, the Identity service returns an authentication
+response that includes the following information:
 
 - an authentication token
 - a service catalog with information about the services you can access.
@@ -48,7 +47,7 @@ vary because the information  returned is specific to your account.
 
 **Example: Authentication response**
 
-..include:: ../common-gs/samples/auth-resp-json.rst
+.. include:: ../common-gs/samples/auth-resp-json.rst
 
 If the request was successful, it returns the following values that you need to
 include when you make service requests to the Rackspace product API:
@@ -58,12 +57,11 @@ include when you make service requests to the Rackspace product API:
     access the service. Include it in the ``X-Auth-Token`` header for each
     API request.
 
-    The ``expires`` attribute indicates the date and time that the token will expire,
-    unless it is revoked prior to the
-    expiration. To get a new token, submit another authentication request. For more
-    information, see
-    :rax-devdocs:`Manage tokens and token expiration
-    <cloud-identity/v2/developer-guide/#manage-authentication-tokens>`.
+    The ``expires`` attribute indicates the date and time that the token will
+    expire, unless it is revoked before the expiration. To get a new token,
+    submit another authentication request. For more information, see
+    :rax-devdocs:`Manage authentication tokens
+    <cloud-identity/v2/getting-started/manage-auth-tokens>`.
 
 *endpoint*
 	The API endpoint provides the URL that you use to access the API service.
@@ -90,7 +88,7 @@ to get valid credentials.
 .. _configure-environment-variables:
 
 Configure environment variables
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To make it easier to include the token ID, endpoint, and other
 values in API requests, use the``export`` command to create environment
@@ -119,15 +117,16 @@ request, prefix the variable name with a ``$``, for example ``$ENDPOINT``.
    Replace *token-id* with the authentication token ``id`` value returned
    in the authentication response.
 
-#. In the ``service catalog`` section of the authentication response, copy the ``publicURL``
-   value for the |apiservice|, version, and region that you want to access.
+#. In the ``service catalog`` section of the authentication response, copy the
+   ``publicURL`` value for the |apiservice|, version, and region that you want
+   to access.
 
 
 #. Copy the URL, and then export it to an environment variable.
 
    .. code::
 
-        $ export API_ENDPOINT="publicURL"
+        $ export ENDPOINT="publicURL"
 
 
    Replace *publicURL* with the publicURL value listed in the service catalog.
