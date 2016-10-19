@@ -19,7 +19,7 @@ To start using the API and run the examples in this section, you need the
 following items:
 
 - MyRackspace account number, username, and password
-- :ref:`Command line tool or browser client <send-api-requests>` for
+- :ref:`Command-line tool or browser client <send-api-requests>` for
   communicating with the API service
 
 .. note::

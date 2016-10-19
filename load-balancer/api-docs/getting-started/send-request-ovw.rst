@@ -7,7 +7,7 @@ This section shows how to send requests by using cURL.
 
 .. note::
 
-   For API development, testing and workflow management in a graphical
+   For API development, testing, and workflow management in a graphical
    environment, try interacting with the API by using an application such as
    `Postman`_  or `RESTClient for Firefox`_.
 
