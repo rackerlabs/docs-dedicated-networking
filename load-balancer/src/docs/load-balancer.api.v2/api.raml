@@ -34,26 +34,36 @@ securitySchemes:
 securedBy: [internalIdentity]
 
 /{device_id}:
-    displayName: Loadbalancer  API Calls
+    displayName: Device ID
+    description: |
+        Use the Device ID operation to get complete information about the device with
+        the specified ID including associated customer, usage statistics, and
+        configuration details for nodes, virtual IPs, and high availability.
     get:
-        description: Returns a complete info about loadbalancer
+        description: Retrieve device information
         responses:
             200:
+                description: Successfully processed the request.
                 body:
                     application/json:
                         example: !include devices.sample
-                            
+
             404:
+                description: Not found.
                 body:
                     application/json:
                         example: !include error.sample
-                                                                
+
     /configuration:
-        displayName: Display the node configuration key.
+        displayName: Device configuration
+        description: |
+            Retrieves the load balancer configuration information for the specified
+            device ID.
         get:
-            description: Config info for a given node.
+            description: Retrieve load balancer configuration details
             responses:
                 200:
+                    description: Successfully processed the request.
                     body:
                         application/json:
                             example: |
@@ -64,11 +74,15 @@ securedBy: [internalIdentity]
                                 }
 
     /ha:
-        displayName: Information about High Availability configuration.
+        displayName: High Availability configuration template
+        description: |
+           Retrieves the high availability configuration template for
+           a device with the specified ID.
         get:
-            description: High Availability template.
+            description: Show high availability template
             responses:
                 200:
+                    description: Successfully processed the request.
                     body:
                         application/json:
                             example: |
@@ -78,164 +92,206 @@ securedBy: [internalIdentity]
 
 
     /vips:
-        displayName: VIPs configured to devices
+        displayName: Manage Virtual IPs
+        description: |
+             Load balancers must have at least one virtual IP address that clients
+             can use to balance traffic across nodes. You can use the manage virtual IPs
+             operations to configure and manage the virtual IP addresses for the load
+             balancer with the specified device ID.
+
+             An IP can be passed into the add Virtual IP call as part of the request body,
+             only if the IP exists within an existing Virtual.
+
+             *When adding a Virtual IP, these fields are required: account_number, label, protocol,
+             port, algorithm, persistence, admin_state, comment*
         get:
-            description: VIPs in a device for the given device id
+            description: Retrieve virtual IPs configuration
             responses:
                 200:
+                    description: Successfully processed the request.
                     body:
                         application/json:
-                            example: !include vips.sample 
+                            example: !include vips.sample
                 404:
+                    description: Not found.
                     body:
                         application/json:
                             example: !include error.sample
-                                
+
         post:
-            description: Create a new VIP.
+            description: Add a Virtual IP
             body:
                 application/json:
                     example: !include create_vip.sample
 
             responses:
                 202:
+                    description: The request has been accepted for processing.
                     body:
                         application/json:
                             example: !include event.sample
-                                
+
 
         /{vip_id}:
-            displayName: VIP Information for given VIP id.
+            displayName: Virtual IPs information
+            description: |
+               Use the virtual IPs information operations to retrieve and update
+               information for a virtual IP configured for the specified device ID.
+
+               Use the delete operation to remove a virtual IP from the device
+               configuration.
+
+               If you don't know the ID for a specified virtual IP, use the retrieve
+               virtual IPs operation to find it.
+
+               *When deleting, these fields are required: account_number, comment*
             get:
-                description: Information about single VIP.
+                description: Retrieve virtual IP information
                 responses:
                     200:
+                        description: Successfully processed the request.
                         body:
                             application/json:
-                                example: !include vip.sample 
+                                example: !include vip.sample
                     404:
+                        description: Not found.
                         body:
                             application/json:
                                 example: !include error.sample
             put:
-                description: Update VIP information.
+                description: Update virtual IP information
                 body:
                     application/json:
                         example: !include create_vip.sample
-                              
+
                 responses:
                     202:
+                        description: The request has been accepted for processing.
                         body:
                             application/json:
                                 example: !include event.sample
-                                    
+
             delete:
-                description: Delete VIP.
+                description: Delete a virtual IP
                 body:
                     application/json:
                         example: |
                             {
-                              "account_number": req"<Account Number>",
-                              "comment": req"comment"
+                              "account_number": "<Account Number>",
+                              "comment": "<comment>"
                             }
                 responses:
                     202:
+                        description: The request has been accepted for processing.
                         body:
                             application/json:
                                 example: !include event.sample
-                                    
-            
+
             /nodes:
-                displayName: Display nodes configured to a given vip id.
+                displayName: Virtual IP node configuration
+                description: |
+                   Retrieve information about the nodes associated with a
+                   specified virtual IP.
                 get:
-                    description: List nodes for single VIP.
+                    description: List nodes for the specified virtual IP.
                     responses:
                         200:
+                            description: Successfully processed the request.
                             body:
                                 application/json:
                                     example: !include nodes.sample
 
                 /{node_id}:
-                    displayName: Bind/Unbind given node_id with vip.
+                    displayName: Manage virtual IP node configuration
+                    description: |
+                       Use the virtual IP node configuration operations to add or
+                       remove a specified node from the virtual IP configuration.
+
+                       *When assigning a node to a virtual, this field is required: account_number*
                     post:
-                        description: Bind given node_id with VIP.
+                        description: Assign node to virtual IP
                         body:
                             application/json:
                                 example: |
                                     {
-                                      "account_number": req"<Account Number>"
+                                      "account_number": "<Account Number>"
                                     }
                         responses:
                             202:
+                                description: The request has been accepted for processing.
                                 body:
                                     application/json:
                                         example: !include event.sample
 
-            
+
                     delete:
-                        description: Unbind given node_id from VIP.
-                        body:
-                            application/json:
-                                example: |
-                                    {
-                                      "account_number": req"<Account Number>"
-                                    }
+                        description: Remove node from virtual IP configuration
                         responses:
                             202:
+                                description: The request has been accepted for processing.
                                 body:
                                     application/json:
                                         example: !include event.sample
-            
+
             /configuration:
-                displayName: Activate/Deactivate VIP.
+                displayName: Manage Virtual IP status
+                description: |
+                   Use the virtual IP configuration operations to enable or
+                   disable a virtual IP configured for a specified device.
                 post:
-                    description: Activate the VIP.
-                    body:
-                        application/json:
-                            example: |
-                                {
-                                  "account_number": req"<Account Number>"
-                                }
+                    description: |
+                       Enable a virtual IP
                     responses:
                         202:
+                            description: The request has been accepted for processing.
                             body:
                                 application/json:
                                     example: !include event.sample
-            
+
                 delete:
-                    description: Deactivate the VIP.
-                    body:
-                        application/json:
-                            example: |
-                                {
-                                  "account_number": req"<Account Number>"
-                                }
+                    description: Disable a virtual IP
                     responses:
                         202:
+                            description: The request has been accepted for processing.
                             body:
                                 application/json:
                                     example: !include event.sample
-      
+
             /stats:
-                displayName: Display stats for given vip id.
+                displayName: Virtual IP statistics
+                description: Retrieves usage data for the specified virtual IP.
                 get:
-                    description: Statistics for single VIP.
+                    description: Show virtual IP statistics
                     responses:
                         200:
+                            description: Successfully processed the request.
                             body:
                                 application/json:
                                     example: !include stats.sample
                         404:
+                            description: Not found.
                             body:
                                 application/json:
                                     example: !include error.sample
-            
+
     /nodes:
-        displayName: Information about Nodes.
+        displayName: Nodes
+        description: |
+           A node is a back-end device providing a service on a specified IP and port.
+
+           Use the nodes operations to get information about the nodes configured for
+           a specified device and to add a node.
+
+           After a node has been defined, use the virtual IP nodes configuration
+           operations to assign the node to one or more virtual IPs.
+
+           *When adding a node to a device, these fields are rquired: account_number, label,
+           ip, port, admin_state, health_strategy, vendor_extensions, comment*
         get:
             description: Nodes in a device for the given device id
             responses:
                 200:
+                    description: Successfully processed the request.
                     body:
                         application/json:
                             example: !include node_device.sample
@@ -244,112 +300,124 @@ securedBy: [internalIdentity]
                         application/json:
                             example: !include error.sample
         post:
-            description: Create a new node.
+            description: Add a node to a device
             body:
                 application/json:
                     example: !include create_node.sample
             responses:
                 202:
+                    description: The request has been accepted for processing.
                     body:
                         application/json:
                             example: !include event.sample
 
         /{node_id}:
-            displayName: Information about a particular node.
+            displayName: Manage node information
+            description: |
+               Use the node operations to view, update, or remove a
+               specified node.
             get:
-                description: Node Information
+                description: Retrieve node information
                 responses:
                     200:
+                        description: Successfully processed the request.
                         body:
                             application/json:
                                 example: !include node_info.sample
                     404:
+                        description: Not found.
                         body:
                             application/json:
                                 example: !include error.sample
             put:
-                description: Update node configuration.
+                description: Update node information
                 body:
                     application/json:
                         example: !include update_node.sample
-                            
+
                 responses:
                     202:
+                        description: The request has been accepted for processing.
                         body:
                             application/json:
                                 example: !include event.sample
             delete:
-                description: Delete the Node.
-                body:
-                    application/json:
-                        example: |
-                            {
-                              "account_number": req"<Account Number>"
-                            }
+                description: Delete node from the device configuration
                 responses:
                     202:
+                        description: The request has been accepted for processing.
                         body:
                             application/json:
                                 example: !include event.sample
             /configuration:
-                displayName: Activate/Deactivate node.
+                displayName: Manage node status
+                description: |
+                   Use the node status operations to enable or disable a specified
+                   node included in the device configuration.
+
+                   If you want to delete the node from the configuration file, use the
+                   delete node operation.
+
                 post:
-                    description: Activate the node.
-                    body:
-                        application/json:
-                            example: |
-                                {
-                                  "account_number": req"<Account Number>"
-                                }
+                    description: Enable a node
                     responses:
                         202:
+                            description: The request has been accepted for processing.
                             body:
                                 application/json:
                                     example: !include event.sample
                 delete:
-                    description: Deactivate the node.
-                    body:
-                        application/json:
-                            example: |
-                                {
-                                  "account_number": req"<Account Number>"
-                                }
+                    description: Disable a node
                     responses:
                         202:
+                            description: The request has been accepted for processing.
                             body:
                                 application/json:
                                     example: !include event.sample
 
             /stats:
-                displayName: Statistics for node.
+                displayName: Node statistics
+                description: Retrieves usage data for a specified node ID.
                 get:
-                    description: Display the stats for given node_id
+                    description: Show node statistics
                     responses:
                         200:
+                            description: Successfully processed the request.
                             body:
                                 application/json:
                                     example: !include node_stat.sample
                         404:
+                            description: Not found.
                             body:
                                 application/json:
                                     example: !include error.sample
     /events:
-        displayName: In flight requests (events) for asyncronous calls to create or modify load balancer resources.
+        displayName: Events
+        description: |
+           Use the events operations to get information about requests to create or
+           modify load balancer resources.
+
         get:
-            description: Returns a list of events.
+            description: List events
             responses:
                 200:
+                    description: Successfully processed the request.
                     body:
                         application/json:
                             example: !include events.sample
-                            
+
         /{event_id}:
-            displayName: Details for a specific event.
+            displayName: Event ID details
+            description: |
+               Use the event ID details operation to get information about
+               about a specific event including event type, status, message, and
+               timestamp.
 
             get:
-                description: Returns a specfic event info.
+                description: Retrieves event information by event ID.
                 responses:
                     200:
+                        description: Successfully processed the request.
                         body:
                             application/json:
                                 example: !include event.sample

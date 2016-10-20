@@ -1,10 +1,10 @@
 {
-  "account_number": req"<Account Number>",
+  "account_number": "<Account Number> (required)",
   "ip": "<ip>",
   "port": "<port>",
   "label": "<Node Label>",
   "health_strategy": {},
   "admin_state": "<enabled|disabled>"
   "vendor_extensions": {},
-  "comment": req"comment"
+  "comment": "<comment> (required)"
 }

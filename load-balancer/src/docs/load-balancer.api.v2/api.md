@@ -4,8 +4,13 @@
 		
             
                 
-## Returns a complete info about loadbalancer
+## Retrieve device information
 				
+                
+Use the Device ID operation to get complete information about the device with
+the specified ID including associated customer, usage statistics, and
+configuration details for nodes, virtual IPs, and high availability.
+
                 
 ```
 GET /{device_id}
@@ -28,6 +33,8 @@ GET /{device_id}
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": {
@@ -131,6 +138,8 @@ GET /{device_id}
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -155,8 +164,12 @@ GET /{device_id}
 		
             
                 
-## Config info for a given node.
+## Retrieve load balancer configuration details
 				
+                
+Retrieves the load balancer configuration information for the specified
+device ID.
+
                 
 ```
 GET /{device_id}/configuration
@@ -179,6 +192,8 @@ GET /{device_id}/configuration
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": {
@@ -198,8 +213,12 @@ GET /{device_id}/configuration
 		
             
                 
-## High Availability template.
+## Show high availability template
 				
+                
+Retrieves the high availability configuration template for
+a device with the specified ID.
+
                 
 ```
 GET /{device_id}/ha
@@ -222,6 +241,8 @@ GET /{device_id}/ha
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "message": "This is a test template for High Availability"
@@ -239,8 +260,20 @@ GET /{device_id}/ha
 		
             
                 
-## VIPs in a device for the given device id
+## Retrieve virtual IPs configuration
 				
+                
+Load balancers must have at least one virtual IP address that clients
+can use to balance traffic across nodes. You can use the manage virtual IPs
+operations to configure and manage the virtual IP addresses for the load
+balancer with the specified device ID.
+
+An IP can be passed into the add Virtual IP call as part of the request body,
+only if the IP exists within an existing Virtual.
+
+*When adding a Virtual IP, these fields are required: account_number, label, protocol,
+port, algorithm, persistence, admin_state, comment*
+
                 
 ```
 GET /{device_id}/vips
@@ -263,6 +296,8 @@ GET /{device_id}/vips
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "vips": [
@@ -326,6 +361,8 @@ GET /{device_id}/vips
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -346,8 +383,20 @@ GET /{device_id}/vips
 			
         
                 
-## Create a new VIP.
+## Add a Virtual IP
 				
+                
+Load balancers must have at least one virtual IP address that clients
+can use to balance traffic across nodes. You can use the manage virtual IPs
+operations to configure and manage the virtual IP addresses for the load
+balancer with the specified device ID.
+
+An IP can be passed into the add Virtual IP call as part of the request body,
+only if the IP exists within an existing Virtual.
+
+*When adding a Virtual IP, these fields are required: account_number, label, protocol,
+port, algorithm, persistence, admin_state, comment*
+
                 
 ```
 POST /{device_id}/vips
@@ -386,11 +435,13 @@ POST /{device_id}/vips
 							
 								
 									
-#### POST VIPs configured to devices 202 response
+#### POST Manage Virtual IPs 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -400,7 +451,6 @@ POST /{device_id}/vips
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -413,8 +463,20 @@ POST /{device_id}/vips
 		
             
                 
-## Information about single VIP.
+## Retrieve virtual IP information
 				
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
+
+Use the delete operation to remove a virtual IP from the device
+configuration.
+
+If you don't know the ID for a specified virtual IP, use the retrieve
+virtual IPs operation to find it.
+
+*When deleting, these fields are required: account_number, comment*
+
                 
 ```
 GET /{device_id}/vips/{vip_id}
@@ -437,6 +499,8 @@ GET /{device_id}/vips/{vip_id}
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": {
@@ -493,6 +557,8 @@ GET /{device_id}/vips/{vip_id}
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -513,8 +579,20 @@ GET /{device_id}/vips/{vip_id}
 			
         
                 
-## Update VIP information.
+## Update virtual IP information
 				
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
+
+Use the delete operation to remove a virtual IP from the device
+configuration.
+
+If you don't know the ID for a specified virtual IP, use the retrieve
+virtual IPs operation to find it.
+
+*When deleting, these fields are required: account_number, comment*
+
                 
 ```
 PUT /{device_id}/vips/{vip_id}
@@ -553,11 +631,13 @@ PUT /{device_id}/vips/{vip_id}
 							
 								
 									
-#### PUT VIP Information for given VIP id. 202 response
+#### PUT Virtual IPs information 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -567,7 +647,6 @@ PUT /{device_id}/vips/{vip_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -576,8 +655,20 @@ PUT /{device_id}/vips/{vip_id}
 			
         
                 
-## Delete VIP.
+## Delete a virtual IP
 				
+                
+Use the virtual IPs information operations to retrieve and update
+information for a virtual IP configured for the specified device ID.
+
+Use the delete operation to remove a virtual IP from the device
+configuration.
+
+If you don't know the ID for a specified virtual IP, use the retrieve
+virtual IPs operation to find it.
+
+*When deleting, these fields are required: account_number, comment*
+
                 
 ```
 DELETE /{device_id}/vips/{vip_id}
@@ -595,8 +686,8 @@ DELETE /{device_id}/vips/{vip_id}
 						
 ```
 {
-  "account_number": req"<Account Number>",
-  "comment": req"comment"
+  "account_number": "<Account Number>",
+  "comment": "<comment>"
 }
 
 ```
@@ -608,11 +699,13 @@ DELETE /{device_id}/vips/{vip_id}
 							
 								
 									
-#### DELETE VIP Information for given VIP id. 202 response
+#### DELETE Virtual IPs information 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -622,7 +715,6 @@ DELETE /{device_id}/vips/{vip_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -635,8 +727,12 @@ DELETE /{device_id}/vips/{vip_id}
 		
             
                 
-## List nodes for single VIP.
+## List nodes for the specified virtual IP.
 				
+                
+Retrieve information about the nodes associated with a
+specified virtual IP.
+
                 
 ```
 GET /{device_id}/vips/{vip_id}/nodes
@@ -659,6 +755,8 @@ GET /{device_id}/vips/{vip_id}/nodes
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": [
@@ -693,8 +791,14 @@ GET /{device_id}/vips/{vip_id}/nodes
 		
             
                 
-## Bind given node_id with VIP.
+## Assign node to virtual IP
 				
+                
+Use the virtual IP node configuration operations to add or
+remove a specified node from the virtual IP configuration.
+
+*When assigning a node to a virtual, this field is required: account_number*
+
                 
 ```
 POST /{device_id}/vips/{vip_id}/nodes/{node_id}
@@ -712,7 +816,7 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 						
 ```
 {
-  "account_number": req"<Account Number>"
+  "account_number": "<Account Number>"
 }
 
 ```
@@ -724,11 +828,13 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 							
 								
 									
-#### POST Bind/Unbind given node_id with vip. 202 response
+#### POST Manage virtual IP node configuration 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -738,7 +844,6 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -747,8 +852,14 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 			
         
                 
-## Unbind given node_id from VIP.
+## Remove node from virtual IP configuration
 				
+                
+Use the virtual IP node configuration operations to add or
+remove a specified node from the virtual IP configuration.
+
+*When assigning a node to a virtual, this field is required: account_number*
+
                 
 ```
 DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
@@ -758,19 +869,6 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -778,11 +876,13 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 							
 								
 									
-#### DELETE Bind/Unbind given node_id with vip. 202 response
+#### DELETE Manage virtual IP node configuration 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -792,7 +892,6 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -805,8 +904,13 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 		
             
                 
-## Activate the VIP.
+## Enable a virtual IP
+
 				
+                
+Use the virtual IP configuration operations to enable or
+disable a virtual IP configured for a specified device.
+
                 
 ```
 POST /{device_id}/vips/{vip_id}/configuration
@@ -816,19 +920,6 @@ POST /{device_id}/vips/{vip_id}/configuration
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -836,11 +927,13 @@ POST /{device_id}/vips/{vip_id}/configuration
 							
 								
 									
-#### POST Activate/Deactivate VIP. 202 response
+#### POST Manage Virtual IP status 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -850,7 +943,6 @@ POST /{device_id}/vips/{vip_id}/configuration
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -859,8 +951,12 @@ POST /{device_id}/vips/{vip_id}/configuration
 			
         
                 
-## Deactivate the VIP.
+## Disable a virtual IP
 				
+                
+Use the virtual IP configuration operations to enable or
+disable a virtual IP configured for a specified device.
+
                 
 ```
 DELETE /{device_id}/vips/{vip_id}/configuration
@@ -870,19 +966,6 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -890,11 +973,13 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 							
 								
 									
-#### DELETE Activate/Deactivate VIP. 202 response
+#### DELETE Manage Virtual IP status 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -904,7 +989,6 @@ DELETE /{device_id}/vips/{vip_id}/configuration
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -917,8 +1001,10 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 		
             
                 
-## Statistics for single VIP.
+## Show virtual IP statistics
 				
+                
+Retrieves usage data for the specified virtual IP.
                 
 ```
 GET /{device_id}/vips/{vip_id}/stats
@@ -941,6 +1027,8 @@ GET /{device_id}/vips/{vip_id}/stats
 							
 
 							
+Successfully processed the request.
+
 ```
 {
     "load_balancer_data": {
@@ -968,6 +1056,8 @@ GET /{device_id}/vips/{vip_id}/stats
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -995,6 +1085,18 @@ GET /{device_id}/vips/{vip_id}/stats
 ## Nodes in a device for the given device id
 				
                 
+A node is a back-end device providing a service on a specified IP and port.
+
+Use the nodes operations to get information about the nodes configured for
+a specified device and to add a node.
+
+After a node has been defined, use the virtual IP nodes configuration
+operations to assign the node to one or more virtual IPs.
+
+*When adding a node to a device, these fields are rquired: account_number, label,
+ip, port, admin_state, health_strategy, vendor_extensions, comment*
+
+                
 ```
 GET /{device_id}/nodes
 ```
@@ -1016,6 +1118,8 @@ GET /{device_id}/nodes
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": [
@@ -1084,8 +1188,20 @@ GET /{device_id}/nodes
 			
         
                 
-## Create a new node.
+## Add a node to a device
 				
+                
+A node is a back-end device providing a service on a specified IP and port.
+
+Use the nodes operations to get information about the nodes configured for
+a specified device and to add a node.
+
+After a node has been defined, use the virtual IP nodes configuration
+operations to assign the node to one or more virtual IPs.
+
+*When adding a node to a device, these fields are rquired: account_number, label,
+ip, port, admin_state, health_strategy, vendor_extensions, comment*
+
                 
 ```
 POST /{device_id}/nodes
@@ -1103,15 +1219,15 @@ POST /{device_id}/nodes
 						
 ```
 {
-  "account_number": req"<Account Number>",
-  "label": req"<Node Label>",
+  "account_number": "<Account Number> (required)",
+  "label": "<Node Label> (required)",
   "description": "<description>",
-  "ip": req"<ip>",
-  "port": req"<port>",
-  "admin_state": req"<enabled|disabled>",
-  "health_strategy": req"<health_strategy JSON Object>",
-  "vendor_extensions": req"<vendor_extension JSON object>",
-  "comment": req"comment"
+  "ip": "<ip> (required)",
+  "port": "<port> (required)",
+  "admin_state": "<enabled|disabled> (required)",
+  "health_strategy": "<health_strategy JSON Object> (required)",
+  "vendor_extensions": "<vendor_extension JSON object> (required)",
+  "comment": "comment (required)"
 }
 ```
 					
@@ -1122,11 +1238,13 @@ POST /{device_id}/nodes
 							
 								
 									
-#### POST Information about Nodes. 202 response
+#### POST Nodes 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1136,7 +1254,6 @@ POST /{device_id}/nodes
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -1149,8 +1266,12 @@ POST /{device_id}/nodes
 		
             
                 
-## Node Information
+## Retrieve node information
 				
+                
+Use the node operations to view, update, or remove a
+specified node.
+
                 
 ```
 GET /{device_id}/nodes/{node_id}
@@ -1173,6 +1294,8 @@ GET /{device_id}/nodes/{node_id}
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": {
@@ -1237,6 +1360,8 @@ GET /{device_id}/nodes/{node_id}
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -1257,8 +1382,12 @@ GET /{device_id}/nodes/{node_id}
 			
         
                 
-## Update node configuration.
+## Update node information
 				
+                
+Use the node operations to view, update, or remove a
+specified node.
+
                 
 ```
 PUT /{device_id}/nodes/{node_id}
@@ -1276,14 +1405,14 @@ PUT /{device_id}/nodes/{node_id}
 						
 ```
 {
-  "account_number": req"<Account Number>",
+  "account_number": "<Account Number> (required)",
   "ip": "<ip>",
   "port": "<port>",
   "label": "<Node Label>",
   "health_strategy": {},
   "admin_state": "<enabled|disabled>"
   "vendor_extensions": {},
-  "comment": req"comment"
+  "comment": "<comment> (required)"
 }
 ```
 					
@@ -1294,11 +1423,13 @@ PUT /{device_id}/nodes/{node_id}
 							
 								
 									
-#### PUT Information about a particular node. 202 response
+#### PUT Manage node information 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1308,7 +1439,6 @@ PUT /{device_id}/nodes/{node_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -1317,8 +1447,12 @@ PUT /{device_id}/nodes/{node_id}
 			
         
                 
-## Delete the Node.
+## Delete node from the device configuration
 				
+                
+Use the node operations to view, update, or remove a
+specified node.
+
                 
 ```
 DELETE /{device_id}/nodes/{node_id}
@@ -1328,19 +1462,6 @@ DELETE /{device_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -1348,11 +1469,13 @@ DELETE /{device_id}/nodes/{node_id}
 							
 								
 									
-#### DELETE Information about a particular node. 202 response
+#### DELETE Manage node information 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1362,7 +1485,6 @@ DELETE /{device_id}/nodes/{node_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -1375,8 +1497,15 @@ DELETE /{device_id}/nodes/{node_id}
 		
             
                 
-## Activate the node.
+## Enable a node
 				
+                
+Use the node status operations to enable or disable a specified
+node included in the device configuration.
+
+If you want to delete the node from the configuration file, use the
+delete node operation.
+
                 
 ```
 POST /{device_id}/nodes/{node_id}/configuration
@@ -1386,19 +1515,6 @@ POST /{device_id}/nodes/{node_id}/configuration
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -1406,11 +1522,13 @@ POST /{device_id}/nodes/{node_id}/configuration
 							
 								
 									
-#### POST Activate/Deactivate node. 202 response
+#### POST Manage node status 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1420,7 +1538,6 @@ POST /{device_id}/nodes/{node_id}/configuration
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -1429,8 +1546,15 @@ POST /{device_id}/nodes/{node_id}/configuration
 			
         
                 
-## Deactivate the node.
+## Disable a node
 				
+                
+Use the node status operations to enable or disable a specified
+node included in the device configuration.
+
+If you want to delete the node from the configuration file, use the
+delete node operation.
+
                 
 ```
 DELETE /{device_id}/nodes/{node_id}/configuration
@@ -1440,19 +1564,6 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 			
 				
             
-*This operation accepts a request body:*
-
-**Request**
-						
-
-						
-```
-{
-  "account_number": req"<Account Number>"
-}
-
-```
-					
                 
 					
 					
@@ -1460,11 +1571,13 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 							
 								
 									
-#### DELETE Activate/Deactivate node. 202 response
+#### DELETE Manage node status 202 response
 									
                                 
 
 							
+The request has been accepted for processing.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1474,7 +1587,6 @@ DELETE /{device_id}/nodes/{node_id}/configuration
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
@@ -1487,8 +1599,10 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 		
             
                 
-## Display the stats for given node_id
+## Show node statistics
 				
+                
+Retrieves usage data for a specified node ID.
                 
 ```
 GET /{device_id}/nodes/{node_id}/stats
@@ -1511,6 +1625,8 @@ GET /{device_id}/nodes/{node_id}/stats
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "load_balancer_data": {
@@ -1538,6 +1654,8 @@ GET /{device_id}/nodes/{node_id}/stats
 							
 
 							
+Not found.
+
 ```
 {
   "status_code": 404,
@@ -1562,8 +1680,12 @@ GET /{device_id}/nodes/{node_id}/stats
 		
             
                 
-## Returns a list of events.
+## List events
 				
+                
+Use the events operations to get information about requests to create or
+modify load balancer resources.
+
                 
 ```
 GET /{device_id}/events
@@ -1586,6 +1708,8 @@ GET /{device_id}/events
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "data": [
@@ -1628,8 +1752,13 @@ GET /{device_id}/events
 		
             
                 
-## Returns a specfic event info.
+## Retrieves event information by event ID.
 				
+                
+Use the event ID details operation to get information about
+about a specific event including event type, status, message, and
+timestamp.
+
                 
 ```
 GET /{device_id}/events/{event_id}
@@ -1652,6 +1781,8 @@ GET /{device_id}/events/{event_id}
 							
 
 							
+Successfully processed the request.
+
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1661,7 +1792,6 @@ GET /{device_id}/events/{event_id}
   "message": "Processing",
   "timestamp": "2015-04-01T10:05:01.55Z",
 }
-
 ```
 							
 						
