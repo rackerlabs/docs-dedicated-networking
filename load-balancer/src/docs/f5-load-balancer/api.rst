@@ -173,6 +173,18 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Create a Node specified by a Nodes
 ----------------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| True \| \| appService \| String \| A string or null \|
+False \| \| connectionLimit \| Integer \| An integer \| False \| \|
+description \| String \| A string or null \| False \| \| dynamicRatio \|
+Integer \| An integer \| False \| \| logging \| String \| 'enabled' or
+'disabled' \| False \| \| rateLimit \| String or Integer \| Any integer
+value or the word 'disabled' \| False \| \| ratio \| Integer \| Any
+integer value \| False \| *All string values are case sensitive*
+
 Nodes are a combination of an IP and a port that process requests
 directed from a Pool in a Virtual Server. Nodes can be bound to one or
 more Pools.
@@ -364,6 +376,18 @@ An indeterminate error occurred. This is caused by an unexpected error.
 
 Update a Node specified by a Node id
 ------------------------------------
+
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| appService \| String \| A string or null \|
+False \| \| connectionLimit \| Integer \| An integer \| False \| \|
+description \| String \| A string or null \| False \| \| dynamicRatio \|
+Integer \| An integer \| False \| \| logging \| String \| 'enabled' or
+'disabled' \| False \| \| rateLimit \| String or Integer \| Any integer
+value or the word 'disabled' \| False \| \| ratio \| Integer \| Any
+integer value \| False \| *All string values are case sensitive*
 
 Retrieve, update and delete an existing Node specified by a Node id.
 
@@ -581,6 +605,14 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor Rule for the specified Node.
 ---------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \|
+'https\_443', 'real\_server', 'tcp\_echo' \| True \| \| minimum \|
+String or Integer \| 'all' or a minimum of 0\| False \| *All string
+values are case sensitive*
+
 Retrieve, update and delete actions on a Node monitor rule specified by
 a Node id.
 
@@ -637,6 +669,14 @@ An indeterminate error occurred. This is caused by an unexpected error
 
 Create monitor rule information for the specified Node.
 -------------------------------------------------------
+
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \|
+'https\_443', 'real\_server', 'tcp\_echo' \| True \| \| minimum \|
+String or Integer \| 'all' or a minimum of 0\| False \| *All string
+values are case sensitive*
 
 Retrieve, update and delete actions on a Node monitor rule specified by
 a Node id.
@@ -987,6 +1027,42 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Pool specified by a Pool id.
 -------------------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| --------- \|
+---- \| ----------------- \| -------- \| \| allowNat \| String \|
+enum("yes", "no") \| False \| \| allowSnat \| String \| enum("yes",
+"no") \| False \| \| appService \| String \| A string or null \| False
+\| \| description \| String \| A string or null \| False \| \|
+gatewayFailsafeDevice \| String \| A string or null \| False \| \|
+ignorePersistedWeight \| String \| enum("yes", "no") \| False \| \|
+ipTosToClient \| String or Integer \| 'pass-through' or any Integer \|
+False \| \| ipTosToServer \| String or Integer \| 'pass-through' or any
+Integer \| False \| \| linkQosToClient \| String or Integer \|
+'pass-through' or any Integer \| False \| \| linkQosToServer \| String
+or Integer \| 'pass-through' or any Integer \| False \| \|
+loadBalancingMode \| String \| enum("dynamic-ratio-member",
+"dynamic-ratio-node", "fastest-app-response", "fastest-node",
+"least-connections-members", "least-connections-node", "least-sessions",
+"observed-member", "observed-node", "predictive-member",
+"predictive-node", "ratio-least-connections-member",
+"ratio-least-connections-node", "ratio-member", "ratio-node",
+"ratio-session", "round-robin", "weighted-least-connections-member",
+"weighted-least-connections-node") \| False \| \| minActiveMembers \|
+Integer \| Any integer or a minimum of 0 \| False \| \| minUpMembers \|
+Integer \| Any integer or a minimum of 0 \| False \| \|
+minUpMembersAction \| String \| enum("failover", "reboot",
+"restart-all") \| False \| \| minUpMembersChecking \| String \|
+enum("enabled", "disabled") \| False \| \| profiles \| String \| A
+string or null \| False \| \| queueDepthLimit \| Integer \| Any Integer
+or a minimum of 0 \| False \| \| queueOnConnectionLimit \| String \|
+enum("enabled", "disabled") \| False \| \| queueTimeLimit \| Integer \|
+Any Integer or a minimum of 0 \| False \| \| reselectTries \| Integer \|
+Any Integer or a minimum of 0 \| False \| \| serviceDownAction \| String
+\| enum("drop", "reselect", "reset") or null \| False \| \| slowRampTime
+\| Integer \| Any Integer or a minimum of 0 \| False \| *All string
+values are case sensitive*
+
 Retrieve, update and delete on a specified Pool.
 
 ::
@@ -1234,6 +1310,13 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor Rule for the specified Pool.
 ---------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| 'tcp',
+'https' \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 Retrieve a monitor rule associated with this Pool.
 
 ::
@@ -1287,6 +1370,13 @@ An indeterminate error occurred. This is caused by an unexpected error.
 
 Create a Monitor Rule for the specified Pool.
 ---------------------------------------------
+
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| 'tcp',
+'https' \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
 
 Retrieve a monitor rule associated with this Pool.
 
@@ -1458,6 +1548,14 @@ An indeterminate error occurred. This is caused by an unexpected error.
 
 Create a new pool member.
 -------------------------
+
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| nodeId \| String \|
+Node-{address}-{nodeId}\| True \| \| port \| Object \| {('type',
+'equal'), ('value', 80)} \| True \| *All string values are case
+sensitive*
 
 Retrieve and create Pool Members within a Pool.
 
@@ -1654,6 +1752,21 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a new Pool Member
 ------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| appService \| String \| A String or null \|
+False \| \| connectionLimit \| Integer \| Any Integer or a minimum of 0
+\| False \| \| description \| String \| String or null \| False \| \|
+dynamicRatio \| Integer \| Any Integer \| False \| \| logging \| String
+\| enum("enable", "disabled") \| False \| \| rateLimit \| String or
+Integer \| 'disabled' or any Integer \| False \| \| inheritProfile \|
+String \| enum("enabled", "disabled") \| False \| \| priorityGroup \|
+Integer \| Any Integer \| False \| \| ratio \| Integer \| Any Integer \|
+False \| \| session \| String \| Any string \| False \| \| state \|
+String \| Any string \| False \| *All string values are case sensitive*
+
 Retrieve, update and delete a Pool member specified by a member id.
 
 ::
@@ -1796,6 +1909,13 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Pool Member Monitor Rule.
 ----------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| "tcp",
+"https" \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 ::
 
     PUT /pools/{poolId}/members/{memberId}/monitor-rule
@@ -1849,6 +1969,13 @@ creating a pool member monitor rule
 
 Create a Pool Member Monitor Rule.
 ----------------------------------
+
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| "tcp",
+"https" \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
 
 ::
 
@@ -2073,12 +2200,9 @@ Retrieve a list of virtuals.
                     }
                 },
                 "policies": "none",
-                "pools": [
-                    {
-                        "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80",
-                        "rel": "POOL-162.242.187.83-80"
-                    }
-                ],
+                "pool": {
+                    "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80"
+                },
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -2137,6 +2261,19 @@ Create a new virtual in a load balancer
 **``address`` is not required, however, if supplied, it will update an
 existing Virtual. To create a new virtual, you must not provide an IP or
 provide a different port number.**
+
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| connectionLimit \| Integer
+\| Any Integer \| False \| \| address \| String \| '0.0.0.0' \| False \|
+\| port \| Object \| {('type', 'equal'), ('value', 80)} \| True \| \|
+description \| String \| String or null \| False \| \|
+fallbackPersistence \| String \| String or null \| False \| \| gtmScore
+\| Integer \| Any Integer \| False \| \| ipForward \| String \|
+enum("enabled", "disabled") \| False \| \| ipProtocol \| String \| Any
+valid IP protocol \| False \| \| source \| String \| 0.0.0.0/0 \| False
+\| *All string values are case sensitive*
 
 Virtuals are a combination of an ip and a port that distributes trafic
 among Nodes in a Pool. Virtuals can contain one or more Pools.
@@ -2484,12 +2621,9 @@ Retrieve the Virtual specified.
                     }
                 },
                 "policies": "none",
-                "pools": [
-                    {
-                        "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80",
-                        "rel": "POOL-162.242.187.83-80"
-                    }
-                ],
+                "pool": {
+                    "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80"
+                },
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -2552,6 +2686,19 @@ Update a virtual in a load balancer specified by virtual id
 
 **``address`` is required in order to make an update on the existing
 virtual.**
+
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| connectionLimit \| Integer
+\| Any Integer \| False \| \| address \| String \| '0.0.0.0' \| True \|
+\| port \| Object \| {('type', 'equal'), ('value', 80)} \| True \| \|
+description \| String \| String or null \| False \| \|
+fallbackPersistence \| String \| String or null \| False \| \| gtmScore
+\| Integer \| Any Integer \| False \| \| ipForward \| String \|
+enum("enabled", "disabled") \| False \| \| ipProtocol \| String \| Any
+valid IP protocol \| False \| \| source \| String \| 0.0.0.0/0 \| False
+\| *All string values are case sensitive*
 
 Retrieve, update and delete a Virtual in a Load Balancer specified by a
 Virtual id.
@@ -2817,6 +2964,12 @@ updating a Virtual Persists.
 
 Create a Virtual Persists in the F5 load balancer
 -------------------------------------------------
+
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \| Any
+valid string \| True \| *All string values are case sensitive*
 
 Retrieve, update and delete a single Virtual's persists in the Load
 Balancer.
@@ -3252,6 +3405,13 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a vlan specified by a Virtual id.
 ----------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \|
+"secure-vlan", "read-vlan" \| True \| *All string values are case
+sensitive*
+
 Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
 ::
@@ -3305,6 +3465,13 @@ updating a specific vlan.
 
 Create a vlan in the F5 load balancer.
 --------------------------------------
+
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \|
+"secure-vlan", "read-vlan" \| True \| *All string values are case
+sensitive*
 
 Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
@@ -3626,6 +3793,26 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor in the Load Balancer.
 --------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| port \| Object \| {('type', 'equal'), ('value',
+80)} \| False \| \| type \| String \| 'tcp' or any valid string \| True
+\| \| appService \| String \| String or null \| False \| \| defaultsFrom
+\| String \| Any valid string \| False \| \| description \| String \|
+String or null \| False \| \| interval \| String \| String or null \|
+False \| \| ipDscp \| Integer \| Minimum 0, maximum of 86400\| False \|
+\| manualResume \| String \| enum("enabled", "disabled") \| False \| \|
+recv \| String \| String or null \| False \| \| recvDisable \| String \|
+String or null \| False \| \| reverse \| String \| enum("enabled",
+"disabled") \| False \| \| send \| String \| String or null \| False \|
+\| timeUntilUp \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+timeout \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+transparent \| String \| enum("enabled", "disabled") \| False \| \|
+upInterval \| Integer \| Minimum 0, maximum 86400 \| False \| *All
+string values are case sensitive*
+
 Retrieve, create, update and delete a monitor in a Load Balancer
 specified by a monitor id.
 
@@ -3696,6 +3883,26 @@ An indeterminate error occurred. This is caused by an unexpected error.
 
 Create a new monitor in the load balancer.
 ------------------------------------------
+
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| port \| Object \| {('type', 'equal'), ('value',
+80)} \| False \| \| type \| String \| 'tcp' or any valid string \| True
+\| \| appService \| String \| String or null \| False \| \| defaultsFrom
+\| String \| Any valid string \| False \| \| description \| String \|
+String or null \| False \| \| interval \| String \| String or null \|
+False \| \| ipDscp \| Integer \| Minimum 0, maximum of 86400\| False \|
+\| manualResume \| String \| enum("enabled", "disabled") \| False \| \|
+recv \| String \| String or null \| False \| \| recvDisable \| String \|
+String or null \| False \| \| reverse \| String \| enum("enabled",
+"disabled") \| False \| \| send \| String \| String or null \| False \|
+\| timeUntilUp \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+timeout \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+transparent \| String \| enum("enabled", "disabled") \| False \| \|
+upInterval \| Integer \| Minimum 0, maximum 86400 \| False \| *All
+string values are case sensitive*
 
 Retrieve, create, update and delete a monitor in a Load Balancer
 specified by a monitor id.

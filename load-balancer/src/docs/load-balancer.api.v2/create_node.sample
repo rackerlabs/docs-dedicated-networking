@@ -1,11 +1,11 @@
 {
-  "account_number": "<Account Number> (required)",
-  "label": "<Node Label> (required)",
+  "account_number": req"<Account Number>",
+  "label": req"<Node Label>",
   "description": "<description>",
-  "ip": "<ip> (required)",
-  "port": "<port> (required)",
-  "admin_state": "<enabled|disabled> (required)",
-  "health_strategy": "<health_strategy JSON Object> (required)",
-  "vendor_extensions": "<vendor_extension JSON object> (required)",
-  "comment": "comment (required)"
+  "ip": req"<ip>",
+  "port": req"<port>",
+  "admin_state": req"<enabled|disabled>",
+  "health_strategy": req"<health_strategy JSON Object>",
+  "vendor_extensions": req"<vendor_extension JSON object>",
+  "comment": req"comment"
 }
