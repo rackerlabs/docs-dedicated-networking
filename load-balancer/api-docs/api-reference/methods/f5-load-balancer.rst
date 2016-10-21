@@ -1,17 +1,25 @@
+
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}
 
-/
--
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}``
 
-Retrieve device details like the model number, OS version, cpu stats,
-etc...
+
+Retrieve device details
+-----------------------
+
+:: 
+
+   /
+   -
+
+Retrieve device details like the model number, OS version, CPU statistics, and
+so on.
 
 ::
 
     GET /
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -115,7 +123,7 @@ more Pools.
 
     GET /nodes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -193,6 +201,8 @@ more Pools.
 
     POST /nodes
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -254,7 +264,7 @@ Retrieve stats for all Nodes in the Node pool.
 
     GET /nodes/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -319,7 +329,7 @@ Retrieve, update and delete an existing Node specified by a Node id.
 
     GET /nodes/{nodeId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -329,7 +339,7 @@ Retrieve a Node specified by a Node id
 ::
 
     {
-        "data": [  
+        "data": [
             {
                 "id": "10.1.2.3",
                 "address": "10.1.2.3",
@@ -392,6 +402,8 @@ Retrieve, update and delete an existing Node specified by a Node id.
 ::
 
     PUT /nodes/{nodeId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -480,16 +492,16 @@ DELETE Single Node 500 response
 
 An indeterminate error occurred. This is caused by an unexpected error
 
-Retrieve stats for a Node
--------------------------
+Retrieve a stats for a Node.
+----------------------------
 
-Retrieve stats for a Node
+Retrieve stats for a Node.
 
 ::
 
     GET /nodes/{nodeId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -555,7 +567,7 @@ a Node id.
 
     GET /nodes/{nodeId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -615,6 +627,8 @@ a Node id.
 ::
 
     PUT /nodes/{nodeId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -678,6 +692,8 @@ a Node id.
 ::
 
     POST /nodes/{nodeId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -775,7 +791,7 @@ virtuals
 
     GET /pools
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -855,7 +871,7 @@ Load Balancer.
 
     GET /pools/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -947,7 +963,7 @@ Retrieve, update and delete on a specified Pool.
 
     GET /pools/{poolId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1061,6 +1077,8 @@ Retrieve, update and delete on a specified Pool.
 
     PUT /pools/{poolId}
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -1172,7 +1190,7 @@ Retrieve all stats associated to this specific Pool.
 
     GET /pools/{poolId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1254,7 +1272,7 @@ Retrieve a monitor rule associated with this Pool.
 
     GET /pools/{poolId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1312,6 +1330,8 @@ Retrieve a monitor rule associated with this Pool.
 ::
 
     PUT /pools/{poolId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1371,6 +1391,8 @@ Retrieve a monitor rule associated with this Pool.
 ::
 
     POST /pools/{poolId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1465,7 +1487,7 @@ Retrieve and create Pool Members within a Pool.
 
     GET /pools/{poolId}/members
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1549,6 +1571,8 @@ Retrieve and create Pool Members within a Pool.
 
     POST /pools/{poolId}/members
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -1602,7 +1626,7 @@ Retrieve a Pool members stats.
 
     GET /pools/{poolId}/members/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1688,7 +1712,7 @@ Retrieve, update and delete a Pool member specified by a member id.
 
     GET /pools/{poolId}/members/{memberId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1756,6 +1780,8 @@ Retrieve, update and delete a Pool member specified by a member id.
 ::
 
     PUT /pools/{poolId}/members/{memberId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1854,7 +1880,7 @@ Retrieve a Pool Member Monitor Rule.
 
     GET /pools/{poolId}/members/{memberId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1901,6 +1927,8 @@ of 0\| False \| *All string values are case sensitive*
 ::
 
     PUT /pools/{poolId}/members/{memberId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1960,6 +1988,8 @@ of 0\| False \| *All string values are case sensitive*
 ::
 
     POST /pools/{poolId}/members/{memberId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2055,7 +2085,7 @@ Retrieve a list of stats.
 
     GET /pools/{poolId}/members/{memberId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2136,7 +2166,7 @@ among Nodes in a Pool. Virtuals can contain one or more Pools.
 
     GET /virtuals
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2214,7 +2244,7 @@ Retrieve a list of virtuals.
                 "vlans": "none",
                 "vlansDisabled": "vlans-disabled",
                 "vsIndex": 7
-            } 
+            }
         ]
     }
 
@@ -2259,6 +2289,8 @@ among Nodes in a Pool. Virtuals can contain one or more Pools.
 ::
 
     POST /virtuals
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2319,7 +2351,7 @@ Retrieve a list of stats for all Virtuals in the Load Balancer.
 
     GET /virtuals/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2555,7 +2587,7 @@ Virtual id.
 
     GET /virtuals/{virtualId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2683,6 +2715,8 @@ Virtual id.
 
     PUT /virtuals/{virtualId}
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -2787,7 +2821,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/traffic-classes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2837,7 +2871,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/persists
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2880,13 +2914,9 @@ Update a Virtual Persists.
 
 Payload Properites
 
-+-------------+----------+---------------------+------------+
-| Attribute   | Type     | Possible Value(s)   | Required   |
-+=============+==========+=====================+============+
-| names       | String   | Any valid string    | True       |
-+-------------+----------+---------------------+------------+
-
-*All string values are case sensitive*
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \| Any
+valid string \| True \| *All string values are case sensitive*
 
 Retrieve, update and delete a single Virtual's persists in the Load
 Balancer.
@@ -2894,6 +2924,8 @@ Balancer.
 ::
 
     PUT /virtuals/{virtualId}/persists
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2953,6 +2985,8 @@ Balancer.
 ::
 
     POST /virtuals/{virtualId}/persists
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3051,7 +3085,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3287,7 +3321,7 @@ Retrieve, update and delete a Virtual's Auth in the Load Balancer.
 
     GET /virtuals/{virtualId}/auth
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3336,7 +3370,7 @@ Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
     GET /virtuals/{virtualId}/vlans
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3391,6 +3425,8 @@ Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 ::
 
     PUT /virtuals/{virtualId}/vlans
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3450,6 +3486,8 @@ Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 ::
 
     POST /virtuals/{virtualId}/vlans
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3547,7 +3585,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/pool
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3565,7 +3603,7 @@ Retrieve a list of pools.
                         "href": "http://localhost:8000/f5/535908/virtuals/VIP-162.242.187.83-80/pool/"
                     }
                 }
-            } 
+            }
         ]
     }
 
@@ -3594,7 +3632,7 @@ of Nodes in a Pool.
 
     GET /monitors
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3702,7 +3740,7 @@ specified by a monitor id.
 
     GET /monitors/{monitorId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3712,7 +3750,7 @@ Retrieve the monitor specified.
 ::
 
     {
-        "data": [        
+        "data": [
             {
                 "id": "MON-TCP-80",
                 "type": "tcp",
@@ -3789,6 +3827,8 @@ specified by a monitor id.
 ::
 
     PUT /monitors/{monitorId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3878,6 +3918,8 @@ specified by a monitor id.
 ::
 
     POST /monitors/{monitorId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3988,7 +4030,7 @@ Retrieve all events.
 
     GET /events
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -4028,7 +4070,7 @@ Retrieve a single Event provided an event id
 
     GET /events/{eventId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^

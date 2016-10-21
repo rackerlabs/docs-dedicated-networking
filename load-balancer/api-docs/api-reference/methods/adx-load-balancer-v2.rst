@@ -1,5 +1,8 @@
+
+
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
+
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers``
 
 Retrieve device information
 ---------------------------
@@ -12,7 +15,7 @@ and configuration details for nodes, virtual IPs, and high availability.
 
     GET /{device_id}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -138,7 +141,7 @@ device ID.
 
     GET /{device_id}/configuration
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -163,7 +166,7 @@ the specified ID.
 
     GET /{device_id}/ha
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -194,7 +197,7 @@ label, protocol, port, algorithm, persistence, admin\_state, comment*
 
     GET /{device_id}/vips
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -288,6 +291,8 @@ label, protocol, port, algorithm, persistence, admin\_state, comment*
 
     POST /{device_id}/vips
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -340,7 +345,7 @@ virtual IPs operation to find it.
 
     GET /{device_id}/vips/{vip_id}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -427,6 +432,8 @@ virtual IPs operation to find it.
 
     PUT /{device_id}/vips/{vip_id}
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -479,6 +486,8 @@ virtual IPs operation to find it.
 
     DELETE /{device_id}/vips/{vip_id}
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -514,7 +523,7 @@ IP.
 
     GET /{device_id}/vips/{vip_id}/nodes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -557,6 +566,8 @@ account\_number*
 ::
 
     POST /{device_id}/vips/{vip_id}/nodes/{node_id}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -672,7 +683,7 @@ Retrieves usage data for the specified virtual IP.
 
     GET /{device_id}/vips/{vip_id}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -732,7 +743,7 @@ vendor\_extensions, comment*
 
     GET /{device_id}/nodes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -811,6 +822,8 @@ vendor\_extensions, comment*
 
     POST /{device_id}/nodes
 
+*This operation accepts a request body:*
+
 **Request**
 
 ::
@@ -852,7 +865,7 @@ Use the node operations to view, update, or remove a specified node.
 
     GET /{device_id}/nodes/{node_id}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -937,6 +950,8 @@ Use the node operations to view, update, or remove a specified node.
 ::
 
     PUT /{device_id}/nodes/{node_id}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1061,7 +1076,7 @@ Retrieves usage data for a specified node ID.
 
     GET /{device_id}/nodes/{node_id}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1111,7 +1126,7 @@ modify load balancer resources.
 
     GET /{device_id}/events
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1159,7 +1174,7 @@ specific event including event type, status, message, and timestamp.
 
     GET /{device_id}/events/{event_id}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
