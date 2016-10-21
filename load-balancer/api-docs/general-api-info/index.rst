@@ -8,12 +8,9 @@ The |product name| API is implemented using a RESTful web service interface.
 |product name| shares a common token-based authentication system that enables
 seamless access across Rackspace products and services.
 
-.. note::
-    All requests to authenticate against and operate the service are
-    performed using SSL over HTTP (HTTPS) on TCP port 443.For authentication
-    instructions, see
-    :ref:`Authenticate to the Rackspace Cloud
-    <authenticate-to-identity-service>`.
+The following information is relevant to all operations o the API. For
+details about specific operations, see the
+:ref:`API reference <api-reference>`.
 
 .. toctree::
    :maxdepth: 1
@@ -26,4 +23,11 @@ seamless access across Rackspace products and services.
    limits
    pagination
    role-based-access-control
-   data-node-instances
+
+
+.. note::
+    All requests to authenticate against and operate the service are
+    performed using SSL over HTTP (HTTPS) on TCP port 443.For authentication
+    instructions, see
+    :ref:`Authenticate to the Rackspace Cloud
+    <authenticate-to-identity-service>`.
