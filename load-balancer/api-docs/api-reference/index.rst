@@ -16,10 +16,14 @@ Brocade and F5 load balancers.
 ADX Load Balancer API operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Use the following endpoint to access the ADX load balancer operations:
+
 .. include:: ../api-reference/methods/adx-load-balancer-v2.rst
 
 
 F5 load balancer API operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use the following endpoint to access the F5 load balancer operations:
 
 .. include:: ../api-reference/methods/f5-load-balancer.rst

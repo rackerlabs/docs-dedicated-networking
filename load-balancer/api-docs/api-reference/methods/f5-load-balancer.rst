@@ -1,17 +1,25 @@
+
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}
 
-/
--
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}``
 
-Retrieve device details like the model number, OS version, cpu stats,
-etc...
+
+Retrieve device details
+-----------------------
+
+:: 
+
+   /
+   -
+
+Retrieve device details like the model number, OS version, CPU statistics, and
+so on.
 
 ::
 
     GET /
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -115,7 +123,7 @@ more Pools.
 
     GET /nodes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -173,6 +181,18 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Create a Node specified by a Nodes
 ----------------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| True \| \| appService \| String \| A string or null \|
+False \| \| connectionLimit \| Integer \| An integer \| False \| \|
+description \| String \| A string or null \| False \| \| dynamicRatio \|
+Integer \| An integer \| False \| \| logging \| String \| 'enabled' or
+'disabled' \| False \| \| rateLimit \| String or Integer \| Any integer
+value or the word 'disabled' \| False \| \| ratio \| Integer \| Any
+integer value \| False \| *All string values are case sensitive*
+
 Nodes are a combination of an IP and a port that process requests
 directed from a Pool in a Virtual Server. Nodes can be bound to one or
 more Pools.
@@ -180,6 +200,8 @@ more Pools.
 ::
 
     POST /nodes
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -242,7 +264,7 @@ Retrieve stats for all Nodes in the Node pool.
 
     GET /nodes/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -307,7 +329,7 @@ Retrieve, update and delete an existing Node specified by a Node id.
 
     GET /nodes/{nodeId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -317,7 +339,7 @@ Retrieve a Node specified by a Node id
 ::
 
     {
-        "data": [  
+        "data": [
             {
                 "id": "10.1.2.3",
                 "address": "10.1.2.3",
@@ -363,11 +385,25 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Node specified by a Node id
 ------------------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| appService \| String \| A string or null \|
+False \| \| connectionLimit \| Integer \| An integer \| False \| \|
+description \| String \| A string or null \| False \| \| dynamicRatio \|
+Integer \| An integer \| False \| \| logging \| String \| 'enabled' or
+'disabled' \| False \| \| rateLimit \| String or Integer \| Any integer
+value or the word 'disabled' \| False \| \| ratio \| Integer \| Any
+integer value \| False \| *All string values are case sensitive*
+
 Retrieve, update and delete an existing Node specified by a Node id.
 
 ::
 
     PUT /nodes/{nodeId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -456,16 +492,16 @@ DELETE Single Node 500 response
 
 An indeterminate error occurred. This is caused by an unexpected error
 
-Retrieve stats for a Node
--------------------------
+Retrieve a stats for a Node.
+----------------------------
 
-Retrieve stats for a Node
+Retrieve stats for a Node.
 
 ::
 
     GET /nodes/{nodeId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -531,7 +567,7 @@ a Node id.
 
     GET /nodes/{nodeId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -577,12 +613,22 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor Rule for the specified Node.
 ---------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \|
+'https\_443', 'real\_server', 'tcp\_echo' \| True \| \| minimum \|
+String or Integer \| 'all' or a minimum of 0\| False \| *All string
+values are case sensitive*
+
 Retrieve, update and delete actions on a Node monitor rule specified by
 a Node id.
 
 ::
 
     PUT /nodes/{nodeId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -632,12 +678,22 @@ An indeterminate error occurred. This is caused by an unexpected error
 Create monitor rule information for the specified Node.
 -------------------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \|
+'https\_443', 'real\_server', 'tcp\_echo' \| True \| \| minimum \|
+String or Integer \| 'all' or a minimum of 0\| False \| *All string
+values are case sensitive*
+
 Retrieve, update and delete actions on a Node monitor rule specified by
 a Node id.
 
 ::
 
     POST /nodes/{nodeId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -735,7 +791,7 @@ virtuals
 
     GET /pools
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -815,7 +871,7 @@ Load Balancer.
 
     GET /pools/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -907,7 +963,7 @@ Retrieve, update and delete on a specified Pool.
 
     GET /pools/{poolId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -979,11 +1035,49 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Pool specified by a Pool id.
 -------------------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| --------- \|
+---- \| ----------------- \| -------- \| \| allowNat \| String \|
+enum("yes", "no") \| False \| \| allowSnat \| String \| enum("yes",
+"no") \| False \| \| appService \| String \| A string or null \| False
+\| \| description \| String \| A string or null \| False \| \|
+gatewayFailsafeDevice \| String \| A string or null \| False \| \|
+ignorePersistedWeight \| String \| enum("yes", "no") \| False \| \|
+ipTosToClient \| String or Integer \| 'pass-through' or any Integer \|
+False \| \| ipTosToServer \| String or Integer \| 'pass-through' or any
+Integer \| False \| \| linkQosToClient \| String or Integer \|
+'pass-through' or any Integer \| False \| \| linkQosToServer \| String
+or Integer \| 'pass-through' or any Integer \| False \| \|
+loadBalancingMode \| String \| enum("dynamic-ratio-member",
+"dynamic-ratio-node", "fastest-app-response", "fastest-node",
+"least-connections-members", "least-connections-node", "least-sessions",
+"observed-member", "observed-node", "predictive-member",
+"predictive-node", "ratio-least-connections-member",
+"ratio-least-connections-node", "ratio-member", "ratio-node",
+"ratio-session", "round-robin", "weighted-least-connections-member",
+"weighted-least-connections-node") \| False \| \| minActiveMembers \|
+Integer \| Any integer or a minimum of 0 \| False \| \| minUpMembers \|
+Integer \| Any integer or a minimum of 0 \| False \| \|
+minUpMembersAction \| String \| enum("failover", "reboot",
+"restart-all") \| False \| \| minUpMembersChecking \| String \|
+enum("enabled", "disabled") \| False \| \| profiles \| String \| A
+string or null \| False \| \| queueDepthLimit \| Integer \| Any Integer
+or a minimum of 0 \| False \| \| queueOnConnectionLimit \| String \|
+enum("enabled", "disabled") \| False \| \| queueTimeLimit \| Integer \|
+Any Integer or a minimum of 0 \| False \| \| reselectTries \| Integer \|
+Any Integer or a minimum of 0 \| False \| \| serviceDownAction \| String
+\| enum("drop", "reselect", "reset") or null \| False \| \| slowRampTime
+\| Integer \| Any Integer or a minimum of 0 \| False \| *All string
+values are case sensitive*
+
 Retrieve, update and delete on a specified Pool.
 
 ::
 
     PUT /pools/{poolId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1096,7 +1190,7 @@ Retrieve all stats associated to this specific Pool.
 
     GET /pools/{poolId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1178,7 +1272,7 @@ Retrieve a monitor rule associated with this Pool.
 
     GET /pools/{poolId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1224,11 +1318,20 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor Rule for the specified Pool.
 ---------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| 'tcp',
+'https' \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 Retrieve a monitor rule associated with this Pool.
 
 ::
 
     PUT /pools/{poolId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1276,11 +1379,20 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Create a Monitor Rule for the specified Pool.
 ---------------------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| 'tcp',
+'https' \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 Retrieve a monitor rule associated with this Pool.
 
 ::
 
     POST /pools/{poolId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1375,7 +1487,7 @@ Retrieve and create Pool Members within a Pool.
 
     GET /pools/{poolId}/members
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1445,11 +1557,21 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Create a new pool member.
 -------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| nodeId \| String \|
+Node-{address}-{nodeId}\| True \| \| port \| Object \| {('type',
+'equal'), ('value', 80)} \| True \| *All string values are case
+sensitive*
+
 Retrieve and create Pool Members within a Pool.
 
 ::
 
     POST /pools/{poolId}/members
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1504,7 +1626,7 @@ Retrieve a Pool members stats.
 
     GET /pools/{poolId}/members/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1590,7 +1712,7 @@ Retrieve, update and delete a Pool member specified by a member id.
 
     GET /pools/{poolId}/members/{memberId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1638,11 +1760,28 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a new Pool Member
 ------------------------
 
+Payload Properties
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| appService \| String \| A String or null \|
+False \| \| connectionLimit \| Integer \| Any Integer or a minimum of 0
+\| False \| \| description \| String \| String or null \| False \| \|
+dynamicRatio \| Integer \| Any Integer \| False \| \| logging \| String
+\| enum("enable", "disabled") \| False \| \| rateLimit \| String or
+Integer \| 'disabled' or any Integer \| False \| \| inheritProfile \|
+String \| enum("enabled", "disabled") \| False \| \| priorityGroup \|
+Integer \| Any Integer \| False \| \| ratio \| Integer \| Any Integer \|
+False \| \| session \| String \| Any string \| False \| \| state \|
+String \| Any string \| False \| *All string values are case sensitive*
+
 Retrieve, update and delete a Pool member specified by a member id.
 
 ::
 
     PUT /pools/{poolId}/members/{memberId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1741,7 +1880,7 @@ Retrieve a Pool Member Monitor Rule.
 
     GET /pools/{poolId}/members/{memberId}/monitor-rule
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -1778,9 +1917,18 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Pool Member Monitor Rule.
 ----------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| "tcp",
+"https" \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 ::
 
     PUT /pools/{poolId}/members/{memberId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1830,9 +1978,18 @@ creating a pool member monitor rule
 Create a Pool Member Monitor Rule.
 ----------------------------------
 
+Payload Properties
+
+\| Attributes \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| Array \| "tcp",
+"https" \| True \| \| minimum \| String or Integer \| 'all' or a minimum
+of 0\| False \| *All string values are case sensitive*
+
 ::
 
     POST /pools/{poolId}/members/{memberId}/monitor-rule
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -1928,7 +2085,7 @@ Retrieve a list of stats.
 
     GET /pools/{poolId}/members/{memberId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2009,7 +2166,7 @@ among Nodes in a Pool. Virtuals can contain one or more Pools.
 
     GET /virtuals
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2051,12 +2208,9 @@ Retrieve a list of virtuals.
                     }
                 },
                 "policies": "none",
-                "pools": [
-                    {
-                        "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80",
-                        "rel": "POOL-162.242.187.83-80"
-                    }
-                ],
+                "pool": {
+                    "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80"
+                },
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -2090,7 +2244,7 @@ Retrieve a list of virtuals.
                 "vlans": "none",
                 "vlansDisabled": "vlans-disabled",
                 "vsIndex": 7
-            } 
+            }
         ]
     }
 
@@ -2116,12 +2270,27 @@ Create a new virtual in a load balancer
 existing Virtual. To create a new virtual, you must not provide an IP or
 provide a different port number.**
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| connectionLimit \| Integer
+\| Any Integer \| False \| \| address \| String \| '0.0.0.0' \| False \|
+\| port \| Object \| {('type', 'equal'), ('value', 80)} \| True \| \|
+description \| String \| String or null \| False \| \|
+fallbackPersistence \| String \| String or null \| False \| \| gtmScore
+\| Integer \| Any Integer \| False \| \| ipForward \| String \|
+enum("enabled", "disabled") \| False \| \| ipProtocol \| String \| Any
+valid IP protocol \| False \| \| source \| String \| 0.0.0.0/0 \| False
+\| *All string values are case sensitive*
+
 Virtuals are a combination of an ip and a port that distributes trafic
 among Nodes in a Pool. Virtuals can contain one or more Pools.
 
 ::
 
     POST /virtuals
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2182,7 +2351,7 @@ Retrieve a list of stats for all Virtuals in the Load Balancer.
 
     GET /virtuals/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2418,7 +2587,7 @@ Virtual id.
 
     GET /virtuals/{virtualId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2460,12 +2629,9 @@ Retrieve the Virtual specified.
                     }
                 },
                 "policies": "none",
-                "pools": [
-                    {
-                        "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80",
-                        "rel": "POOL-162.242.187.83-80"
-                    }
-                ],
+                "pool": {
+                    "href": "https://fe.netsec.rackspace.net/f5/535908/pools/POOL-162.242.187.83-80"
+                },
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -2529,12 +2695,27 @@ Update a virtual in a load balancer specified by virtual id
 **``address`` is required in order to make an update on the existing
 virtual.**
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| connectionLimit \| Integer
+\| Any Integer \| False \| \| address \| String \| '0.0.0.0' \| True \|
+\| port \| Object \| {('type', 'equal'), ('value', 80)} \| True \| \|
+description \| String \| String or null \| False \| \|
+fallbackPersistence \| String \| String or null \| False \| \| gtmScore
+\| Integer \| Any Integer \| False \| \| ipForward \| String \|
+enum("enabled", "disabled") \| False \| \| ipProtocol \| String \| Any
+valid IP protocol \| False \| \| source \| String \| 0.0.0.0/0 \| False
+\| *All string values are case sensitive*
+
 Retrieve, update and delete a Virtual in a Load Balancer specified by a
 Virtual id.
 
 ::
 
     PUT /virtuals/{virtualId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2640,7 +2821,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/traffic-classes
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2690,7 +2871,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/persists
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -2733,13 +2914,9 @@ Update a Virtual Persists.
 
 Payload Properites
 
-+-------------+----------+---------------------+------------+
-| Attribute   | Type     | Possible Value(s)   | Required   |
-+=============+==========+=====================+============+
-| names       | String   | Any valid string    | True       |
-+-------------+----------+---------------------+------------+
-
-*All string values are case sensitive*
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \| Any
+valid string \| True \| *All string values are case sensitive*
 
 Retrieve, update and delete a single Virtual's persists in the Load
 Balancer.
@@ -2747,6 +2924,8 @@ Balancer.
 ::
 
     PUT /virtuals/{virtualId}/persists
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2794,12 +2973,20 @@ updating a Virtual Persists.
 Create a Virtual Persists in the F5 load balancer
 -------------------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \| Any
+valid string \| True \| *All string values are case sensitive*
+
 Retrieve, update and delete a single Virtual's persists in the Load
 Balancer.
 
 ::
 
     POST /virtuals/{virtualId}/persists
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -2898,7 +3085,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/stats
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3134,7 +3321,7 @@ Retrieve, update and delete a Virtual's Auth in the Load Balancer.
 
     GET /virtuals/{virtualId}/auth
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3183,7 +3370,7 @@ Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
     GET /virtuals/{virtualId}/vlans
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3226,11 +3413,20 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a vlan specified by a Virtual id.
 ----------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \|
+"secure-vlan", "read-vlan" \| True \| *All string values are case
+sensitive*
+
 Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
 ::
 
     PUT /virtuals/{virtualId}/vlans
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3278,11 +3474,20 @@ updating a specific vlan.
 Create a vlan in the F5 load balancer.
 --------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| names \| String \|
+"secure-vlan", "read-vlan" \| True \| *All string values are case
+sensitive*
+
 Retrieve, update and delete a Virtual's Vlans in the Load Balancer.
 
 ::
 
     POST /virtuals/{virtualId}/vlans
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3380,7 +3585,7 @@ Balancer.
 
     GET /virtuals/{virtualId}/pool
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3398,7 +3603,7 @@ Retrieve a list of pools.
                         "href": "http://localhost:8000/f5/535908/virtuals/VIP-162.242.187.83-80/pool/"
                     }
                 }
-            } 
+            }
         ]
     }
 
@@ -3427,7 +3632,7 @@ of Nodes in a Pool.
 
     GET /monitors
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3535,7 +3740,7 @@ specified by a monitor id.
 
     GET /monitors/{monitorId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3545,7 +3750,7 @@ Retrieve the monitor specified.
 ::
 
     {
-        "data": [        
+        "data": [
             {
                 "id": "MON-TCP-80",
                 "type": "tcp",
@@ -3596,12 +3801,34 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Update a Monitor in the Load Balancer.
 --------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| port \| Object \| {('type', 'equal'), ('value',
+80)} \| False \| \| type \| String \| 'tcp' or any valid string \| True
+\| \| appService \| String \| String or null \| False \| \| defaultsFrom
+\| String \| Any valid string \| False \| \| description \| String \|
+String or null \| False \| \| interval \| String \| String or null \|
+False \| \| ipDscp \| Integer \| Minimum 0, maximum of 86400\| False \|
+\| manualResume \| String \| enum("enabled", "disabled") \| False \| \|
+recv \| String \| String or null \| False \| \| recvDisable \| String \|
+String or null \| False \| \| reverse \| String \| enum("enabled",
+"disabled") \| False \| \| send \| String \| String or null \| False \|
+\| timeUntilUp \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+timeout \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+transparent \| String \| enum("enabled", "disabled") \| False \| \|
+upInterval \| Integer \| Minimum 0, maximum 86400 \| False \| *All
+string values are case sensitive*
+
 Retrieve, create, update and delete a monitor in a Load Balancer
 specified by a monitor id.
 
 ::
 
     PUT /monitors/{monitorId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3665,12 +3892,34 @@ An indeterminate error occurred. This is caused by an unexpected error.
 Create a new monitor in the load balancer.
 ------------------------------------------
 
+Payload Properites
+
+\| Attribute \| Type \| Possible Value(s) \| Required \| \| ----------
+\| ---- \| --------------- \| -------- \| \| address \| String \|
+'0.0.0.0' \| False \| \| port \| Object \| {('type', 'equal'), ('value',
+80)} \| False \| \| type \| String \| 'tcp' or any valid string \| True
+\| \| appService \| String \| String or null \| False \| \| defaultsFrom
+\| String \| Any valid string \| False \| \| description \| String \|
+String or null \| False \| \| interval \| String \| String or null \|
+False \| \| ipDscp \| Integer \| Minimum 0, maximum of 86400\| False \|
+\| manualResume \| String \| enum("enabled", "disabled") \| False \| \|
+recv \| String \| String or null \| False \| \| recvDisable \| String \|
+String or null \| False \| \| reverse \| String \| enum("enabled",
+"disabled") \| False \| \| send \| String \| String or null \| False \|
+\| timeUntilUp \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+timeout \| Integer \| Minimum 0, maximum 86400 \| False \| \|
+transparent \| String \| enum("enabled", "disabled") \| False \| \|
+upInterval \| Integer \| Minimum 0, maximum 86400 \| False \| *All
+string values are case sensitive*
+
 Retrieve, create, update and delete a monitor in a Load Balancer
 specified by a monitor id.
 
 ::
 
     POST /monitors/{monitorId}
+
+*This operation accepts a request body:*
 
 **Request**
 
@@ -3781,7 +4030,7 @@ Retrieve all events.
 
     GET /events
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^
@@ -3821,7 +4070,7 @@ Retrieve a single Event provided an event id
 
     GET /events/{eventId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 GET 200 response
 ^^^^^^^^^^^^^^^^

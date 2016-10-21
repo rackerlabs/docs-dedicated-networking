@@ -1,5 +1,8 @@
+
+
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
+
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers``
 
 Retrieve device information
 ---------------------------
@@ -295,17 +298,17 @@ label, protocol, port, algorithm, persistence, admin\_state, comment*
 ::
 
     {
-      "account_number": "<Account Number>",
-      "label": "<Label>",
+      "account_number": req"<Account Number>",
+      "label": req"<Label>",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": "<protocol>",
-      "port": "<port>",
-      "algorithm": {},
-      "persistence": {},
+      "protocol": req"<protocol>",
+      "port": req"<port>",
+      "algorithm": req{},
+      "persistence": req{},
       "nodes": {},
-      "admin_state": "<enabled|disabled>",
-      "comment": "<comment>"
+      "admin_state": req"<enabled|disabled>",
+      "comment": req"comment"
     }
 
 POST Manage Virtual IPs 202 response
@@ -436,17 +439,17 @@ virtual IPs operation to find it.
 ::
 
     {
-      "account_number": "<Account Number>",
-      "label": "<Label>",
+      "account_number": req"<Account Number>",
+      "label": req"<Label>",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": "<protocol>",
-      "port": "<port>",
-      "algorithm": {},
-      "persistence": {},
+      "protocol": req"<protocol>",
+      "port": req"<port>",
+      "algorithm": req{},
+      "persistence": req{},
       "nodes": {},
-      "admin_state": "<enabled|disabled>",
-      "comment": "<comment>"
+      "admin_state": req"<enabled|disabled>",
+      "comment": req"comment"
     }
 
 PUT Virtual IPs information 202 response
@@ -1188,4 +1191,3 @@ Successfully processed the request.
       "message": "Processing",
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
-
