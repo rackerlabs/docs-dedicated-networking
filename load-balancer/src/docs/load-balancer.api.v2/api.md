@@ -19,11 +19,11 @@ GET /{device_id}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -128,7 +128,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -178,11 +178,11 @@ GET /{device_id}/configuration
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -227,11 +227,11 @@ GET /{device_id}/ha
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -282,11 +282,11 @@ GET /{device_id}/vips
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -351,7 +351,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -406,7 +406,6 @@ POST /{device_id}/vips
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -429,7 +428,7 @@ POST /{device_id}/vips
 ```
 					
                 
-					
+
 					
 						
 							
@@ -485,11 +484,11 @@ GET /{device_id}/vips/{vip_id}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -547,7 +546,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -602,7 +601,6 @@ PUT /{device_id}/vips/{vip_id}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -625,7 +623,7 @@ PUT /{device_id}/vips/{vip_id}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -678,7 +676,6 @@ DELETE /{device_id}/vips/{vip_id}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -693,7 +690,7 @@ DELETE /{device_id}/vips/{vip_id}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -741,11 +738,11 @@ GET /{device_id}/vips/{vip_id}/nodes
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -808,7 +805,6 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -822,7 +818,7 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -870,7 +866,7 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 				
             
                 
-					
+
 					
 						
 							
@@ -921,7 +917,7 @@ POST /{device_id}/vips/{vip_id}/configuration
 				
             
                 
-					
+
 					
 						
 							
@@ -967,7 +963,7 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 				
             
                 
-					
+
 					
 						
 							
@@ -1013,11 +1009,11 @@ GET /{device_id}/vips/{vip_id}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1046,7 +1042,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -1104,11 +1100,11 @@ GET /{device_id}/nodes
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1158,7 +1154,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -1211,7 +1207,6 @@ POST /{device_id}/nodes
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -1232,7 +1227,7 @@ POST /{device_id}/nodes
 ```
 					
                 
-					
+
 					
 						
 							
@@ -1280,11 +1275,11 @@ GET /{device_id}/nodes/{node_id}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1350,7 +1345,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -1397,7 +1392,6 @@ PUT /{device_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -1417,7 +1411,7 @@ PUT /{device_id}/nodes/{node_id}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -1463,7 +1457,7 @@ DELETE /{device_id}/nodes/{node_id}
 				
             
                 
-					
+
 					
 						
 							
@@ -1516,7 +1510,7 @@ POST /{device_id}/nodes/{node_id}/configuration
 				
             
                 
-					
+
 					
 						
 							
@@ -1565,7 +1559,7 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 				
             
                 
-					
+
 					
 						
 							
@@ -1611,11 +1605,11 @@ GET /{device_id}/nodes/{node_id}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1644,7 +1638,7 @@ Successfully processed the request.
 						
 					
 				
-					
+
 					
 						
 							
@@ -1694,11 +1688,11 @@ GET /{device_id}/events
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1767,11 +1761,11 @@ GET /{device_id}/events/{event_id}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							

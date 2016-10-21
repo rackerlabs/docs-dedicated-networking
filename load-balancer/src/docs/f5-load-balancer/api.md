@@ -17,11 +17,11 @@ GET /
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -114,7 +114,7 @@ Retrieve a list of details.
 						
 					
 				
-					
+
 					
 						
 #### GET / 501 response
@@ -123,7 +123,7 @@ Retrieving a list of details is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET / 510 response
@@ -153,11 +153,11 @@ GET /nodes
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -206,7 +206,7 @@ Retrieve a list of Nodes
 						
 					
 				
-					
+
 					
 						
 #### GET Nodes 401 response
@@ -215,7 +215,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Nodes 501 response
@@ -224,7 +224,7 @@ Retrieving a list of nodes is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Nodes 510 response
@@ -265,7 +265,6 @@ POST /nodes
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -285,7 +284,7 @@ POST /nodes
 ```
 					
                 
-					
+
 					
 						
 							
@@ -314,7 +313,7 @@ Node was created successfully
 						
 					
 				
-					
+
 					
 						
 #### POST Nodes 400 response
@@ -323,7 +322,7 @@ Bad request
 
 					
 				
-					
+
 					
 						
 #### POST Nodes 401 response
@@ -332,7 +331,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST Nodes 403 response
@@ -341,7 +340,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST Nodes 500 response
@@ -371,11 +370,11 @@ GET /nodes/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -435,7 +434,7 @@ Retrieve stats for nodes inside virtual pool.
 						
 					
 				
-					
+
 					
 						
 #### GET All Nodes Stats 401 response
@@ -465,11 +464,11 @@ GET /nodes/{nodeId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -511,7 +510,7 @@ Retrieve a Node specified by a Node id
 						
 					
 				
-					
+
 					
 						
 #### GET Single Node 401 response
@@ -520,7 +519,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Single Node 404 response
@@ -529,7 +528,7 @@ The node requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET Single Node 501 response
@@ -538,7 +537,7 @@ Retrieving a specific node is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Single Node 510 response
@@ -579,7 +578,6 @@ PUT /nodes/{nodeId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -599,7 +597,7 @@ PUT /nodes/{nodeId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -628,7 +626,7 @@ Node was successfully updated.
 						
 					
 				
-					
+
 					
 						
 #### PUT Single Node 401 response
@@ -637,7 +635,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Node 403 response
@@ -646,7 +644,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Node 500 response
@@ -674,7 +672,7 @@ DELETE /nodes/{nodeId}
 				
             
                 
-					
+
 					
 						
 							
@@ -702,7 +700,7 @@ Node was successfully deleted.
 						
 					
 				
-					
+
 					
 						
 #### DELETE Single Node 401 response
@@ -711,7 +709,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Node 403 response
@@ -720,7 +718,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Node 500 response
@@ -736,11 +734,11 @@ An indeterminate error occurred. This is caused by an unexpected error
 		
             
                 
-## Retrieve a stats for a Node.
+## Retrieve stats for a Node
 
 				
                 
-Retrieve stats for a Node.
+Retrieve stats for a Node
 
                 
 ```
@@ -750,11 +748,11 @@ GET /nodes/{nodeId}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -804,7 +802,7 @@ Returns stats for the specified Node.
 						
 					
 				
-					
+
 					
 						
 #### GET Single Node Stats 401 response
@@ -813,7 +811,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Single Node Stats 501 response
@@ -822,7 +820,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Single Node Stats 510 response
@@ -852,11 +850,11 @@ GET /nodes/{nodeId}/monitor-rule
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -887,7 +885,7 @@ Retrieve a list of what is being monitored for the specified Node.
 						
 					
 				
-					
+
 					
 						
 #### GET Node Monitor Rule 401 response
@@ -896,7 +894,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Node Monitor Rule 404 response
@@ -905,7 +903,7 @@ The monitor rule requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET Node Monitor Rule 501 response
@@ -914,7 +912,7 @@ Retrieving a specific monitor rule is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Node Monitor Rule 510 response
@@ -950,7 +948,6 @@ PUT /nodes/{nodeId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -969,7 +966,7 @@ PUT /nodes/{nodeId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -998,7 +995,7 @@ Update node monitor rule specified by node id
 						
 					
 				
-					
+
 					
 						
 #### PUT Node Monitor Rule 401 response
@@ -1007,7 +1004,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT Node Monitor Rule 403 response
@@ -1016,7 +1013,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT Node Monitor Rule 500 response
@@ -1052,7 +1049,6 @@ POST /nodes/{nodeId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -1069,7 +1065,7 @@ POST /nodes/{nodeId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -1099,7 +1095,7 @@ Create monitor rule specified by the node id.
 						
 					
 				
-					
+
 					
 						
 #### POST Node Monitor Rule 401 response
@@ -1108,7 +1104,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST Node Monitor Rule 403 response
@@ -1117,7 +1113,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST Node Monitor Rule 500 response
@@ -1145,7 +1141,7 @@ DELETE /nodes/{nodeId}/monitor-rule
 				
             
                 
-					
+
 					
 						
 							
@@ -1174,7 +1170,7 @@ Delete node monitor rule specified by node id
 						
 					
 				
-					
+
 					
 						
 #### DELETE Node Monitor Rule 401 response
@@ -1183,7 +1179,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE Node Monitor Rule 403 response
@@ -1192,7 +1188,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE Node Monitor Rule 500 response
@@ -1223,11 +1219,11 @@ GET /pools
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1291,7 +1287,7 @@ Retrieve a list of pools.
 						
 					
 				
-					
+
 					
 						
 #### GET Pools 401 response
@@ -1300,7 +1296,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Pools 501 response
@@ -1309,7 +1305,7 @@ Retrieving a list of pools is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Pools 510 response
@@ -1339,11 +1335,11 @@ GET /pools/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1420,7 +1416,7 @@ Retrieve a list of stats.
 						
 					
 				
-					
+
 					
 						
 #### GET Pools Stats 401 response
@@ -1429,7 +1425,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Pools Stats 501 response
@@ -1438,7 +1434,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Pools Stats 510 response
@@ -1468,11 +1464,11 @@ GET /pools/{poolId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1529,7 +1525,7 @@ Retrieve the pool specified.
 						
 					
 				
-					
+
 					
 						
 #### GET Single Pool 401 response
@@ -1538,7 +1534,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Single Pool 404 response
@@ -1547,7 +1543,7 @@ The pool requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET Single Pool 501 response
@@ -1556,7 +1552,7 @@ Retrieving a specific pool is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Single Pool 510 response
@@ -1611,7 +1607,6 @@ PUT /pools/{poolId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -1645,7 +1640,7 @@ PUT /pools/{poolId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -1674,7 +1669,7 @@ Update a Pool specified by a Pool id
 						
 					
 				
-					
+
 					
 						
 #### PUT Single Pool 401 response
@@ -1683,7 +1678,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Pool 403 response
@@ -1692,7 +1687,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Pool 500 response
@@ -1720,7 +1715,7 @@ DELETE /pools/{poolId}
 				
             
                 
-					
+
 					
 						
 							
@@ -1749,7 +1744,7 @@ Delete a Pool specified by a Pool id
 						
 					
 				
-					
+
 					
 						
 #### DELETE Single Pool 401 response
@@ -1758,7 +1753,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Pool 403 response
@@ -1767,7 +1762,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Pool 500 response
@@ -1797,11 +1792,11 @@ GET /pools/{poolId}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1868,7 +1863,7 @@ Retrieve a list of stats.
 						
 					
 				
-					
+
 					
 						
 #### GET A Pool Stats 401 response
@@ -1877,7 +1872,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Pool Stats 501 response
@@ -1886,7 +1881,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Pool Stats 510 response
@@ -1916,11 +1911,11 @@ GET /pools/{poolId}/monitor-rule
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -1951,7 +1946,7 @@ Retrieve the monitor-rule specified.
 						
 					
 				
-					
+
 					
 						
 #### GET A Pool's Monitor Rule 401 response
@@ -1960,7 +1955,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Pool's Monitor Rule 404 response
@@ -1969,7 +1964,7 @@ The monitor-rule requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET A Pool's Monitor Rule 501 response
@@ -1978,7 +1973,7 @@ Retrieving a specific monitor-rule is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Pool's Monitor Rule 510 response
@@ -2013,7 +2008,6 @@ PUT /pools/{poolId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -2030,7 +2024,7 @@ PUT /pools/{poolId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -2059,7 +2053,7 @@ Update a Monitor Rule for the specified Pool.
 						
 					
 				
-					
+
 					
 						
 #### PUT A Pool's Monitor Rule 401 response
@@ -2068,7 +2062,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT A Pool's Monitor Rule 403 response
@@ -2077,7 +2071,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT A Pool's Monitor Rule 500 response
@@ -2112,7 +2106,6 @@ POST /pools/{poolId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -2129,7 +2122,7 @@ POST /pools/{poolId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -2159,7 +2152,7 @@ Create a Monitor Rule for the specified Pool.
 						
 					
 				
-					
+
 					
 						
 #### POST A Pool's Monitor Rule 401 response
@@ -2168,7 +2161,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST A Pool's Monitor Rule 403 response
@@ -2177,7 +2170,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST A Pool's Monitor Rule 500 response
@@ -2205,7 +2198,7 @@ DELETE /pools/{poolId}/monitor-rule
 				
             
                 
-					
+
 					
 						
 							
@@ -2234,7 +2227,7 @@ Delete a Monitor Rule for the specified Pool.
 						
 					
 				
-					
+
 					
 						
 #### DELETE A Pool's Monitor Rule 401 response
@@ -2243,7 +2236,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Pool's Monitor Rule 403 response
@@ -2252,7 +2245,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Pool's Monitor Rule 500 response
@@ -2282,11 +2275,11 @@ GET /pools/{poolId}/members
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -2342,7 +2335,7 @@ Retrieve a list of Pool members.
 						
 					
 				
-					
+
 					
 						
 #### GET Pool Members listed in a Pool 401 response
@@ -2351,7 +2344,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Members listed in a Pool 403 response
@@ -2360,7 +2353,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Members listed in a Pool 501 response
@@ -2369,7 +2362,7 @@ Retrieving a list of members is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Members listed in a Pool 510 response
@@ -2404,7 +2397,6 @@ POST /pools/{poolId}/members
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -2421,7 +2413,7 @@ POST /pools/{poolId}/members
 ```
 					
                 
-					
+
 					
 						
 							
@@ -2450,7 +2442,7 @@ Create a new pool member by pool id.
 						
 					
 				
-					
+
 					
 						
 #### POST Pool Members listed in a Pool 401 response
@@ -2459,7 +2451,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST Pool Members listed in a Pool 403 response
@@ -2468,7 +2460,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST Pool Members listed in a Pool 500 response
@@ -2498,11 +2490,11 @@ GET /pools/{poolId}/members/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -2573,7 +2565,7 @@ Retrieve a new pool member by pool id.
 						
 					
 				
-					
+
 					
 						
 #### GET Pool Members Stats 401 response
@@ -2582,7 +2574,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Members Stats 501 response
@@ -2591,7 +2583,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Members Stats 510 response
@@ -2621,11 +2613,11 @@ GET /pools/{poolId}/members/{memberId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -2669,7 +2661,7 @@ GET /pools/{poolId}/members/{memberId}
 						
 					
 				
-					
+
 					
 						
 #### GET Pool Member 401 response
@@ -2678,7 +2670,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Pool Member 500 response
@@ -2723,7 +2715,6 @@ PUT /pools/{poolId}/members/{memberId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -2743,7 +2734,7 @@ PUT /pools/{poolId}/members/{memberId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -2773,7 +2764,7 @@ Update a new pool member by pool id.
 						
 					
 				
-					
+
 					
 						
 #### PUT Pool Member 401 response
@@ -2782,7 +2773,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT Pool Member 403 response
@@ -2791,7 +2782,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT Pool Member 500 response
@@ -2819,7 +2810,7 @@ DELETE /pools/{poolId}/members/{memberId}
 				
             
                 
-					
+
 					
 						
 							
@@ -2849,7 +2840,7 @@ Delete a new pool member by pool id.
 						
 					
 				
-					
+
 					
 						
 #### DELETE Pool Member 401 response
@@ -2858,7 +2849,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE Pool Member 403 response
@@ -2867,7 +2858,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE Pool Member 500 response
@@ -2894,11 +2885,11 @@ GET /pools/{poolId}/members/{memberId}/monitor-rule
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -2931,7 +2922,7 @@ Retrieve a Pool Member Monitor Rule.
 						
 					
 				
-					
+
 					
 						
 #### GET 401 response
@@ -2940,7 +2931,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET 500 response
@@ -2972,7 +2963,6 @@ PUT /pools/{poolId}/members/{memberId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -2988,7 +2978,7 @@ PUT /pools/{poolId}/members/{memberId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -3018,7 +3008,7 @@ Update a Pool Member Monitor Rule.
 						
 					
 				
-					
+
 					
 						
 #### PUT 401 response
@@ -3027,7 +3017,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT 403 response
@@ -3036,7 +3026,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT 500 response
@@ -3068,7 +3058,6 @@ POST /pools/{poolId}/members/{memberId}/monitor-rule
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -3085,7 +3074,7 @@ POST /pools/{poolId}/members/{memberId}/monitor-rule
 ```
 					
                 
-					
+
 					
 						
 							
@@ -3115,7 +3104,7 @@ Create a Pool Member Monitor Rule.
 						
 					
 				
-					
+
 					
 						
 #### POST 401 response
@@ -3124,7 +3113,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST 403 response
@@ -3133,7 +3122,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST 500 response
@@ -3158,7 +3147,7 @@ DELETE /pools/{poolId}/members/{memberId}/monitor-rule
 				
             
                 
-					
+
 					
 						
 							
@@ -3188,7 +3177,7 @@ Delete a Pool Member Monitor Rule.
 						
 					
 				
-					
+
 					
 						
 #### DELETE 401 response
@@ -3197,7 +3186,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE 403 response
@@ -3206,7 +3195,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE 500 response
@@ -3233,11 +3222,11 @@ GET /pools/{poolId}/members/{memberId}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -3303,7 +3292,7 @@ Retrieve a list of stats.
 						
 					
 				
-					
+
 					
 						
 #### GET 401 response
@@ -3312,7 +3301,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET 501 response
@@ -3321,7 +3310,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET 510 response
@@ -3352,11 +3341,11 @@ GET /virtuals
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -3447,7 +3436,7 @@ Retrieve a list of virtuals.
 						
 					
 				
-					
+
 					
 						
 #### GET Virtuals 401 response
@@ -3456,7 +3445,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Virtuals 501 response
@@ -3465,7 +3454,7 @@ Retrieving a list of virtuals is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Virtuals 510 response
@@ -3510,7 +3499,6 @@ POST /virtuals
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -3533,7 +3521,7 @@ POST /virtuals
 ```
 					
                 
-					
+
 					
 						
 							
@@ -3562,7 +3550,7 @@ Create a new virtual in a load balancer.
 						
 					
 				
-					
+
 					
 						
 #### POST Virtuals 401 response
@@ -3571,7 +3559,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST Virtuals 403 response
@@ -3580,7 +3568,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST Virtuals 500 response
@@ -3610,11 +3598,11 @@ GET /virtuals/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -3833,7 +3821,7 @@ Retrieve a list of stats for all Virtuals in the Load Balancer.
 						
 					
 				
-					
+
 					
 						
 #### GET Virtual Stats 401 response
@@ -3842,7 +3830,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Stats 501 response
@@ -3851,7 +3839,7 @@ Retrieving a list of virtuals stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Stats 510 response
@@ -3881,11 +3869,11 @@ GET /virtuals/{virtualId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -3976,7 +3964,7 @@ Retrieve the Virtual specified.
 						
 					
 				
-					
+
 					
 						
 #### GET A Virtual 401 response
@@ -3985,7 +3973,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual 404 response
@@ -3994,7 +3982,7 @@ The virtual requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual 501 response
@@ -4003,7 +3991,7 @@ Retrieving a specific virtual is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual 510 response
@@ -4047,7 +4035,6 @@ PUT /virtuals/{virtualId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -4070,7 +4057,7 @@ PUT /virtuals/{virtualId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -4100,7 +4087,7 @@ Update a virtual in a load balancer specified by virtual id
 						
 					
 				
-					
+
 					
 						
 #### PUT A Virtual 401 response
@@ -4109,7 +4096,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT A Virtual 403 response
@@ -4118,7 +4105,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT A Virtual 500 response
@@ -4146,7 +4133,7 @@ DELETE /virtuals/{virtualId}
 				
             
                 
-					
+
 					
 						
 							
@@ -4175,7 +4162,7 @@ Delete a virtual in a load balancer specified by virtual id.
 						
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual 401 response
@@ -4184,7 +4171,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual 403 response
@@ -4193,7 +4180,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual 500 response
@@ -4225,11 +4212,11 @@ GET /virtuals/{virtualId}/traffic-classes
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -4257,7 +4244,7 @@ Retrieve the traffic classes specified.
 						
 					
 				
-					
+
 					
 						
 #### GET Virtual Traffic Classes 401 response
@@ -4266,7 +4253,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Traffic Classes 404 response
@@ -4275,7 +4262,7 @@ The traffic classes requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Traffic Classes 501 response
@@ -4284,7 +4271,7 @@ Retrieving a specific traffic classes is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Traffic Classes 510 response
@@ -4314,11 +4301,11 @@ GET /virtuals/{virtualId}/persists
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -4345,7 +4332,7 @@ Retrieve the persists specified.
 						
 					
 				
-					
+
 					
 						
 #### GET Single Virtual Persists 401 response
@@ -4354,7 +4341,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Single Virtual Persists 404 response
@@ -4363,7 +4350,7 @@ The persists requested were not found.
 
 					
 				
-					
+
 					
 						
 #### GET Single Virtual Persists 501 response
@@ -4372,7 +4359,7 @@ Retrieving a specific persist is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Single Virtual Persists 510 response
@@ -4406,7 +4393,6 @@ PUT /virtuals/{virtualId}/persists
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -4422,7 +4408,7 @@ PUT /virtuals/{virtualId}/persists
 ```
 					
                 
-					
+
 					
 						
 							
@@ -4451,7 +4437,7 @@ Update a Virtual Persists in the F5 load balancer.
 						
 					
 				
-					
+
 					
 						
 #### PUT Single Virtual Persists 401 response
@@ -4460,7 +4446,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Virtual Persists 403 response
@@ -4469,7 +4455,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT Single Virtual Persists 500 response
@@ -4503,7 +4489,6 @@ POST /virtuals/{virtualId}/persists
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -4520,7 +4505,7 @@ POST /virtuals/{virtualId}/persists
 ```
 					
                 
-					
+
 					
 						
 							
@@ -4549,7 +4534,7 @@ Create a Virtual Persists in the F5 load balancer.
 						
 					
 				
-					
+
 					
 						
 #### POST Single Virtual Persists 401 response
@@ -4558,7 +4543,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST Single Virtual Persists 403 response
@@ -4567,7 +4552,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST Single Virtual Persists 500 response
@@ -4595,7 +4580,7 @@ DELETE /virtuals/{virtualId}/persists
 				
             
                 
-					
+
 					
 						
 							
@@ -4624,7 +4609,7 @@ Delete a Virtual Persists in the F5 load balancer.
 						
 					
 				
-					
+
 					
 						
 #### DELETE Single Virtual Persists 401 response
@@ -4633,7 +4618,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Virtual Persists 403 response
@@ -4642,7 +4627,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE Single Virtual Persists 500 response
@@ -4672,11 +4657,11 @@ GET /virtuals/{virtualId}/stats
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -4895,7 +4880,7 @@ Retrieve a list of stats.
 						
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Stats 401 response
@@ -4904,7 +4889,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Stats 501 response
@@ -4913,7 +4898,7 @@ Retrieving a list of stats is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Stats 510 response
@@ -4945,11 +4930,11 @@ GET /virtuals/{virtualId}/auth
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -4978,7 +4963,7 @@ Retrieve the auth specified.
 						
 					
 				
-					
+
 					
 						
 #### GET Virtual Auth 401 response
@@ -4987,7 +4972,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Auth 404 response
@@ -4996,7 +4981,7 @@ The auth requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Auth 501 response
@@ -5005,7 +4990,7 @@ Retrieving a specific auth is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Virtual Auth 510 response
@@ -5035,11 +5020,11 @@ GET /virtuals/{virtualId}/vlans
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -5068,7 +5053,7 @@ Retrieve the vlan specified.
 						
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Vlans 401 response
@@ -5077,7 +5062,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Vlans 404 response
@@ -5086,7 +5071,7 @@ The vlan requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Vlans 501 response
@@ -5095,7 +5080,7 @@ Retrieving a specific vlan is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual's Vlans 510 response
@@ -5129,7 +5114,6 @@ PUT /virtuals/{virtualId}/vlans
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -5144,7 +5128,7 @@ PUT /virtuals/{virtualId}/vlans
 ```
 					
                 
-					
+
 					
 						
 							
@@ -5173,7 +5157,7 @@ Update a vlan specified by a Virtual id.
 						
 					
 				
-					
+
 					
 						
 #### PUT A Virtual's Vlans 401 response
@@ -5182,7 +5166,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT A Virtual's Vlans 403 response
@@ -5191,7 +5175,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT A Virtual's Vlans 500 response
@@ -5225,7 +5209,6 @@ POST /virtuals/{virtualId}/vlans
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -5241,7 +5224,7 @@ POST /virtuals/{virtualId}/vlans
 ```
 					
                 
-					
+
 					
 						
 							
@@ -5270,7 +5253,7 @@ Create a vlan in the F5 load balancer.
 						
 					
 				
-					
+
 					
 						
 #### POST A Virtual's Vlans 401 response
@@ -5279,7 +5262,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST A Virtual's Vlans 403 response
@@ -5288,7 +5271,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST A Virtual's Vlans 500 response
@@ -5316,7 +5299,7 @@ DELETE /virtuals/{virtualId}/vlans
 				
             
                 
-					
+
 					
 						
 							
@@ -5345,7 +5328,7 @@ Delete a vlan in the F5 load balancer specified by a Virtual id.
 						
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual's Vlans 401 response
@@ -5354,7 +5337,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual's Vlans 403 response
@@ -5363,7 +5346,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE A Virtual's Vlans 500 response
@@ -5393,11 +5376,11 @@ GET /virtuals/{virtualId}/pool
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -5429,7 +5412,7 @@ Retrieve a list of pools.
 						
 					
 				
-					
+
 					
 						
 #### GET A Virtual Pool 401 response
@@ -5438,7 +5421,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual Pool 501 response
@@ -5447,7 +5430,7 @@ Retrieving a list of pools is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A Virtual Pool 510 response
@@ -5477,11 +5460,11 @@ GET /monitors
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -5573,7 +5556,7 @@ Retrieve a list of monitors.
 						
 					
 				
-					
+
 					
 						
 #### GET Monitors 401 response
@@ -5582,7 +5565,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Monitors 501 response
@@ -5591,7 +5574,7 @@ Retrieving a list of monitors is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET Monitors 510 response
@@ -5620,11 +5603,11 @@ GET /monitors/{monitorId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -5671,7 +5654,7 @@ Retrieve the monitor specified.
 						
 					
 				
-					
+
 					
 						
 #### GET A monitor 401 response
@@ -5680,7 +5663,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET A monitor 404 response
@@ -5689,7 +5672,7 @@ The monitor requested was not found.
 
 					
 				
-					
+
 					
 						
 #### GET A monitor 501 response
@@ -5698,7 +5681,7 @@ Retrieving a specific monitor is not supported and/or not implemented.
 
 					
 				
-					
+
 					
 						
 #### GET A monitor 510 response
@@ -5748,7 +5731,6 @@ PUT /monitors/{monitorId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -5779,7 +5761,7 @@ PUT /monitors/{monitorId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -5809,7 +5791,7 @@ Update a new monitor in the load balancer.
 						
 					
 				
-					
+
 					
 						
 #### PUT A monitor 401 response
@@ -5818,7 +5800,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### PUT A monitor 403 response
@@ -5827,7 +5809,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### PUT A monitor 500 response
@@ -5877,7 +5859,6 @@ POST /monitors/{monitorId}
 			
 				
             
-*This operation accepts a request body:*
 
 **Request**
 						
@@ -5908,7 +5889,7 @@ POST /monitors/{monitorId}
 ```
 					
                 
-					
+
 					
 						
 							
@@ -5938,7 +5919,7 @@ Create a new monitor in the load balancer.
 						
 					
 				
-					
+
 					
 						
 #### POST A monitor 401 response
@@ -5947,7 +5928,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### POST A monitor 403 response
@@ -5956,7 +5937,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### POST A monitor 500 response
@@ -5984,7 +5965,7 @@ DELETE /monitors/{monitorId}
 				
             
                 
-					
+
 					
 						
 							
@@ -6013,7 +5994,7 @@ Delete a new monitor in the load balancer.
 						
 					
 				
-					
+
 					
 						
 #### DELETE A monitor 401 response
@@ -6022,7 +6003,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### DELETE A monitor 403 response
@@ -6031,7 +6012,7 @@ User doesn't have the required role.
 
 					
 				
-					
+
 					
 						
 #### DELETE A monitor 500 response
@@ -6061,11 +6042,11 @@ GET /events
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -6095,7 +6076,7 @@ Returns a list of events
 						
 					
 				
-					
+
 					
 						
 #### GET Events 401 response
@@ -6104,7 +6085,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Events 500 response
@@ -6134,11 +6115,11 @@ GET /events/{eventId}
 
 			
 				
-*This operation does not accept a request body.*
+This operation does not accept a request body.
             
             
                 
-					
+
 					
 						
 							
@@ -6168,7 +6149,7 @@ Returns a single Event provided an event id
 						
 					
 				
-					
+
 					
 						
 #### GET Single Event 401 response
@@ -6177,7 +6158,7 @@ Bad or expired token. To fix, you should re-authenticate the user.
 
 					
 				
-					
+
 					
 						
 #### GET Single Event 500 response
