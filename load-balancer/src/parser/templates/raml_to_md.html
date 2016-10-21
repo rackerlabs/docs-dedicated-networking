@@ -18,11 +18,12 @@
 
 			{% if mthds['responses'] != None %}
 				{% if code == 'get' %}
-This operation does not accept a request body.
+*This operation does not accept a request body.*
             {% endif %}
             {% if mthds['body'] %}
+*This operation accepts a request body:*
 
-**Request example**
+**Request**
 						{% if mthds['body']['application/json']['example'] %}
 {% set sample = mthds['body']['application/json']['example'] %}
 						{% elif mthds['body']['application/json']['schema'] %}
@@ -33,15 +34,15 @@ This operation does not accept a request body.
 ```
 					{% endif %}
                 {% for (status_code, resp) in mthds['responses'].iteritems() %}
-
+					
 					{% if resp['body'] %}
 						{% for (app_type, details) in resp['body'].iteritems(): %}
 							{% if details['example'] %}
 								{% if code != 'get' %}
 									{% if value['displayName'] %}
-#### **Response example** {{value}} {{status_code}}
+#### {{code|upper}} {{value['displayName']}} {{status_code}} response
 									{% else %}
-#### **Response example** {{status_code}}
+#### {{code|upper}} {{status_code}} response
 								{% endif %}
                                 {% else %}
                                 {{meh}}
@@ -62,9 +63,9 @@ This operation does not accept a request body.
 						{% endfor %}
 					{% else %}
 						{% if value['displayName'] %}
-#### Response {{status_code}}
+#### {{code|upper}} {{value['displayName']}} {{status_code}} response
 						{% else %}
-#### Response {{status_code}}
+#### {{code|upper}} {{status_code}} response
 						{% endif %}
 {{resp['description']}}
 					{% endif %}
