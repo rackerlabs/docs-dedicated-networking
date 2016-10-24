@@ -8,7 +8,7 @@ This Getting Started guide provides information to complete the following
 tasks:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    get-credentials-include
    send-request-ovw

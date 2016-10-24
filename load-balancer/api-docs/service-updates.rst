@@ -1,4 +1,4 @@
-.. service-updates:
+.. _service-updates:
 
 ===============
 Service updates
