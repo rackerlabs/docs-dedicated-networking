@@ -50,8 +50,8 @@ The following examples show the cURL requests for Add node:
     -H "Content-Type: application/json" \
     "$API_ENDPOINT/loadbalancers/load_balancer_id/nodes" | python -m json.tool
 
-Remember to replace the ``load_balancer_id`` in the examples above with its actual
-respective value:
+Remember to replace the ``load_balancer_id`` in the examples above with the
+ID for the load balancer that you want to update.
 
 -  **load\_balancer\_id** — as returned in your create load balancer
    response (see the examples in :ref:`Creating a Load Balancer <create-load-balancer>`)

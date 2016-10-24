@@ -1,29 +1,22 @@
 .. _create-load-balancer:
 
-Creating a Load Balancer
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Create a load balancer
+~~~~~~~~~~~~~~~~~~~~~~
 
-Cloud Load Balancers make it easy to develop scalable, high-availability
-configurations in the Cloud. By leveraging Cloud Load Balancers, you
-will be provided with a dedicated IP address that you can use to reach
-your service.
+Dedicated load balancers make it easy to develop scalable, high-availability
+configurations for dedicated environments. When you use dedicated load
+balancers, the service provides a dedicated IP address that you can use to
+reach your service.
 
-You need to use the Create Load Balancer API call (``POST /loadbalancers``)
+You use the create load balancer API operation :command:`POST /loadbalancers`
 to create a load balancer with the configuration that you specify.
 
-In this case, assume that you want to create a load balancer with the
-following configuration:
+This example shows how to create a load balancer with the following
+configuration:
 
 -  Protocol = HTTP(80)
 
 -  Virtual IP Type = PUBLIC
-
-.. note::
-
-   When your resources reside in the same region as your load balancer,
-   devices are in close proximity to each other and can elect to take
-   advantage of ServiceNet connectivity (by specifying Virtual IP Type =
-   SERVICENET) for free data transfer between services if desired.
 
 -  Nodes = enter the IP address that you recorded for your first Cloud
    Server created in :ref:`Creating Cloud Servers <create-cloud-servers>`::
