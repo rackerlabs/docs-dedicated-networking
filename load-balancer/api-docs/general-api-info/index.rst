@@ -22,6 +22,7 @@ details about specific operations, see the
    faults
    limits
    pagination
+   data-node-instances
    role-based-access-control
 
 

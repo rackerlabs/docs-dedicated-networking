@@ -52,7 +52,7 @@ vary because the information  returned is specific to your account.
 If the request was successful, it returns the following values that you need to
 include when you make service requests to the Rackspace product API:
 
-*token ID*
+token ID
     The token ID value is required to confirm your identity each time you
     access the service. Include it in the ``X-Auth-Token`` header for each
     API request.
@@ -63,26 +63,41 @@ include when you make service requests to the Rackspace product API:
     :rax-devdocs:`Manage authentication tokens
     <cloud-identity/v2/getting-started/manage-auth-tokens>`.
 
-*endpoint*
+
+tenant ID
+    The tenant ID provides your account number. For most Rackspace Cloud
+    service APIs, the tenant ID is appended to the API endpoint in the service
+    catalog automatically. For Rackspace Cloud services, the tenant ID has the
+    same value as the tenant name.
+
+
+endpoint
 	The API endpoint provides the URL that you use to access the API service.
 
-If the request failed, review the response message and
-the following error message descriptions to determine next steps.
+If the request failed, review the response message and the following error
+message descriptions to determine next steps.
 
-.. code::
+- If you see the following error message, review the authentication request
+  for syntax or coding errors. If you are using cURL, see
+  :ref:`Using cURL <how-curl-commands-work>`.
 
-   400 Invalid request body: unable to parse Auth data. Please review XML or
-   JSON formatting
+  .. code::
 
-Review the authentication request for syntax or coding errors.
+     400 Invalid request body: unable to parse Auth data. Please review XML or
+     JSON formatting
 
-.. code::
+- If you see the following error message, verify the authentication credentials
+  submitted in the authentication request. If necessary, contact your Rackspace
+  Cloud Administrator or Rackspace Support to get valid credentials.vided.
 
-   401 Unable to authenticate user with credentials provided.
+  .. code::
 
-Verify the authentication credentials submitted in the authentication request.
-If necessary, contact your Rackspace Cloud Administrator or Rackspace Support
-to get valid credentials.
+     401 Unable to authenticate user with credentials provided.
+
+..  note::
+       For additional information about authentication errors, see the
+       :rax-dev:`Identity API Reference documentation
+       <docs/cloud-identity/v2/api-reference/token-operations/>`.
 
 
 .. _configure-environment-variables:
@@ -116,6 +131,14 @@ request, prefix the variable name with a ``$``, for example ``$ENDPOINT``.
 
    Replace *token-id* with the authentication token ``id`` value returned
    in the authentication response.
+
+#. Export the tenant ID to an environment variable that can be supplied in
+   requests that require you to specify a tenant ID.
+
+   .. code::
+
+      $ export TENANT_ID="tenant-id"
+
 
 #. In the ``service catalog`` section of the authentication response, copy the
    ``publicURL`` value for the |apiservice|, version, and region that you want
