@@ -1,7 +1,7 @@
 .. _create-cloud-servers:
 
-Creating Cloud Servers
-~~~~~~~~~~~~~~~~~~~~~~
+Create Cloud Servers
+~~~~~~~~~~~~~~~~~~~~
 
 In this section you create two new Cloud Servers (or use two
 existing Cloud Servers) to set up as nodes for your load balancer.
