@@ -1,12 +1,10 @@
 .. _using-cloud-load-balancers:
 
-======================================
-Create and manage Cloud Load Balancers
-======================================
+==========================================
+Create and manage dedicated load balancers
+==========================================
 
-.. COMMENT Not sure what tasks are enabled for the F5 and ADX LB. Include
-           examples showing the most common tasks self-service users are
-           likely to perform.
+TO DO:  Update headings to reflect common dedicated LB use cases
 
 
 You can use the examples in the following sections to create and manage load
@@ -17,12 +15,12 @@ balancers by using |apiservice| operations.
    :depth: 1
 
 
-Before running the examples, review the :ref:`Cloud Load Balancers
-concepts<concepts>` to understand the API workflow, messaging patterns, and use
-cases.
+Before running the examples, review the dedicated load balancer
+:ref:`concepts<concepts>`.
+
 
 .. note::
-     These examples use the ``$API_ENDPOINT``, ``$AUTH_TOKEN``, and
+     These examples use the ``$ENDPOINT``, ``$AUTH_TOKEN``, and
      ``$TENANT_ID`` environment variables to specify the API endpoint,
      authentication token, and project ID values for accessing the service.
      Make sure you :ref:`configure these

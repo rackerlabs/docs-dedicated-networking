@@ -1,7 +1,7 @@
 .. _update-load-balancer-attributes:
 
-Updating Load Balancer attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Update load balancer attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Assume that you want to change the algorithm for your load balancer from
 RANDOM to LEAST\_CONNECTIONS. You can use the Update Load Balancer

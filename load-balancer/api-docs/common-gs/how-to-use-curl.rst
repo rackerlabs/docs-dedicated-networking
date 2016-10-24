@@ -151,7 +151,7 @@ following changes:
 
 The following example shows the cURL format for Linux and UNIX systems:
 
-.. code::
+.. code:: console
 
       $ curl https://identity.api.rackspacecloud.com/v2.0/tokens  \
             -X POST \
@@ -160,7 +160,7 @@ The following example shows the cURL format for Linux and UNIX systems:
 
 The following example shows the same request with the changes made for Windows systems:
 
-.. code::
+.. code:: console
 
      $ curl https://identity.api.rackspacecloud.com/v2.0/tokens  ^
            -X POST ^
