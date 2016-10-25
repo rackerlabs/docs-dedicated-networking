@@ -1,8 +1,5 @@
-
-
 **Endpoint:**
-
-``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers``
+https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
 
 Retrieve device information
 ---------------------------

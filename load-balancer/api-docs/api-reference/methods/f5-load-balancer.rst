@@ -1,19 +1,11 @@
-
 **Endpoint:**
+https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}
 
-``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}``
+/
+-
 
-
-Retrieve device details
------------------------
-
-:: 
-
-   /
-   -
-
-Retrieve device details like the model number, OS version, CPU statistics, and
-so on.
+Retrieve device details like the model number, OS version, cpu stats,
+etc...
 
 ::
 
@@ -339,7 +331,7 @@ Retrieve a Node specified by a Node id
 ::
 
     {
-        "data": [
+        "data": [  
             {
                 "id": "10.1.2.3",
                 "address": "10.1.2.3",
@@ -2244,7 +2236,7 @@ Retrieve a list of virtuals.
                 "vlans": "none",
                 "vlansDisabled": "vlans-disabled",
                 "vsIndex": 7
-            }
+            } 
         ]
     }
 
@@ -3603,7 +3595,7 @@ Retrieve a list of pools.
                         "href": "http://localhost:8000/f5/535908/virtuals/VIP-162.242.187.83-80/pool/"
                     }
                 }
-            }
+            } 
         ]
     }
 
@@ -3750,7 +3742,7 @@ Retrieve the monitor specified.
 ::
 
     {
-        "data": [
+        "data": [        
             {
                 "id": "MON-TCP-80",
                 "type": "tcp",
