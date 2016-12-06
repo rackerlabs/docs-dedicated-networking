@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "monitorsGET",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "monitor-GET.json"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "items"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "name": "hello",
+      "value": "world",
+      "persist": false,
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://localhost/f5/12345/nodes/test2/metadata/hello"
+        }
+      ]
+    },
+    {
+      "name": "foo",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://localhost/f5/12345/nodes/test2/metadata/foo"
+        }
+      ]
+    }
+  ]
+}

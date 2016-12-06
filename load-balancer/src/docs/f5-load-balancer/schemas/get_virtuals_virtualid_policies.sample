@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "virtual-policiesGET",
+  "description": "Get policies in the Load Balancer",
+  "$ref": "policies.json",
+  "required": [
+      "names"
+    ]
+}

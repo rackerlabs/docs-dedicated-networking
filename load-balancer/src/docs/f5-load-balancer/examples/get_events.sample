@@ -1,0 +1,11 @@
+{
+	"data": [{
+		"event_id": "<eventId:str>",
+		"status": "200",
+		"message": "COMPLETED",
+		"output": {"virtualId":"sowmyapegtest","Vlans":"["internal"]","message":"virtual/vlan association was updated 	Successfully"},
+		"ref": "/events/<eventId:str>",
+		"entrytimestamp": "2016-03-04T21:29:12",
+		"modifiedtimestamp": "2016-03-04T21:29:12"
+	}]
+}

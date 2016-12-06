@@ -1,0 +1,12 @@
+{
+	"data": [
+		{
+		  	"monitors": [
+				"https_443",
+				"real_server",
+				"tcp_echo"
+		  	],
+		  	"minimum": 1
+		}
+	]
+}

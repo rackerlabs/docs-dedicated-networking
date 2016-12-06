@@ -127,7 +127,7 @@ request, prefix the variable name with a ``$``, for example ``$ENDPOINT``.
 
    .. code::
 
-       $ export AUTH_TOKEN="token-id"
+       $ export TOKEN="token-id"
 
    Replace *token-id* with the authentication token ``id`` value returned
    in the authentication response.

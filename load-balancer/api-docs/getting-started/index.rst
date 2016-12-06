@@ -14,7 +14,9 @@ tasks:
    send-request-ovw
    authenticate
    concepts
-   using-cloud-load-balancers
+   using-f5-load-balancers
+   using-adx-load-balancers
+
 
 To start using the API and run the examples in this section, you need the
 following items:
@@ -22,6 +24,11 @@ following items:
 - MyRackspace account number, username, and password
 - :ref:`Command-line tool or browser client <send-api-requests>` for
   communicating with the API service
+
+You also need the baseURL for the load balancer that you want to view and
+manage.
+
+
 
 .. note::
 

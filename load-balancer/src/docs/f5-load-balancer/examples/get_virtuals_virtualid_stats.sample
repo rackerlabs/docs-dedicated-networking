@@ -1,0 +1,200 @@
+{
+    "data": [
+        {
+            "clientside": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "cmpEnableMode": "all-cpus",
+            "cmpEnabled": "enabled",
+            "csMaxConnDur": 0,
+            "csMeanConnDur": 0,
+            "csMinConnDur": 0,
+            "destination": "127.0.0.1:80",
+            "ephemeral": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "fiveMinAvgUsageRatio": 0,
+            "fiveSecAvgUsageRatio": 0,
+            "id": "VIP-127.0.0.1-80",
+            "name": "VIP-127.0.0.1-80",
+            "oneMinAvgUsageRatio": 0,
+            "status": {
+                "availabilityState": "unknown",
+                "enabledState": "enabled",
+                "statusReason": "The children pool member(s) either don't have service checking enabled, or service check results are not available yet"
+            },
+            "syncookie": {
+                "accepts": 0,
+                "hwAccepts": 0,
+                "hwSyncookies": 0,
+                "hwsyncookieInstance": 0,
+                "rejects": 0,
+                "swsyncookieInstance": 0,
+                "syncacheCurr": 0,
+                "syncacheOver": 0,
+                "syncookies": 0
+            },
+            "syncookieStatus": "not-activated",
+            "totRequests": 0
+        },
+        {
+            "clientside": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "cmpEnableMode": "all-cpus",
+            "cmpEnabled": "enabled",
+            "csMaxConnDur": 0,
+            "csMeanConnDur": 0,
+            "csMinConnDur": 0,
+            "destination": "127.0.0.1:443",
+            "ephemeral": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "fiveMinAvgUsageRatio": 0,
+            "fiveSecAvgUsageRatio": 0,
+            "id": "TestVip-DONT-DELETE",
+            "name": "TestVip-DONT-DELETE",
+            "oneMinAvgUsageRatio": 0,
+            "status": {
+                "availabilityState": "unknown",
+                "enabledState": "enabled",
+                "statusReason": "The children pool member(s) either don't have service checking enabled, or service check results are not available yet"
+            },
+            "syncookie": {
+                "accepts": 0,
+                "hwAccepts": 0,
+                "hwSyncookies": 0,
+                "hwsyncookieInstance": 0,
+                "rejects": 0,
+                "swsyncookieInstance": 0,
+                "syncacheCurr": 0,
+                "syncacheOver": 0,
+                "syncookies": 0
+            },
+            "syncookieStatus": "not-activated",
+            "totRequests": 0
+        },
+        {
+            "clientside": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "cmpEnableMode": "all-cpus",
+            "cmpEnabled": "enabled",
+            "csMaxConnDur": 0,
+            "csMeanConnDur": 0,
+            "csMinConnDur": 0,
+            "destination": "127.0.0.1:443",
+            "ephemeral": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "fiveMinAvgUsageRatio": 0,
+            "fiveSecAvgUsageRatio": 0,
+            "id": "VIP-127.0.0.1-443",
+            "name": "VIP-127.0.0.1-443",
+            "oneMinAvgUsageRatio": 0,
+            "status": {
+                "availabilityState": "available",
+                "enabledState": "enabled",
+                "statusReason": "The virtual server is available"
+            },
+            "syncookie": {
+                "accepts": 0,
+                "hwAccepts": 0,
+                "hwSyncookies": 0,
+                "hwsyncookieInstance": 0,
+                "rejects": 0,
+                "swsyncookieInstance": 0,
+                "syncacheCurr": 0,
+                "syncacheOver": 0,
+                "syncookies": 0
+            },
+            "syncookieStatus": "not-activated",
+            "totRequests": 0
+        },
+        {
+            "clientside": {
+                "bitsIn": 2784874696,
+                "bitsOut": 13416053656,
+                "curConns": 5,
+                "maxConns": 61,
+                "pktsIn": 5698557,
+                "pktsOut": 1560895,
+                "totConns": 1485109
+            },
+            "cmpEnableMode": "all-cpus",
+            "cmpEnabled": "enabled",
+            "csMaxConnDur": 14319373760,
+            "csMeanConnDur": 7972,
+            "csMinConnDur": 56,
+            "destination": "any:any",
+            "ephemeral": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "fiveMinAvgUsageRatio": 0,
+            "fiveSecAvgUsageRatio": 0,
+            "id": "VS-FORWARDING",
+            "name": "VS-FORWARDING",
+            "oneMinAvgUsageRatio": 0,
+            "status": {
+                "availabilityState": "unknown",
+                "enabledState": "enabled",
+                "statusReason": "The children pool member(s) either don't have service checking enabled, or service check results are not available yet"
+            },
+            "syncookie": {
+                "accepts": 0,
+                "hwAccepts": 0,
+                "hwSyncookies": 0,
+                "hwsyncookieInstance": 0,
+                "rejects": 2,
+                "swsyncookieInstance": 0,
+                "syncacheCurr": 0,
+                "syncacheOver": 0,
+                "syncookies": 0
+            },
+            "syncookieStatus": "not-activated",
+            "totRequests": 0
+        }
+    ]
+}

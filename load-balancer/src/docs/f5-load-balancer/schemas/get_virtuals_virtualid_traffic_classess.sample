@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "virtual-trafficClassesGET",
+  "description": "Get Traffic Classes in the Load Balancer",
+  "$ref": "trafficClasses.json",
+  "required": [
+      "names"
+    ]
+}

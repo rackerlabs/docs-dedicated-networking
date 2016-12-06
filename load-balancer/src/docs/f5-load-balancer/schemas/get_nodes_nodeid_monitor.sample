@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "node-monitors-GET",
+  "description": "Get a node's monitors",
+  "$ref": "monitor.json",
+  "required": [
+    "monitors"
+  ]
+}

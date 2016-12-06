@@ -3,17 +3,17 @@
     {
       "links": {
         "self": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
           "rel": "self"
         },
         "rel": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
           "rel": "up"
         }
       },
       "label": "Node-Test-32fce25d",
       "port_name": "HTTP",
-      "address": "29.181.84.2",
+      "address": "127.0.0.1",
       "port_number": 80,
       "id": "Node-Test-32fce25d:29.181.84.2:80"
     }

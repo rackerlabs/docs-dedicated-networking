@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "monitorGET",
+  "description": "Get a Monitor in the Load Balancer",
+  "type": "object",
+  "anyOf": [
+        {
+          "$ref": "monitor-http.json"
+        },
+        {
+          "$ref": "monitor-https.json"
+        },
+        {
+          "$ref": "monitor-tcp.json"
+        },
+        {
+          "$ref": "monitor-udp.json"
+        },
+        {
+          "$ref": "monitor-tcp.json"
+        }
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "http",
+        "https",
+        "tcp",
+        "udp",
+        "dns"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "address",
+    "port",
+    "appService",
+    "defaultsFrom",
+    "description",
+    "interval",
+    "manualResume",
+    "recv",
+    "reverse",
+    "timeUntilUp",
+    "timeout",
+    "transparent",
+    "upInterval"
+  ]
+}

@@ -4,13 +4,8 @@
 		
             
                 
-## Retrieve device information
+## Returns a complete info about loadbalancer
 				
-                
-Use the Device ID operation to get complete information about the device with
-the specified ID including associated customer, usage statistics, and
-configuration details for nodes, virtual IPs, and high availability.
-
                 
 ```
 GET /{device_id}
@@ -33,17 +28,15 @@ GET /{device_id}
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": {
-    "customer": "2222222",
+    "customer": "1234567",
     "uptime": "unimplemented",
-    "hostname": "adx1000-cyberdyne.iad3.netdev.net",
+    "hostname": "adx1000-examplehost.iad3.netdev.net",
     "links": {
       "device": {
-        "href": "https://api-qual.netsec.rackspace.net/devices/111111",
+        "href": "https://api-qual.netsec.rackspace.net/devices/1234567",
         "rel": "alternate"
       },
       "lb": {
@@ -51,15 +44,15 @@ Successfully processed the request.
         "rel": "up"
       },
       "self": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567",
         "rel": "self"
       },
       "vips": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/vips",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/vips",
         "rel": "related"
       },
       "nodes": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/nodes",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
         "rel": "related"
       }
     },
@@ -78,9 +71,9 @@ Successfully processed the request.
         "used_kbytes": "109788"
       }
     ],
-    "id": "111111",
-    "os_version": "12.4.00sT403",
-    "management_ip": "10.17.25.108",
+    "id": "1234567",
+    "os_version": "127.0.00sT403",
+    "management_ip": "127..0.0.1",
     "role": "unimplemented",
     "cpu_load": [
       {
@@ -120,7 +113,7 @@ Successfully processed the request.
       }
     ],
     "ha_status": "none",
-    "model_name": "SI-1216-4-PREM"
+    "model_name": "SI-1216-4-EXAMPLE"
   }
 }
 ```
@@ -138,8 +131,6 @@ Successfully processed the request.
 							
 
 							
-Not found.
-
 ```
 {
   "status_code": 404,
@@ -164,12 +155,8 @@ Not found.
 		
             
                 
-## Retrieve load balancer configuration details
+## Config info for a given node.
 				
-                
-Retrieves the load balancer configuration information for the specified
-device ID.
-
                 
 ```
 GET /{device_id}/configuration
@@ -192,8 +179,6 @@ GET /{device_id}/configuration
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": {
@@ -213,12 +198,8 @@ Successfully processed the request.
 		
             
                 
-## Show high availability template
+## High Availability template.
 				
-                
-Retrieves the high availability configuration template for
-a device with the specified ID.
-
                 
 ```
 GET /{device_id}/ha
@@ -241,8 +222,6 @@ GET /{device_id}/ha
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "message": "This is a test template for High Availability"
@@ -260,20 +239,8 @@ Successfully processed the request.
 		
             
                 
-## Retrieve virtual IPs configuration
+## VIPs in a device for the given device id
 				
-                
-Load balancers must have at least one virtual IP address that clients
-can use to balance traffic across nodes. You can use the manage virtual IPs
-operations to configure and manage the virtual IP addresses for the load
-balancer with the specified device ID.
-
-An IP can be passed into the add Virtual IP call as part of the request body,
-only if the IP exists within an existing Virtual.
-
-*When adding a Virtual IP, these fields are required: account_number, label, protocol,
-port, algorithm, persistence, admin_state, comment*
-
                 
 ```
 GET /{device_id}/vips
@@ -296,8 +263,6 @@ GET /{device_id}/vips
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "vips": [
@@ -308,7 +273,7 @@ Successfully processed the request.
         "name": "LEAST_CONNECTION",
         "persistence": null
       },
-      "ip": "152.181.84.2",
+      "ip": "127.0.0.1",
       "runtime_state": "UNHEALTHY",
       "label": "Vip-Test-32fce25d",
       "port_number": 80,
@@ -327,19 +292,19 @@ Successfully processed the request.
         {
           "label": "Node-Test-32fce25d",
           "port_name": "HTTP",
-          "address": "29.181.84.2",
+          "address": "127.0.0.1",
           "port_number": 80,
-          "id": "Node-Test-32fce25d:29.181.84.2:80"
+          "id": "Node-Test-32fce25d:127.0.0.1:80"
         },
         {
           "label": "Node-Test-8df4d3b7",
           "port_name": "HTTP",
-          "address": "29.181.84.3",
+          "address": "127.0.0.1",
           "port_number": 80,
-          "id": "Node-Test-8df4d3b7:29.181.84.3:80"
+          "id": "Node-Test-8df4d3b7:127.0.0.1:80"
         }
       ],
-      "id": "Vip-Test-32fce25d:152.181.84.2:80",
+      "id": "Vip-Test-32fce25d:127.0.0.1:80",
       "vendor_extensions": {
         "none": "none"
       }
@@ -351,52 +316,11 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-Not found.
-
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
                 
-## Add a Virtual IP
+## Create a new VIP.
 				
-                
-Load balancers must have at least one virtual IP address that clients
-can use to balance traffic across nodes. You can use the manage virtual IPs
-operations to configure and manage the virtual IP addresses for the load
-balancer with the specified device ID.
-
-An IP can be passed into the add Virtual IP call as part of the request body,
-only if the IP exists within an existing Virtual.
-
-*When adding a Virtual IP, these fields are required: account_number, label, protocol,
-port, algorithm, persistence, admin_state, comment*
-
                 
 ```
 POST /{device_id}/vips
@@ -406,27 +330,27 @@ POST /{device_id}/vips
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number>",
-  "label": "<Label>",
+  "account_number": req"<Account Number>",
+  "label": req"<Label>",
   "description": "<description>",
   "ip": "<ip>",
-  "protocol": "<protocol>",
-  "port": "<port>",
-  "algorithm": {},
-  "persistence": {},
+  "protocol": req"<protocol>",
+  "port": req"<port>",
+  "algorithm": req{},
+  "persistence": req{},
   "nodes": {},
-  "admin_state": "<enabled|disabled>",
-  "comment": "<comment>"
+  "admin_state": req"<enabled|disabled>",
+  "comment": req"comment"
 }
-
 ```
 					
                 
@@ -436,13 +360,11 @@ POST /{device_id}/vips
 							
 								
 									
-#### POST Manage Virtual IPs 202 response
+#### POST VIPs configured to devices response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -465,20 +387,8 @@ The request has been accepted for processing.
 		
             
                 
-## Retrieve virtual IP information
+## Information about single VIP.
 				
-                
-Use the virtual IPs information operations to retrieve and update
-information for a virtual IP configured for the specified device ID.
-
-Use the delete operation to remove a virtual IP from the device
-configuration.
-
-If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it.
-
-*When deleting, these fields are required: account_number, comment*
-
                 
 ```
 GET /{device_id}/vips/{vip_id}
@@ -501,8 +411,6 @@ GET /{device_id}/vips/{vip_id}
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": {
@@ -514,7 +422,7 @@ Successfully processed the request.
       "persistence": "ENABLED",
       "subnet_prefix_length": 0
     },
-    "ip": "152.181.84.2",
+    "ip": "127.0.0.1",
     "runtime_state": "UNHEALTHY",
     "label": "Vip-Test-32fce25d",
     "port_number": 80,
@@ -533,12 +441,12 @@ Successfully processed the request.
       {
         "label": "Node-Test-32fce25d",
         "port_name": "HTTP",
-        "address": "29.181.84.2",
+        "address": "127.0.0.1",
         "port_number": 80,
-        "id": "Node-Test-32fce25d:29.181.84.2:80"
+        "id": "Node-Test-32fce25d:127.0.0.1:80"
       }
     ],
-    "id": "Vip-Test-32fce25d:152.181.84.2:80",
+    "id": "Vip-Test-32fce25d:127.0.0.1:80",
     "vendor_extensions": {
       "none": "none"
     }
@@ -549,52 +457,11 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-Not found.
-
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
                 
-## Update virtual IP information
+## Update VIP information.
 				
-                
-Use the virtual IPs information operations to retrieve and update
-information for a virtual IP configured for the specified device ID.
-
-Use the delete operation to remove a virtual IP from the device
-configuration.
-
-If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it.
-
-*When deleting, these fields are required: account_number, comment*
-
                 
 ```
 PUT /{device_id}/vips/{vip_id}
@@ -604,27 +471,27 @@ PUT /{device_id}/vips/{vip_id}
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number>",
-  "label": "<Label>",
+  "account_number": req"<Account Number>",
+  "label": req"<Label>",
   "description": "<description>",
   "ip": "<ip>",
-  "protocol": "<protocol>",
-  "port": "<port>",
-  "algorithm": {},
-  "persistence": {},
+  "protocol": req"<protocol>",
+  "port": req"<port>",
+  "algorithm": req{},
+  "persistence": req{},
   "nodes": {},
-  "admin_state": "<enabled|disabled>",
-  "comment": "<comment>"
+  "admin_state": req"<enabled|disabled>",
+  "comment": req"comment"
 }
-
 ```
 					
                 
@@ -634,13 +501,11 @@ PUT /{device_id}/vips/{vip_id}
 							
 								
 									
-#### PUT Virtual IPs information 202 response
+#### PUT VIP Information for given VIP id. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -659,20 +524,8 @@ The request has been accepted for processing.
 			
         
                 
-## Delete a virtual IP
+## Delete VIP.
 				
-                
-Use the virtual IPs information operations to retrieve and update
-information for a virtual IP configured for the specified device ID.
-
-Use the delete operation to remove a virtual IP from the device
-configuration.
-
-If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it.
-
-*When deleting, these fields are required: account_number, comment*
-
                 
 ```
 DELETE /{device_id}/vips/{vip_id}
@@ -682,16 +535,17 @@ DELETE /{device_id}/vips/{vip_id}
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number>",
-  "comment": "<comment>"
+  "account_number": req"<Account Number>",
+  "comment": req"comment"
 }
 
 ```
@@ -703,13 +557,11 @@ DELETE /{device_id}/vips/{vip_id}
 							
 								
 									
-#### DELETE Virtual IPs information 202 response
+#### DELETE VIP Information for given VIP id. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -732,12 +584,8 @@ The request has been accepted for processing.
 		
             
                 
-## List nodes for the specified virtual IP.
+## List nodes for single VIP.
 				
-                
-Retrieve information about the nodes associated with a
-specified virtual IP.
-
                 
 ```
 GET /{device_id}/vips/{vip_id}/nodes
@@ -760,25 +608,23 @@ GET /{device_id}/vips/{vip_id}/nodes
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": [
     {
       "links": {
         "self": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
           "rel": "self"
         },
         "rel": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
           "rel": "up"
         }
       },
       "label": "Node-Test-32fce25d",
       "port_name": "HTTP",
-      "address": "29.181.84.2",
+      "address": "127.0.0.1",
       "port_number": 80,
       "id": "Node-Test-32fce25d:29.181.84.2:80"
     }
@@ -796,14 +642,8 @@ Successfully processed the request.
 		
             
                 
-## Assign node to virtual IP
+## Bind given node_id with VIP.
 				
-                
-Use the virtual IP node configuration operations to add or
-remove a specified node from the virtual IP configuration.
-
-*When assigning a node to a virtual, this field is required: account_number*
-
                 
 ```
 POST /{device_id}/vips/{vip_id}/nodes/{node_id}
@@ -813,15 +653,16 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number>"
+  "account_number": req"<Account Number>"
 }
 
 ```
@@ -833,13 +674,11 @@ POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 							
 								
 									
-#### POST Manage virtual IP node configuration 202 response
+#### POST Bind/Unbind given node_id with vip. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -858,14 +697,8 @@ The request has been accepted for processing.
 			
         
                 
-## Remove node from virtual IP configuration
+## Unbind given node_id from VIP.
 				
-                
-Use the virtual IP node configuration operations to add or
-remove a specified node from the virtual IP configuration.
-
-*When assigning a node to a virtual, this field is required: account_number*
-
                 
 ```
 DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
@@ -875,6 +708,20 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -882,13 +729,11 @@ DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 							
 								
 									
-#### DELETE Manage virtual IP node configuration 202 response
+#### DELETE Bind/Unbind given node_id with vip. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -911,13 +756,8 @@ The request has been accepted for processing.
 		
             
                 
-## Enable a virtual IP
-
+## Activate the VIP.
 				
-                
-Use the virtual IP configuration operations to enable or
-disable a virtual IP configured for a specified device.
-
                 
 ```
 POST /{device_id}/vips/{vip_id}/configuration
@@ -927,6 +767,20 @@ POST /{device_id}/vips/{vip_id}/configuration
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -934,13 +788,11 @@ POST /{device_id}/vips/{vip_id}/configuration
 							
 								
 									
-#### POST Manage Virtual IP status 202 response
+#### POST Activate/Deactivate VIP. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -959,12 +811,8 @@ The request has been accepted for processing.
 			
         
                 
-## Disable a virtual IP
+## Deactivate the VIP.
 				
-                
-Use the virtual IP configuration operations to enable or
-disable a virtual IP configured for a specified device.
-
                 
 ```
 DELETE /{device_id}/vips/{vip_id}/configuration
@@ -974,6 +822,20 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -981,13 +843,11 @@ DELETE /{device_id}/vips/{vip_id}/configuration
 							
 								
 									
-#### DELETE Manage Virtual IP status 202 response
+#### DELETE Activate/Deactivate VIP. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1010,10 +870,8 @@ The request has been accepted for processing.
 		
             
                 
-## Show virtual IP statistics
+## Statistics for single VIP.
 				
-                
-Retrieves usage data for the specified virtual IP.
                 
 ```
 GET /{device_id}/vips/{vip_id}/stats
@@ -1036,8 +894,6 @@ GET /{device_id}/vips/{vip_id}/stats
 							
 
 							
-Successfully processed the request.
-
 ```
 {
     "load_balancer_data": {
@@ -1055,35 +911,6 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-Not found.
-
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
     
@@ -1093,18 +920,6 @@ Not found.
                 
 ## Nodes in a device for the given device id
 				
-                
-A node is a back-end device providing a service on a specified IP and port.
-
-Use the nodes operations to get information about the nodes configured for
-a specified device and to add a node.
-
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
-
-*When adding a node to a device, these fields are rquired: account_number, label,
-ip, port, admin_state, health_strategy, vendor_extensions, comment*
-
                 
 ```
 GET /{device_id}/nodes
@@ -1127,8 +942,6 @@ GET /{device_id}/nodes
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": [
@@ -1144,11 +957,11 @@ Successfully processed the request.
       },
       "links": {
         "self": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
           "rel": "self"
         },
         "rel": {
-          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
           "rel": "up"
         }
       },
@@ -1156,7 +969,7 @@ Successfully processed the request.
       "label": "Node-Test-c4b3b8a5",
       "port_name": "12345",
       "admin_state": "ENABLED",
-      "address": "29.235.243.3",
+      "address": "127.0.0.1",
       "port_number": 12345,
       "id": "Node-Test-c4b3b8a5:29.235.243.3:12345"
     }
@@ -1167,50 +980,11 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
                 
-## Add a node to a device
+## Create a new node.
 				
-                
-A node is a back-end device providing a service on a specified IP and port.
-
-Use the nodes operations to get information about the nodes configured for
-a specified device and to add a node.
-
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
-
-*When adding a node to a device, these fields are rquired: account_number, label,
-ip, port, admin_state, health_strategy, vendor_extensions, comment*
-
                 
 ```
 POST /{device_id}/nodes
@@ -1220,25 +994,25 @@ POST /{device_id}/nodes
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number> (required)",
-  "label": "<Node Label> (required)",
+  "account_number": req"<Account Number>",
+  "label": req"<Node Label>",
   "description": "<description>",
-  "ip": "<ip> (required)",
-  "port": "<port> (required)",
-  "admin_state": "<enabled|disabled> (required)",
-  "health_strategy": "<health_strategy JSON Object> (required)",
-  "vendor_extensions": "<vendor_extension JSON object> (required)",
-  "comment": "comment (required)"
+  "ip": req"<ip>",
+  "port": req"<port>",
+  "admin_state": req"<enabled|disabled>",
+  "health_strategy": req"<health_strategy JSON Object>",
+  "vendor_extensions": req"<vendor_extension JSON object>",
+  "comment": req"comment"
 }
-
 ```
 					
                 
@@ -1248,13 +1022,11 @@ POST /{device_id}/nodes
 							
 								
 									
-#### POST Nodes 202 response
+#### POST Information about Nodes. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1277,12 +1049,8 @@ The request has been accepted for processing.
 		
             
                 
-## Retrieve node information
+## Node Information
 				
-                
-Use the node operations to view, update, or remove a
-specified node.
-
                 
 ```
 GET /{device_id}/nodes/{node_id}
@@ -1305,8 +1073,6 @@ GET /{device_id}/nodes/{node_id}
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": {
@@ -1314,11 +1080,11 @@ Successfully processed the request.
     "description": null,
     "links": {
       "self": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
         "rel": "self"
       },
       "rel": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
         "rel": "up"
       }
     },
@@ -1328,7 +1094,7 @@ Successfully processed the request.
     "port_number": 12345,
     "limit": 1000,
     "admin_state": "ENABLED",
-    "address": "29.235.243.3",
+    "address": "127.0.0.1",
     "stats": {
       "conn_max": 0,
       "pkts_out": 0,
@@ -1338,7 +1104,7 @@ Successfully processed the request.
       "conn_cur": 0,
       "bytes_out": 0
     },
-    "id": "Node-Test-c4b3b8a5:29.235.243.3:12345",
+    "id": "Node-Test-c4b3b8a5:127.0.0.1.3:12345",
     "vendor_extensions": {
       "reassign_count": 0
     },
@@ -1361,44 +1127,11 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-Not found.
-
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
                 
-## Update node information
+## Update node configuration.
 				
-                
-Use the node operations to view, update, or remove a
-specified node.
-
                 
 ```
 PUT /{device_id}/nodes/{node_id}
@@ -1408,24 +1141,24 @@ PUT /{device_id}/nodes/{node_id}
 			
 				
             
-*This operation accepts a request body:*
+
 
 **Request**
 						
 
 						
+
 ```
 {
-  "account_number": "<Account Number> (required)",
+  "account_number": req"<Account Number>",
   "ip": "<ip>",
   "port": "<port>",
   "label": "<Node Label>",
   "health_strategy": {},
   "admin_state": "<enabled|disabled>"
   "vendor_extensions": {},
-  "comment": "<comment> (required)"
+  "comment": req"comment"
 }
-
 ```
 					
                 
@@ -1435,13 +1168,11 @@ PUT /{device_id}/nodes/{node_id}
 							
 								
 									
-#### PUT Manage node information 202 response
+#### PUT Information about a particular node. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1460,12 +1191,8 @@ The request has been accepted for processing.
 			
         
                 
-## Delete node from the device configuration
+## Delete the Node.
 				
-                
-Use the node operations to view, update, or remove a
-specified node.
-
                 
 ```
 DELETE /{device_id}/nodes/{node_id}
@@ -1475,6 +1202,20 @@ DELETE /{device_id}/nodes/{node_id}
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -1482,13 +1223,11 @@ DELETE /{device_id}/nodes/{node_id}
 							
 								
 									
-#### DELETE Manage node information 202 response
+#### DELETE Information about a particular node. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1511,15 +1250,8 @@ The request has been accepted for processing.
 		
             
                 
-## Enable a node
+## Activate the node.
 				
-                
-Use the node status operations to enable or disable a specified
-node included in the device configuration.
-
-If you want to delete the node from the configuration file, use the
-delete node operation.
-
                 
 ```
 POST /{device_id}/nodes/{node_id}/configuration
@@ -1529,6 +1261,20 @@ POST /{device_id}/nodes/{node_id}/configuration
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -1536,13 +1282,11 @@ POST /{device_id}/nodes/{node_id}/configuration
 							
 								
 									
-#### POST Manage node status 202 response
+#### POST Activate/Deactivate node. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1561,15 +1305,8 @@ The request has been accepted for processing.
 			
         
                 
-## Disable a node
+## Deactivate the node.
 				
-                
-Use the node status operations to enable or disable a specified
-node included in the device configuration.
-
-If you want to delete the node from the configuration file, use the
-delete node operation.
-
                 
 ```
 DELETE /{device_id}/nodes/{node_id}/configuration
@@ -1579,6 +1316,20 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 			
 				
             
+
+
+**Request**
+						
+
+						
+
+```
+{
+  "account_number": req"<Account Number>"
+}
+
+```
+					
                 
 					
 					
@@ -1586,13 +1337,11 @@ DELETE /{device_id}/nodes/{node_id}/configuration
 							
 								
 									
-#### DELETE Manage node status 202 response
+#### DELETE Activate/Deactivate node. response
 									
                                 
 
 							
-The request has been accepted for processing.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",
@@ -1615,10 +1364,8 @@ The request has been accepted for processing.
 		
             
                 
-## Show node statistics
+## Display the stats for given node_id
 				
-                
-Retrieves usage data for a specified node ID.
                 
 ```
 GET /{device_id}/nodes/{node_id}/stats
@@ -1641,8 +1388,6 @@ GET /{device_id}/nodes/{node_id}/stats
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "load_balancer_data": {
@@ -1660,35 +1405,6 @@ Successfully processed the request.
 						
 					
 				
-					
-					
-						
-							
-								
-                                
-#### GET 404 response
-							
-
-							
-Not found.
-
-```
-{
-  "status_code": 404,
-  "response": {
-    "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-    "statusCode": 404,
-    "details": "The requested resource was not found.",
-    "title": "404 Not Found"
-  },
-  "source_of_error": "FIRE_ENGINE",
-  "error": "404 Client Error: Object Not Found"
-}
-```
-							
-						
-					
-				
 			
         
     
@@ -1696,12 +1412,8 @@ Not found.
 		
             
                 
-## List events
+## Returns a list of events.
 				
-                
-Use the events operations to get information about requests to create or
-modify load balancer resources.
-
                 
 ```
 GET /{device_id}/events
@@ -1724,8 +1436,6 @@ GET /{device_id}/events
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "data": [
@@ -1768,13 +1478,8 @@ Successfully processed the request.
 		
             
                 
-## Retrieves event information by event ID.
+## Returns a specfic event info.
 				
-                
-Use the event ID details operation to get information about
-about a specific event including event type, status, message, and
-timestamp.
-
                 
 ```
 GET /{device_id}/events/{event_id}
@@ -1797,8 +1502,6 @@ GET /{device_id}/events/{event_id}
 							
 
 							
-Successfully processed the request.
-
 ```
 {
   "@id": "/loadbalancers/0a68f566-e2f9-11e4-8a00-1681e6b88ec1",

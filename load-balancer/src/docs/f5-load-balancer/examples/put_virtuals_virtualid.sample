@@ -1,0 +1,13 @@
+{
+    "address": "172.16.1.160",
+    "source": "0.0.0.0\/0",
+    "ipProtocol": "tcp",
+    "ipForward": "disabled",
+    "gtmScore": 0,
+    "description": "New Description updated",
+    "port": {
+        "value": 80,
+        "type": "equal"
+    },
+    "connectionLimit": 99
+}

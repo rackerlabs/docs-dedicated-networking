@@ -1,0 +1,31 @@
+{
+  	"data": [
+		{
+			"id": "my-special-node",
+			"address": "127.0.0.1",
+			"curSessions": 1,
+			"monitorRule": {
+				"monitors": [
+				  	"default"
+				],
+				"minimum": "all"
+			},
+			"serverside": {
+				"bitsIn": 1,
+				"bitsOut": 1,
+				"curConns": 1,
+				"maxConns": 2,
+				"pktsIn": 1,
+				"pktsOut": 1,
+				"totConns": 1
+			},
+			"sessionStatus": "fine",
+			"status": {
+				"availabilityState": "available",
+				"enabledState": "maybe",
+				"statusReason": "because"
+			},
+			"totRequests": 3
+		}
+  	]
+}

@@ -1,0 +1,7 @@
+{
+  "names": [
+    "tcp",
+    "https"
+  ],
+  "minimum": 1
+}

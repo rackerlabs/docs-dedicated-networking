@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "port": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "defaultsFrom": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "interval": {
+      "type": "integer"
+    },
+    "ipDscp": {
+      "type": "integer"
+    },
+    "manualResume": {
+      "type": "string"
+    },
+    "recv": {
+      "type": "string"
+    },
+    "recvDisable": {
+      "type": "string"
+    },
+    "reverse": {
+      "type": "string"
+    },
+    "send": {
+      "type": "string"
+    },
+    "timeUntilUp": {
+      "type": "integer"
+    },
+    "timeout": {
+      "type": "integer"
+    },
+    "transparent": {
+      "type": "string"
+    },
+    "upInterval": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

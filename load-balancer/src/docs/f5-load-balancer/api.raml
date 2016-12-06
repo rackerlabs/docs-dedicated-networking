@@ -1,0 +1,1043 @@
+#%RAML 0.8
+title: F5 Load Balancer
+version: 1 <br> <p style="font-size:17px; color:black"><em>Last modified date - June 6, 2016 </em></p><hr>
+baseUri: https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{core_id}
+documentation:
+- title: API Overview
+  content: |
+    This API exposes methods to view and manage F5 Load Balancer resources
+
+- title: Authentication and Authorization
+  content: |
+    Access to this API is granted through a valid token acquired through the Internal Identity service <pending link>.
+    The token is passed within the *X-Auth-Token* HTTP header.
+
+    ** Roles required to access API : <br>**
+    "bpi_lbs_read" is required for GET calls <br>
+    "bpi_lbs_write" is required for PUT, POST, DELETE calls <br>
+- title: Standard errors
+  content: |
+    - **400**: Bad request.
+    - **401**: Authentication error, the user does not have valid authentication details.
+    - **403**: Forbidden, you are not authorized to view this resource.
+    - **404**: The page or resource requested does not exist.
+    - **500**: An indeterminate error occurred. This is caused by an unexpected error.
+    - **501**: Retrieving a list of details is not supported and/or not implemented.
+    - **510**: An indeterminate error occurred. This is caused by an unexpected error.
+
+baseUriParameters:
+  tenant_id:
+    displayName: Tenant ID
+    description: |
+        The account number associated with the core_id
+    type: integer
+  core_id:
+    displayName: CORE Device Number
+    description: |
+        The CORE device number for the loadbalancer.
+    type: integer
+
+mediaType: application/json
+
+securitySchemes:
+  - internalIdentity:
+      description: |
+        Rackspace Internal Identity authentication
+      type: x-auth-token
+      describedBy:
+        headers:
+          X-Auth-Token:
+            description: |
+                Used to send a valid Identity access token.
+            type: string
+        responses:
+          401:
+            description: |
+              Bad or expired token. To fix, you should re-authenticate the user.
+          403:
+            description: |
+              User Doesn't have the required role.
+      settings:
+        identityServiceUri: https://identity-internal.api.rackspacecloud.com/v2.0/
+
+securedBy: [internalIdentity]
+
+/:
+    displayName: Retrieve load balancer details
+    description: |
+        Retrieve load balancer information like the model number, OS version,
+        CPU statistics, and so on.
+    get:
+        responses:
+            200:
+                description: |
+                    Retrieve device information.
+                body:
+                    application/json:
+                        example: !include examples/get_f5_load_balancer_details.sample
+
+
+/nodes:
+    displayName: Nodes
+    description: |
+        Nodes are a combination of an IP and a port that process requests
+        directed from a Pool in a Virtual Server. Nodes can be bound to one or
+        more Pools.
+    get:
+        displayName: Retrieve all nodes
+        description: |
+            Retrieve all nodes that have been configured in the load balancer.
+        responses:
+            200:
+                description: |
+                    Retrieve a list of nodes
+                body:
+                    application/json:
+                        schema: !include schemas/get_nodes.sample
+                        example: !include examples/get_nodes.sample
+
+
+    post:
+        displayName: Create a node
+        description: |
+            Create a node.
+
+            You can use the event ID returned in the API response to submit an
+            event request to verify that the operation completed and get
+            the ID for the new node.
+
+        body:
+            application/json:
+                schema: !include schemas/post_nodes.sample
+                example: !include examples/post_node_by_id_payload.sample
+
+        responses:
+            200:
+                description: |
+                    The node was created successfully.
+                body:
+                    application/json:
+                        example: !include examples/post_node_by_id_response.sample
+
+    /stats:
+        displayName: Retrieve node statistics
+        description: |
+            Retrieve statistics for all nodes that were added to the load
+            balancer.
+
+        get:
+            displayName: Retrieve node statistics
+            description: |
+                Retrieve statistics for each node in the load balancer. You
+                can use links in the response to retrieve information about
+                a specific node.
+            responses:
+                200:
+                    description: |
+                        Retrieve statistics for nodes configured in the load
+                        balancer.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_nodes_stats.sample
+                            example: !include examples/get_nodes_stats.sample
+
+
+    /{nodeId}:
+        displayName: Node
+        description: |
+            Retrieve, update and delete an existing Node specified by a Node id.
+        get:
+            displayName: Retrieve node information by node ID
+            description: |
+                Retrieve node information by node ID.
+            responses:
+                200:
+                    description: |
+                        Returns information about the node associated with the
+                        node ID.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_nodeid.sample
+                            example: !include examples/get_nodeid.sample
+
+        put:
+            displayName: Update a node
+            description: |
+                Change description and configuration settings for an
+                existing node. You need
+                the node ID to complete this operation.
+            body:
+                application/json:
+                    schema: !include schemas/put_nodes.sample
+                    example: !include examples/put_node_by_id_payload.sample
+
+            responses:
+                200:
+                    description: |
+                        The node was successfully updated.
+                    body:
+                        application/json:
+                            example: !include examples/put_node_by_id_response.sample
+
+
+        delete:
+            displayName: Delete a node
+            description: |
+                Remove a node from the load balancer configuration. You need
+                the node ID to complete this operation.
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/delete_node_by_id.sample
+                    description: |
+                        The node was successfully deleted.
+
+        /stats:
+            displayName: Single node statistics
+            description: |
+                Retrieve statistics for a specified node.
+            get:
+                displayName: Retrieve statistics for a specified node.
+                description: |
+                    Retrieve information about availability, session status,
+                    monitor rules for the device with the specified node ID.
+                responses:
+                    200:
+                        description: |
+                            Returns statistics for the specified node.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_nodes_nodeid_stats.sample
+                                example: !include examples/get_nodes_nodeid_stats.sample
+
+
+        /monitor-rule:
+            displayName: Node monitor rule
+            description: |
+                Retrieve, update and delete actions on a Node monitor rule specified by a Node id.
+            get:
+                displayName: Node monitor rule
+                description: |
+                    Retrieve information about the monitorng rule associated
+                    with a specified node.
+                responses:
+                    200:
+                        description: |
+                            Retrieve monitor settings for the specified Node.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_nodes_nodeid_monitor.sample
+                                example: !include examples/get_nodes_nodeid_monitor.sample
+
+
+            post:
+                displayName: Create node monitor rule
+                description: |
+                    Add a monitor rule to automate checks
+                    on a specified node. To find the names of the available
+                    monitors, submit a ``GET monitors`` request.
+
+                body:
+                    application/json:
+                        schema: !include schemas/post_monitor_rule.sample
+                        example: |
+                            {
+                                "names": [
+                                    "https_443"
+                                ],
+                                "minimum": 1
+                            }
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/create_nodes_nodeid_monitor.sample
+                        description: |
+                            Apply monitor rule to the specified node.
+
+            put:
+                displayName: Updates node monitor rule
+                description: |
+                    Update a monitor rule on the specified node.
+
+                body:
+                    application/json:
+                        schema: !include schemas/put_nodes_nodeid_monitor_rule.sample
+                        example: !include examples/put_nodes_nodeid_monitor_rule_example.sample
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/put_nodes_node_id_monitor.example
+                        description: |
+                            Update node monitor rule specified by node id
+
+
+            delete:
+                displayName: Delete node monitor rule
+                description: |
+                    Remove monitor rule from a specified node.
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/delete_pool_monitor_rule.sample
+                        description: |
+                            Delete the monitor rule from the specified node.
+
+
+/pools:
+    displayName: Pools
+    description: |
+        Pools are customizable containers configured on load balancers to
+        specify the backend devices (nodes) for managing web traffic. Each pool
+        can contain zero or more nodes, known as a pool member.
+        Pools can be bound to one or more virtual servers.
+    get:
+        displayName: Retrieve all pools in the load balancer
+        description: |
+            Retrieve all pools created in the current load balancer.
+        responses:
+            200:
+                description: |
+                    Retrieve a list of pools.
+                body:
+                    application/json:
+                        schema: !include schemas/get_pools.sample
+                        example: !include examples/get_pools.sample
+
+
+    /stats:
+        displayName: Pool statistics
+        description: |
+            Retrieve all statitistics associated to all pools that have been
+            created in a load balancer.
+        get:
+            displayName: Retrieve statistics for all pools
+            description: |
+                Retrieve a list of all stats associated with all Pools in a Load Balancer.
+            responses:
+                200:
+                    description: |
+                        Retrieve a list of stats.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_pools_stats.sample
+                            example: !include examples/get_pools_stats.sample
+
+
+    /{poolId}:
+        displayName: Single pool
+        description: |
+            Manage a pool, Retrieve, update and delete specified Pool.
+        get:
+            displayName: Retrieve a single spcified Pool.
+            description: |
+                Retrieve a Pool specified by a Pool id.
+            responses:
+                200:
+                    description: Retrieve the pool specified.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_pools_poolid.sample
+                            example: !include examples/get_pools_poolid.sample
+
+
+        put:
+            displayName: Update Pool
+            description: |
+                Update a Pool specified by a Pool id.
+
+            body:
+                application/json:
+                    schema: !include schemas/put_pool.sample
+                    example: !include examples/pool_put_body.sample
+
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/pool_put_response_200.sample
+                    description: |
+                        Update a Pool specified by a Pool id
+
+        delete:
+            displayName: Delete pool
+            description: |
+                Remove a specified pool from the load balancer configuration.
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/pool_delete_response_200.sample
+                    description: |
+                        Delete a pool specified by a Pool id
+
+
+        /stats:
+            displayName: Pool member statistics
+            get:
+                displayName: Retrieve statistics for pool members
+                description: |
+                  Retrieve statistics for each pool member in a specified pool
+                  including configuration settings, availability and monitoring
+                  status. The response includes links to access a detail view
+                  for each member.
+                  responses:
+                    200:
+                        description: |
+                            Successfully retrieved statistics for pool members.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_pools_poolid_stats.sample
+                                example: !include examples/get_pools_poolid_stats.sample
+
+
+        /monitor-rule:
+            displayName: Pool monitor rule
+            description: |
+                Retrieve a monitor rule associated with a specified pool.
+            get:
+                displayName: Retrieve a monitor rule for a pool
+                description: |
+                    Retrieve a monitor rule for the specified pool
+
+                responses:
+                    200:
+                        description: |
+                            Retrieve the monitor-rule specified.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_pools_poolid_monitor_rule.sample
+                                example: !include examples/get_pools_poolid_monitor_rule.sample
+
+            post:
+                displayName: Create pool monitor rule.
+                description: |
+                     Add a monitor rule to automate checks
+                     on a specified node. To find the names of the available
+                     monitors, submit a ``GET monitors`` request.
+                body:
+                    application/json:
+                        schema: !include schemas/post_monitor_rule.sample
+                        example: |
+                            {
+                                "names": [
+                                    "tcp"
+                                ],
+                                "minimum": 1
+                            }
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/create_pools_poolid_monitor_rule.sample
+                        description: |
+                            Create a monitor rule for the specified pool.
+
+            put:
+                displayName: Update pool monitor rule.
+                description: |
+                    Update a monitor rule for the specified pool.
+
+                body:
+                    application/json:
+                        schema: !include schemas/post_monitor_rule.sample
+                        example: |
+                            {
+                                "names": [
+                                    "tcp"
+                                ],
+                                "minimum": "all"
+                            }
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/update_pools_poolid_monitor_rule.sample
+                        description: |
+                            Update a monitor Rule for the specified Pool.
+
+            delete:
+                displayName: Delete pool monitor rule.
+                description: |
+                    Delete a monitor rule for the specified pool.
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/delete_pools_poolid_monitor_rule.sample
+                        description: |
+                            Delete a monitor rule for the specified pool.
+
+
+        /members:
+            displayName: Pool members
+            description: |
+                Retrieve and create pool members within a specified pool.
+            get:
+                displayName: Retrieve pool members
+                description: |
+                    Retrieve pool members for the specified pool ID.
+                responses:
+                    200:
+                        description: |
+                            Retrieve a list of members associated with a
+                            specific pool ID.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_pools_poolid_members.sample
+                                example: !include examples/get_pools_poolid_members.sample
+
+            post:
+                displayName: Add a pool member
+                description: |
+                    Creates a pool member by adding an existing node to a
+                    specified pool.
+
+                body:
+                    application/json:
+                        schema: !include schemas/post_pools_poolid_members_memberid.sample
+                        example: !include examples/post_pools_poolid_members_memberid.sample
+
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/post_pools_poolid_members_memberid_example.sample
+                        description: |
+                            Added pool member to the specified pool.
+
+            /stats:
+                displayName: Pool member statistics
+                get:
+                    displayName: Retrieve pool member statistics
+                    description: |
+                        Retrieve statistics for a specific pool member in a
+                        specified pool including configuration settings,
+                        availability and monitoring status.
+                    responses:
+                        200:
+                            body:
+                                application/json:
+                                    schema: !include schemas/get_pools_poolid_members_stats.sample
+                                    example: !include examples/get_pools_poolid_members_stats.sample
+                            description: |
+                                 Successfully returned pool member statistics.
+
+
+            /{memberId}:
+                displayName: Pool member
+                description: |
+                    Retrieve, update and delete a pool member specified by a member id.
+                get:
+                    displayName: Retrieve pool member details
+                    description: |
+                        Retrieve configuration, monitor settings, and other
+                        data for a pool member.eee
+                    responses:
+                        200:
+                            body:
+                                application/json:
+                                    schema: !include schemas/get_pools_poolid_members_memberid.sample
+                                    example: !include examples/get_pools_poolid_members_memberid.sample
+
+
+                put:
+                    displayName: Update a pool member
+                    description: |
+                        Update configuration settings for a specified pool
+                        member
+
+                    body:
+                        application/json:
+                            schema: !include schemas/put_pools_poolid_members_memberid.sample
+                            example: !include examples/put_pools_poolid_members_memberid.sample
+
+                    responses:
+                        200:
+                            body:
+                                application/json:
+                                    example: !include examples/put_pools_poolid_members_memberid_example.sample
+                            description: |
+                                Update a pool member by pool id.
+
+
+                delete:
+                    displayName: Delete pool member from pool
+                    description: |
+                       Remove a pool member from the specified pool.
+                    responses:
+                        200:
+                            body:
+                                application/json:
+                                    example: !include examples/delete_pools_poolid_members_memberid_example.sample
+                            description: |
+                                Delete a pool member by pool id.
+
+
+                /monitor-rule:
+                    displayName: Manage monitor rule for a pool member
+                    description: |
+                        Retrieve, add, update and delete monitor rule for
+                        a pool member
+                    get:
+                        displayName: Retrieve monitor rule for member
+                        description: |
+                            Retrieves configuration settings for the monitor
+                            rule applied to a specified pool member
+                        responses:
+                            200:
+                                body:
+                                    application/json:
+                                        example: !include examples/get_pools_poolid_members_monitor-rule.sample
+                                description: |
+                                    Retrieve a pool member monitor rule.
+
+                    post:
+                        displayName: Apply monitor rule to a pool member
+                        description: |
+                            Add a monitor to a pool member in the specified
+                            pool.
+
+                        body:
+                          application/json:
+                            schema: !include schemas/post_monitor_rule.sample
+                            example: !include examples/post_pools_poolid_members_memberid_monitor_rule_request.sample
+                        responses:
+                            200:
+                                body:
+                                    application/json:
+                                        schema: !include schemas/post_monitor_rule.sample
+                                        example: !include examples/post_pools_poolid_members_memberid_monitor_rule_response.sample
+                                description: |
+                                    Create a pool Member Monitor Rule.
+
+                    put:
+                        displayName: Update pool member monitor ruleee
+                        description: |
+                            Update the configuration settings for a
+                            monitor rule applied to a specified pool member
+                        body:
+                          application/json:
+                            schema: !include schemas/post_monitor_rule.sample
+                            example: !include examples/put_pools_poolid_members_memberid_monitor_rule_request.sample
+                        responses:
+                            200:
+                                body:
+                                    application/json:
+                                        example: !include examples/put_pools_poolid_members_memberid_monitor_rule_response.sample
+                                description: |
+                                    Returns event information for the
+                                    update monitor rule request. Use the
+                                    event ID to get event status and output
+                                    information.
+
+                    delete:
+                        displayName: Delete monitor rule from pool member
+                        description: |
+                            Remove the monitor rule applied to a specified
+                            pool member (``memberId``) in a specified pool
+                            (``poolId``).
+                        responses:
+                            200:
+                                body:
+                                    application/json:
+                                        example: !include examples/delete_pools_poolid_members_memberid_monitor_rule_response.sample
+                                description: |
+                                    Returns event information for the
+                                    update monitor rule request. Use the
+                                    event ID to get event status and output
+                                    information.
+
+
+                /stats:
+                    displayName: Retrieve pool member statistics
+                    get:
+                        description: |
+                            Retrieve a list of statistics
+                        responses:
+                            200:
+                                body:
+                                    application/json:
+                                        schema: !include schemas/get_pools_poolid_members_memberid_stats.sample
+                                        example: !include examples/get_pools_poolid_members_memberid_stats.sample
+                                description: |
+                                    Retrieve a list of stats.
+
+
+/virtuals:
+    displayName: Virtuals
+    description: |
+        Virtuals define virtual server configurations in the load balancer.
+        Each configuration specifies the port and ip to route web traffic to
+        the load balancer and distribute it among the backend devices
+        configured in a load balancer pool. Virtuals can be associated with
+        one or more pools.
+
+    get:
+        displayName: Retrieve virtual servers
+        description: |
+            Retrieve details about virtuals configured in the load balancer
+            including configuration data and status information.
+        responses:
+            200:
+                description: |
+                    Returns detailed information about each virtual server
+                    configured in the load balancer.
+                body:
+                    application/json:
+                        schema: !include schemas/get_virtuals.sample
+                        example: !include examples/get_virtuals.sample
+
+
+    post:
+        displayName: Create Virtual
+        description: |
+            Add a virtual server configuration to the load balancer. When you
+            add the
+            not need to supply an
+            include the
+            **`address` is not required, however, if supplied, it will update
+            an existing Virtual. To create a new virtual, you must not
+            provide an IP or provide a different port number.**
+
+        body:
+            application/json:
+                schema: !include schemas/post_virtual.sample
+                example: !include examples/post_virtuals_virtualid.sample
+        responses:
+            200:
+                body:
+                    application/json:
+                        example: !include examples/post_virtuals_virtualid_response.sample
+                description: |
+                    Returns event information for the request. Use the event
+                    ID to get event status and output information.
+
+
+    /stats:
+        displayName: Virtual statitistics
+        description: |
+            Retrieve a list of stats for all Virtuals in the Load Balancer.
+        get:
+            displayName: Retrieve Virtual Stats
+            description: |
+                Retrieve a list of stats for all Virtuals in the Load Balancer.
+            responses:
+                200:
+                    description: |
+                        Retrieve a list of stats for all Virtuals in the Load Balancer.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_virtuals_stats.sample
+                            example: !include examples/get_virtuals_stats.sample
+
+
+
+    /{virtualId}:
+        displayName: A Virtual
+        description: |
+            Retrieve, update and delete a Virtual in a Load Balancer specified by a Virtual id.
+        get:
+            displayName: Retrieve A Virtual
+            description: |
+                Retrieve a Virtual in a Load Balancer specified by a Virtual id.
+            responses:
+                200:
+                    description: |
+                        Retrieve the Virtual specified.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_virtuals_virtualid.sample
+                            example: !include examples/get_virtuals_virtualid.sample
+
+
+        put:
+            displayName: Update virtual
+            description: |
+                Update a virtual in a load balancer specified by virtual id
+                **`address` and port are required in order to make an update on the existing virtual.**
+
+            body:
+                application/json:
+                    schema: !include schemas/put_virtual_virtualid.sample
+                    example: !include examples/put_virtuals_virtualid.sample
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/put_virtuals_virtualid_response.sample
+                    description: |
+                        Returns event information for the request. Use the
+                        event ID to get event status and output information.
+
+        delete:
+            displayName: Delete virtual
+            description: |
+                Delete a virtual in a load balancer specified by virtual id.
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/delete_virtuals_virtualid_response.sample
+                    description: |
+                        Returns event information for the request. Use the
+                        event ID to get event status and output information.
+
+
+        /traffic-classes:
+            displayName: Virtual Traffic Classes
+            description: |
+                Retrieve, update and delete Virtual traffic classes in the Load Balancer.
+
+                **Has not been implemented**
+            get:
+                displayName: Retrieve Traffic Classes
+                description: |
+                    Retrieve Virtual's Traffic Classes
+                responses:
+                    200:
+                        description: |
+                            Retrieve the traffic classes specified.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_virtuals_virtualid_traffic_classess.sample
+                                example: !include examples/get_virtuals_virtualid_traffic_classess.sample
+
+
+        /persists:
+            displayName: Single Virtual Persists
+            description: |
+                Retrieve, update and delete a single Virtual's persists in the Load Balancer.
+            get:
+                displayName: Retrieve a Virtual Persists
+                description: |
+                    Retrieve a single Virtual's persists.
+                responses:
+                    200:
+                        description: |
+                            Retrieve the persists specified.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_virtuals_virtualid_persist.sample
+                                example: !include examples/get_virtuals_virtualid_persist.sample
+
+            post:
+                displayName: Create a Virtual Persists
+                description: |
+                    Create a Virtual Persists in the F5 load balancer
+
+                body:
+                    application/json:
+                        schema: !include schemas/put_virtual_persists_payload.sample
+                        example: !include examples/post_virtual_persists_payload.sample
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/post_virtual_persists_response.sample
+                        description: |
+                            Create a Virtual Persists in the F5 load balancer.
+
+            put:
+                displayName: Update a Virtual Persists
+                description: |
+                    Update a Virtual Persists.
+
+                body:
+                    application/json:
+                       schema: !include schemas/put_virtual_persists_payload.sample
+                       example: !include examples/put_virtual_persists_payload.sample
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/put_virtual_persists_response.sample
+                        description: |
+                            Update a Virtual Persists in the F5 load balancer.
+
+            delete:
+                displayName: Delete a Virtual Persists
+                description: |
+                    Delete a Virtual Persists in the F5 load balancer
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: !include examples/delete_virtual_persists.sample
+                        description: |
+                            Delete a Virtual Persists in the F5 load balancer.
+
+
+        /stats:
+            displayName: Virtual server statistics
+            description: |
+                Retrieve stats for a Virtual specified by a Virtual id in the Load Balancer.
+            get:
+                displayName: A Virtual's Stats
+                description: |
+                    Retrieve stats for a Virtual specified by a Virtual id.
+                responses:
+                    200:
+                        description: |
+                            Retrieve a list of stats.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_virtuals_virtualid_stats.sample
+                                example: !include examples/get_virtuals_virtualid_stats.sample
+
+
+
+        /auth:
+            displayName: Virtual
+            description: |
+                Retrieve, update and delete a Virtual's Auth in the Load Balancer.
+
+                **Has not been implemented**
+            get:
+                displayName: Retrieve A Virtual's Auth
+                description: |
+                    Retrieve a Virtual's auth specified by a Virtual id.
+                responses:
+                    200:
+                        description: |
+                            Retrieve the auth specified.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_virtuals_virtualid_auth.sample
+                                example: !include examples/get_virtuals_virtualid_auth.sample
+
+
+        /pool:
+            displayName: Virtual server pool
+            description: |
+                Retrieve a virtual pool specified by the virtual pool specified by pool ID.
+            get:
+                displayName: Retrieve a virtual pool
+                description: |
+                    Retrieve a virtual pool by virtual ID.
+                responses:
+                    200:
+                        description: |
+                            Retrieve a list of pools.
+                        body:
+                            application/json:
+                                schema: !include schemas/get_virtuals_virtualid_pools.sample
+                                example: !include examples/get_virtuals_virtualid_pools.sample
+
+
+/monitors:
+    displayName: Monitors
+    description: |
+        Monitors verify the health and availability of a Node, a Pool, or group of Nodes in a Pool.
+    get:
+        displayName: Retrieve monitors
+        description: |
+            Retrieve all monitors in load balancer.
+        responses:
+            200:
+                description: |
+                    Retrieve a list of monitors.
+                body:
+                    application/json:
+                        schema: !include schemas/get_monitors.sample
+                        example: !include examples/get_monitors.sample
+
+    /{monitorId}:
+        displayName: Monitor
+        description: |
+            Retrieve, create, update and delete a monitor in a load balancer
+            specified by a monitor id.
+        get:
+            responses:
+                200:
+                    description: |
+                        Retrieve details about a specified monitor.
+                    body:
+                        application/json:
+                            schema: !include schemas/get_monitors_monitorid.sample
+                            example: !include examples/get_monitors_monitorid.sample
+
+        post:
+            displayName: Create a monitor in the load balancer
+            description: |
+                Create a monitor
+
+            body:
+                application/json:
+                    schema:  !include schemas/put_monitor_payload.sample
+                    example: !include examples/post_monitor_payload.sample
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/post_monitor_response.sample
+                    description: |
+                        Add a monitor to the load balancer configuration.
+
+        put:
+            displayName: Update a monitor in the load balancers
+            description: |
+                Update a monitor in the load balancer.
+
+            body:
+                application/json:
+                    schema:  !include schemas/put_monitor_payload.sample
+                    example: !include examples/put_monitor_payload.sample
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/put_monitor_response.sample
+                    description: |
+                        Update a monitor in the load balancer.
+
+        delete:
+            displayName: Delete a monitor
+            description: |
+                Remove a monitor from the load balancer configuration
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/delete_monitors_response.sample
+                    description: |
+                        Delete monitor from the load balancer configuration.
+
+
+/events:
+    displayName: Events
+    description: |
+        Retrieve all events.
+    get:
+        displayName: Retrieve all events
+        description: |
+            Retrieve all events
+        responses:
+            200:
+                body:
+                    application/json:
+                        example: !include examples/get_events.sample
+                description: |
+                    Returns information about events logged in the system
+                    log files.
+
+
+    /{eventId}:
+        displayName: Single Event
+        description: |
+            Retrieve event information by event ID.
+        get:
+            displayName: Retrieve an event
+            description: |
+                Retrieve event by event id.
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: !include examples/get_events.sample
+                    description: |
+                        Returns information about the event with the
+                        specified ID.

@@ -1,0 +1,27 @@
+{
+    "data": [
+        {
+            "id": "127.0.0.1:80",
+            "address": "127.0.0.1",
+            "appService": null,
+            "connectionLimit": 0,
+            "description": null,
+            "dynamicRatio": 1,
+            "inheritProfile": "enabled",
+            "logging": "disabled",
+            "monitor": "default",
+            "priorityGroup": 0,
+            "rateLimit": "disabled",
+            "ratio": 1,
+            "session": "monitor-enabled",
+            "state": "down",
+            "metadata": {
+                "href": "https://localhost/f5/12345/nodes/127.0.0.1/metadata"
+            },
+            "monitors": {
+                "href": "https://localhost/f5/12345/nodes/127.0.0.1/monitors"
+            },
+            "profiles": []
+        }
+    ]
+}

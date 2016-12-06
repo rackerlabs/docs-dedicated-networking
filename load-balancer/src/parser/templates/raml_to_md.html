@@ -21,7 +21,7 @@
 *This operation does not accept a request body.*
             {% endif %}
             {% if mthds['body'] %}
-*This operation accepts a request body:*
+
 
 **Request**
 						{% if mthds['body']['application/json']['example'] %}
@@ -29,6 +29,7 @@
 						{% elif mthds['body']['application/json']['schema'] %}
 {% set sample = mthds['body']['application/json']['schema'] %}
 						{% endif %}
+
 ```
 {{sample}}
 ```
@@ -40,7 +41,7 @@
 							{% if details['example'] %}
 								{% if code != 'get' %}
 									{% if value['displayName'] %}
-#### {{code|upper}} {{value['displayName']}} {{status_code}} response
+#### {{code|upper}} {{value['displayName']}} response
 									{% else %}
 #### {{code|upper}} {{status_code}} response
 								{% endif %}

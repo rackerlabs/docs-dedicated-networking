@@ -1,134 +1,132 @@
 .. _list-load-balancer-details:
 
-List load balancer details
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Retrieve load balancer details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This operation provides detailed output for a specific load balancer
-configured and associated with your account. This operation is not
-capable of returning details for a load balancer which has been deleted.
+You can get detailed information about the load balancers associated
+with your account by submitting a GET request to the ref:`base URL <base-url-f5>`
+for a specific load balancer configured and associated with your account.
+Information includes identification details, load balancer hardware and software
+specifications, network configuration, high availability status,
+uptime, and other information.
 
-This operation does not require a request body.
-
-The examples list the details for the load balancer (with
-**load\_balancer\_id**, which you will need to replace in the URL in the
-example below) that you created in the previous section.
-
-The following examples show the cURL requests for List Load Balancer
-Details:
-
-**Example: cURL List Load Balancer details request: XML**
-
-.. code::
-
-    curl -s  \
-    -H "X-Auth-Token: $AUTH_TOKEN"  \
-    -H "X-Project-Id: $TENANT_ID" \
-    -H "Accept: application/xml"  \
-    "$API_ENDPOINT/loadbalancers/load_balancer_id" | ppxml
-
-**Example: cURL List Load Balancer details request: JSON**
-
-.. code::
-
-    curl -s  \
-    -H "X-Auth-Token: $AUTH_TOKEN"  \
-    -H "X-Project-Id: $TENANT_ID" \
-    -H "Accept: application/json"  \
-    "$API_ENDPOINT/loadbalancers/load_balancer_id" | python -m json.tool
+This operation does not provide any information about load balancers that
+have been deleted.
 
 
-The following examples show the List Load Balancer details responses:
+**Example: Retrieve load balancer information cURL request**
 
-**Example: List Load Balancer details response: XML**
+.. code:: bash
 
-.. code::
+   curl $BASE_URL \
+      -H "X-Auth-Token: $TOKEN" \
+      -H "Content-type: application/json" | python -m json.tool
 
-    <loadBalancer xmlns="http://docs.openstack.org/loadbalancers/api/v1.0"
-        id="5355"
-        name="a-new-loadbalancer"
-        protocol="HTTP"
-        port="80"
-        algorithm="RANDOM"
-        status="ACTIVE"
-        timeout="30">
-        <connectionLogging enabled="false" />
-        <virtualIps>
-            <virtualIp
-                id="1163"
-                address="50.56.166.100"
-                ipVersion="IPV4"
-                type="PUBLIC" />
-            <virtualIp
-                id="9002499"
-                address="2001:4800:7901:0000:9c92:6fca:0000:0001"
-                ipVersion="IPV6"
-                type="PUBLIC"/>
-        </virtualIps>
-        <nodes>
-            <node
-                id="44615"
-                address="50.56.207.146"
-                port="80"
-                condition="ENABLED"
-                status="ONLINE" />
-        </nodes>
-        <cluster name="ztm-n02.lbaas.dfw1.rackspace.net" />
-        <created time="2010-11-30T03:23:42Z" />
-        <updated time="2010-11-30T03:23:44Z" />
-        <sourceAddresses ipv4Servicenet="10.183.250.133" ipv4Public="174.143.139.133" ipv6Public="2001:4800:7901::2/64"/>
-    </loadBalancer>
+This request does not accept a request body.
 
-**Example: List Load Balancer details response: JSON**
+If the request is successful, you see an HTTP 200 response header
+followed a listing of the load balancer information.
 
-.. code::
+**Example: Retrieve load balancer details response**
 
-    {
-        "loadBalancer":{
-            "id": 5355,
-            "name":"a-new-loadbalancer",
-            "protocol":"HTTP",
-            "port": 80,
-            "algorithm":"RANDOM",
-            "status":"ACTIVE",
-            "timeout": 30,
-            "connectionLogging":{
-                "enabled":false
-            },
-            "virtualIps":[
-                {
-                    "id": 1163,
-                    "address":"50.56.166.100",
-                    "ipVersion":"IPV4",
-                    "type":"PUBLIC"
-                },
-                {
-                    "id": 9002499,
-                    "address":"2001:4800:7901:0000:9c92:6fca:0000:0001",
-                    "ipVersion":"IPV6",
-                    "type":"PUBLIC"
-                }
-            ],
-            "nodes":[
-                {
-                    "id": 44615,
-                    "address":"50.56.207.146",
-                    "port": 80,
-                    "condition":"ENABLED",
-                    "status":"ONLINE"
-                }
-            ],
-            "cluster":{
-                "name":"ztm-n02.lbaas.dfw1.rackspace.net"
-            },
-            "created":{
-                "time":"2010-11-30T03:23:42Z"
-            },
-            "updated":{
-                "time":"2010-11-30T03:23:44Z"
-            },
-            "accountLoadBalancerServiceEvents":{
-                "accountId":406271
-            },
-            "sourceAddresses":{"ipv6Public":"2001:4800:7901::2/64","ipv4Servicenet":"10.183.250.133","ipv4Public":"174.143.139.133"}
-        }
-    }
+.. code:: bash
+
+   {
+       "data": [
+           {
+               "cpu_load": [
+                   {
+                       "average": {
+                           "percent_load": 10,
+                           "seconds_since": 0
+                       },
+                       "last_peak_load": {
+                           "percent_load": 49,
+                           "seconds_since": 0
+                       },
+                       "load_1_sec_avg": {
+                           "percent_load": 9,
+                           "seconds_since": 0
+                       },
+                       "load_300_sec_avg": {
+                           "percent_load": -1,
+                           "seconds_since": -1
+                       },
+                       "load_5_sec_avg": {
+                           "percent_load": -1,
+                           "seconds_since": -1
+                       },
+                       "load_60_sec_avg": {
+                           "percent_load": -1,
+                           "seconds_since": -1
+                       },
+                       "mod_name": "System CPU"
+                   }
+               ],
+               "customer": "990037",
+               "firmware_version": "",
+               "ha_role": "true",
+               "ha_status": "active",
+               "hostname": "tlb1-example-1600.rackspace.com",
+               "id": "349737",
+               "links": [
+                   {
+                       "availability": {
+                           "href": "https://fe.netsec.rackspace.net/loadbalancers/127.0.0.1/availability",
+                           "rel": "related"
+                       },
+                       "config": {
+                           "href": "https://localhost/f5/127.0.0.1/config",
+                           "rel": "related"
+                       },
+                       "device": {
+                           "href": "https://fe.netsec.rackspace.net/devices/127.0.0.1",
+                           "rel": "alternate"
+                       },
+                       "lb": {
+                           "href": "https://fe.netsec.rackspace.net/f5",
+                           "rel": "up"
+                       },
+                       "monitors": {
+                           "href": "https://localhost/f5/127.0.0.1/monitors",
+                           "rel": "related"
+                       },
+                       "nodes": {
+                           "href": "https://localhost/f5/127.0.0.1/nodes",
+                           "rel": "related"
+                       },
+                       "pools": {
+                           "href": "https://localhost/f5/127.0.0.1/pools",
+                           "rel": "related"
+                       },
+                       "self": {
+                           "href": "https://localhost/f5/127.0.0.1",
+                           "rel": "self"
+                       },
+                       "virtuals": {
+                           "href": "https://localhost/f5/127.0.0.1/virtuals",
+                           "rel": "related"
+                       }
+                   }
+               ],
+               "management_ip": "10.12.144.24",
+               "model_name": "BIG-IP 1600",
+               "os_version": "11.5.4, build: 2.0.291, edition: Hotfix HF2",
+               "ram_mem": [
+                   {
+                       "free_kbytes": "164334",
+                       "name": "TMM",
+                       "total_kbytes": "4158235",
+                       "used_kbytes": "1874854"
+                   }
+               ],
+               "role": "unimplemented",
+               "uptime": "23 days,  6:01"
+           }
+       ]
+   }
+
+The response includes an array of links that you can use to retrieve
+additional information about the load balancer configuration and other
+details. For example, use the nodes link to retrieve information about
+all the nodes configured in the load balancer.

@@ -1,0 +1,7 @@
+{
+    "nodeId": "<nodeId>",
+    "port": {
+        "type": "equal",
+        "value": 80
+    }
+}

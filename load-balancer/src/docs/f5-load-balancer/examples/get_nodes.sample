@@ -1,0 +1,30 @@
+{
+    "data": [
+        {
+            "id": "127.0.0.1",
+            "address": "127.0.0.1",
+            "appService": "none",
+            "connectionLimit": 0,
+            "description": "a node",
+            "dynamicRatio": 1,
+            "logging": "disabled",
+                "metadata": {
+                    "href": "https://localhost/f5/127.0.0.1/metadata"
+                },
+            "monitors": {
+                "href": "https://localhost/f5/12345/nodes/127.0.0.1/monitors"
+            },
+            "partition": "Common",
+            "rateLimit": "disabled",
+            "ratio": 1,
+            "session": "user-enabled",
+            "state": "unchecked",
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "https://localhost/f5/12345/nodes/127.0.0.1"
+                }
+            ]
+        }
+    ]
+}
