@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "127.0.0.1:80",
+      "port": {
+        "type": "equal",
+        "value": 80
+      },
+      "monitors": {
+        "href": "https://fe.netsec.rackspace.net/f5/12345/monitors"
+      },
+      "address": "127.0.0.1",
+      "appService": "none",
+      "connectionLimit": 0,
+      "description": "none",
+      "dynamicRatio": 1,
+      "inheritProfile": "enabled",
+      "logging": "disabled",
+      "monitor": "default",
+      "priorityGroup": 0,
+      "rateLimit": "disabled",
+      "ratio": 1,
+      "session": "monitor-enabled",
+      "state": "down",
+      "metadata": {
+        "href": "https://fe.netsec.rackspace.net/f5/12345/metadata"
+      },
+      "profiles": [],
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://fe.netsec.rackspace.net/f5/12345/pools/my-pool/members/127.0.0.1:80"
+        }
+      ]
+    }
+  ]
+}

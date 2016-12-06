@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "virtualGET",
+    "description": "Get a Virtual in the Load Balancer",
+    "type": "object",
+    "$ref": "virtual.json"
+}

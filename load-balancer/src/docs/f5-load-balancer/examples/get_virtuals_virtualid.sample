@@ -1,0 +1,72 @@
+{
+    "data": [
+        {
+            "id": "VIP-127.0.0.1-80",
+            "address": "127.0.0.1",
+            "addressStatus": "yes",
+            "appService": "none",
+            "auth": "none",
+            "autoLasthop": "default",
+            "bwcPolicy": "none",
+            "clonePools": "none",
+            "cmpEnabled": "yes",
+            "connectionLimit": 0,
+            "description": "none",
+            "destination": "127.0.0.1:http",
+            "enabled": "enabled",
+            "fallbackPersistence": "none",
+            "gtmScore": 0,
+            "ipForward": "",
+            "ipProtocol": "tcp",
+            "lastHopPool": "none",
+            "mask": "255.255.255.255",
+            "metadata": "none",
+            "mirror": "disabled",
+            "mobileAppTunnel": "disabled",
+            "nat64": "disabled",
+            "partition": "Common",
+            "persist": {
+                "cookie": {
+                    "default": "yes"
+                }
+            },
+            "policies": "none",
+            "pool": {
+                "href": "https://fe.netsec.rackspace.net/f5/12345/pools/POOL-127.0.0.1-80"
+            },
+            "port": {
+                "type": "equal",
+                "value": 80
+            },
+            "profiles": {
+                "http": {
+                    "context": "all"
+                },
+                "tcp": {
+                    "context": "all"
+                }
+            },
+            "rateClass": "none",
+            "rateLimit": "disabled",
+            "rateLimitDstMask": 0,
+            "rateLimitMode": "object",
+            "rateLimitSrcMask": 0,
+            "relatedRules": "none",
+            "rules": "none",
+            "securityLogProfiles": "none",
+            "source": "0.0.0.0/0",
+            "sourceAddressTranslation": {
+                "pool": "none",
+                "type": "none"
+            },
+            "sourcePort": "preserve",
+            "synCookieStatus": "not-activated",
+            "trafficClasses": "none",
+            "translateAddress": "enabled",
+            "translatePort": "enabled",
+            "vlans": "none",
+            "vlansDisabled": "vlans-disabled",
+            "vsIndex": 7
+        }
+    ]
+}

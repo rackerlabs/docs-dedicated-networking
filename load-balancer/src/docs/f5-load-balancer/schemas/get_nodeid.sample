@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "nodeGET",
+  "description": "Get a Node in the Load Balancer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "node.json"
+    }
+  ],
+  "properties": {
+    "partition": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "link.json"
+    },
+    "monitors": {
+      "$ref": "link.json"
+    }
+  },
+  "required": [
+    "partition",
+    "metadata",
+    "monitors"
+  ]
+}

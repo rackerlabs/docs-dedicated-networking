@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "memberGET",
+  "description": "Get a Pool in the Load Balancer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "member.json"
+    }
+  ],
+  "properties": {
+    "metadata": {
+      "$ref": "link.json"
+    },
+    "monitors": {
+      "$ref": "link.json"
+    }
+  },
+  "required": [
+    "address",
+    "appService",
+    "connectionLimit",
+    "description",
+    "dynamicRatio",
+    "id",
+    "inheritProfile",
+    "logging",
+    "metadata",
+    "monitors",
+    "priorityGroup",
+    "profiles",
+    "rateLimit",
+    "ratio",
+    "session",
+    "state"
+  ]
+}

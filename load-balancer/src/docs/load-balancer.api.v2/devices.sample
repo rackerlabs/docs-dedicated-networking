@@ -1,11 +1,11 @@
 {
   "load_balancer_data": {
-    "customer": "2222222",
+    "customer": "1234567",
     "uptime": "unimplemented",
-    "hostname": "adx1000-cyberdyne.iad3.netdev.net",
+    "hostname": "adx1000-examplehost.iad3.netdev.net",
     "links": {
       "device": {
-        "href": "https://api-qual.netsec.rackspace.net/devices/111111",
+        "href": "https://api-qual.netsec.rackspace.net/devices/1234567",
         "rel": "alternate"
       },
       "lb": {
@@ -13,15 +13,15 @@
         "rel": "up"
       },
       "self": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567",
         "rel": "self"
       },
       "vips": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/vips",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/vips",
         "rel": "related"
       },
       "nodes": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/nodes",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
         "rel": "related"
       }
     },
@@ -40,9 +40,9 @@
         "used_kbytes": "109788"
       }
     ],
-    "id": "111111",
-    "os_version": "12.4.00sT403",
-    "management_ip": "10.17.25.108",
+    "id": "1234567",
+    "os_version": "127.0.00sT403",
+    "management_ip": "127..0.0.1",
     "role": "unimplemented",
     "cpu_load": [
       {
@@ -82,6 +82,6 @@
       }
     ],
     "ha_status": "none",
-    "model_name": "SI-1216-4-PREM"
+    "model_name": "SI-1216-4-EXAMPLE"
   }
 }

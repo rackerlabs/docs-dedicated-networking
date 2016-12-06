@@ -1,0 +1,53 @@
+"data": [
+        {
+            "_links": {
+                "self": {
+                    "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391371"
+                }
+            },
+            "address": "192.168.20.47",
+            "appService": null,
+            "connectionLimit": 0,
+            "description": null,
+            "dynamicRatio": 1,
+            "id": "VM-391371",
+            "logging": "disabled",
+            "metadata": {
+                "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391371/metadata"
+            },
+            "monitorRule": {
+                "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391371/monitor-rule"
+            },
+            "partition": "Common",
+            "rateLimit": "disabled",
+            "ratio": 1,
+            "session": "user-enabled",
+            "state": "unchecked"
+        },
+        {
+            "_links": {
+                "self": {
+                    "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391370"
+                }
+            },
+            "address": "192.168.20.46",
+            "appService": null,
+            "connectionLimit": 0,
+            "description": null,
+            "dynamicRatio": 1,
+            "id": "VM-391370",
+            "logging": "disabled",
+            "metadata": {
+                "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391370/metadata"
+            },
+            "monitorRule": {
+                "href": "https://fe.netsec.rackspace.net/f5/349759/nodes/VM-391370/monitor-rule"
+            },
+            "partition": "Common",
+            "rateLimit": "disabled",
+            "ratio": 1,
+            "session": "user-enabled",
+            "state": "unchecked"
+        }
+        ]
+        }

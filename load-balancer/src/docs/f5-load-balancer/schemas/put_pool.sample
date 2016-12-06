@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "allowNat": {
+      "type": "string"
+    },
+    "allowSnat": {
+      "type": "string"
+    },
+    "appService": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "gatewayFailsafeDevice": {
+      "type": "string"
+    },
+    "ignorePersistedWeight": {
+      "type": "string"
+    },
+    "ipTosToClient": {
+      "type": "string"
+    },
+    "ipTosToServer": {
+      "type": "string"
+    },
+    "linkQosToClient": {
+      "type": "string"
+    },
+    "linkQosToServer": {
+      "type": "string"
+    },
+    "loadBalancingMode": {
+      "type": "string"
+    },
+    "minActiveMembers": {
+      "type": "integer"
+    },
+    "minUpMembers": {
+      "type": "integer"
+    },
+    "minUpMembersAction": {
+      "type": "string"
+    },
+    "minUpMembersChecking": {
+      "type": "string"
+    },
+    "profiles": {
+      "type": "string"
+    },
+    "queueDepthLimit": {
+      "type": "integer"
+    },
+    "queueOnConnectionLimit": {
+      "type": "string"
+    },
+    "queueTimeLimit": {
+      "type": "integer"
+    },
+    "reselectTries": {
+      "type": "integer"
+    },
+    "serviceDownAction": {
+      "type": "string"
+    },
+    "slowRampTime": {
+      "type": "integer"
+    }
+  },
+  "required": [
+  ]
+}

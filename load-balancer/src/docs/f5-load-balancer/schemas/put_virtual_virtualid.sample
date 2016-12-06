@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "ipProtocol": {
+      "type": "string"
+    },
+    "ipForward": {
+      "type": "string"
+    },
+    "gtmScore": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "port": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "type"
+      ]
+    },
+    "connectionLimit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "address",
+    "port"
+  ]
+}

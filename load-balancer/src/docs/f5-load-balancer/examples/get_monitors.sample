@@ -1,0 +1,73 @@
+{
+    "data": [
+        {
+            "id": "TestMonitor-DONT-DELETE",
+            "appService": null,
+            "address" : "127.0.0.1",
+            "port": {
+                "type": "equal",
+                "value": 80
+            },
+            "defaultsFrom": "tcp",
+            "description": null,
+            "interval": 5,
+            "ipDscp": 0,
+            "manualResume": "disabled",
+            "recv": null,
+            "recvDisable": null,
+            "reverse": "disabled",
+            "send": null,
+            "timeUntilUp": 0,
+            "timeout": 16,
+            "transparent": "disabled",
+            "type": "tcp",
+            "upInterval": 0
+        },
+        {
+            "id": "MON-TCP-80",
+            "appService": null,
+            "address" : "127.0.0.1",
+            "port": {
+                "type": "equal",
+                "value": 80
+            },
+            "defaultsFrom": "tcp",
+            "description": null,
+            "interval": 5,
+            "ipDscp": 0,
+            "manualResume": "disabled",
+            "recv": null,
+            "recvDisable": null,
+            "reverse": "disabled",
+            "send": null,
+            "timeUntilUp": 0,
+            "timeout": 16,
+            "transparent": "disabled",
+            "type": "tcp",
+            "upInterval": 0
+        },
+        {
+            "id": "test-monitor",
+            "appService": null,
+            "address" : "127.0.0.1",
+            "port": {
+                "type": "any",
+                "value": "any"
+            },
+            "debug" : "enabled",
+            "defaultsFrom": "udp",
+            "description": null,
+            "interval": 5,
+            "manualResume": "disabled",
+            "recv": null,
+            "recvDisable": null,
+            "reverse": "disabled",
+            "send": "\"default send string\"",
+            "timeUntilUp": 0,
+            "timeout": 16,
+            "transparent": "disabled",
+            "type": "udp",
+            "upInterval": 0
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "metadata-GET",
+  "description": "Get an object's metadata",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "metadata.json"
+          }
+        ],
+        "name": {
+          "type": "string"
+        },
+        "links": {
+          "$ref": "links.json"
+        },
+        "required": [
+          "name",
+          "links"
+        ]
+      }
+    }
+  },
+  "required": [
+    "items"
+  ]
+}

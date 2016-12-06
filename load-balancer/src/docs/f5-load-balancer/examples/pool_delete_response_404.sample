@@ -1,0 +1,8 @@
+{
+  "data": {
+    "Exception": "$[LastException{Exception};]",
+    "InnerException": "$[LastException{InnerException};]",
+    "Status": "Failure",
+    "Output": "FireEngine API returned an error - $[LastException{Exception};]"
+  }
+}

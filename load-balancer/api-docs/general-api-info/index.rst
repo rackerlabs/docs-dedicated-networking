@@ -8,9 +8,8 @@ The |product name| API is implemented using a RESTful web service interface.
 |product name| shares a common token-based authentication system that enables
 seamless access across Rackspace products and services.
 
-The following information is relevant to all operations o the API. For
-details about specific operations, see the
-:ref:`API reference <api-reference>`.
+The following information is relevant to all operations of the API. For
+details about specific operations, see the API reference sections.
 
 .. toctree::
    :maxdepth: 1
@@ -20,9 +19,6 @@ details about specific operations, see the
    request-and-response-types
    date-time-format
    faults
-   limits
-   pagination
-   data-node-instances
    role-based-access-control
 
 

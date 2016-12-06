@@ -7,13 +7,13 @@
 		 "serviceCatalog": [],
 		 "user": {
 			 "RAX-AUTH:defaultRegion": "",
+			 "id": "<username:string>",
+			 "name": "<username:string>",
 			 "roles": [
 				 {
-					 "name": "<role_name:string>"
+					 "name": "bpi_lbs_write"
 				 },
 			 ],
-			 "name": "<username:string>",
-			 "id": "<username:string>"
 		 },
 		 "token": {
 			 "expires": "2016-07-13T03:57:39.236Z",

@@ -8,7 +8,7 @@
       "persistence": "ENABLED",
       "subnet_prefix_length": 0
     },
-    "ip": "152.181.84.2",
+    "ip": "127.0.0.1",
     "runtime_state": "UNHEALTHY",
     "label": "Vip-Test-32fce25d",
     "port_number": 80,
@@ -27,12 +27,12 @@
       {
         "label": "Node-Test-32fce25d",
         "port_name": "HTTP",
-        "address": "29.181.84.2",
+        "address": "127.0.0.1",
         "port_number": 80,
-        "id": "Node-Test-32fce25d:29.181.84.2:80"
+        "id": "Node-Test-32fce25d:127.0.0.1:80"
       }
     ],
-    "id": "Vip-Test-32fce25d:152.181.84.2:80",
+    "id": "Vip-Test-32fce25d:127.0.0.1:80",
     "vendor_extensions": {
       "none": "none"
     }

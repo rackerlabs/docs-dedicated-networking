@@ -1,0 +1,9 @@
+{
+  "data": {
+    "eventId": "02d1ba2a-0edf-4583-8e2c-ab0b54c78193",
+    "status": "PROCESSING",
+    "resource": "Virtuals",
+    "eventRef": "/events/<eventId:str>",
+    "timestamp": "2016-03-18T03:18:35.5077939Z"
+  }
+}

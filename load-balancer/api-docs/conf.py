@@ -95,7 +95,8 @@ release = '2'
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', 'samples', 'dev-guide',
                     'getting-started/examples', 'api-reference/methods',
-                    'release-notes', 'common-gs']
+                    'release-notes', 'common-gs',
+                    'contributor-collateral/archive']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -150,6 +151,8 @@ extlinks = {
 rst_epilog = """
 .. |apiservice| replace:: Dedicated Load Balancer API
 .. |service| replace:: Dedicated Load Balancer
+.. |ADX| replace:: ADX Brocade load balancer
+.. |F5| replace:: F5 BIG-IP load balancer
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0
 .. |product name| replace:: Dedicated Load Balancer
@@ -157,10 +160,6 @@ rst_epilog = """
 .. |product support email| replace:: rjackson@rackspace.com
 .. |netdevice support email| replace:: netdevice_api_support@rackspace.com
 .. |prerequisites for using the API| replace::  Update info or remove topic
-.. |DFW| replace:: Fix me
-.. |ORD| replace:: Fix me
-.. |IAD| replace:: Fix me
-.. |LON| replace:: Fix me
 
 """
 

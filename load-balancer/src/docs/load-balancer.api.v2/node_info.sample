@@ -4,11 +4,11 @@
     "description": null,
     "links": {
       "self": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
         "rel": "self"
       },
       "rel": {
-        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
         "rel": "up"
       }
     },
@@ -18,7 +18,7 @@
     "port_number": 12345,
     "limit": 1000,
     "admin_state": "ENABLED",
-    "address": "29.235.243.3",
+    "address": "127.0.0.1",
     "stats": {
       "conn_max": 0,
       "pkts_out": 0,
@@ -28,7 +28,7 @@
       "conn_cur": 0,
       "bytes_out": 0
     },
-    "id": "Node-Test-c4b3b8a5:29.235.243.3:12345",
+    "id": "Node-Test-c4b3b8a5:127.0.0.1.3:12345",
     "vendor_extensions": {
       "reassign_count": 0
     },
