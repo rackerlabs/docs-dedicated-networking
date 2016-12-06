@@ -4,9 +4,13 @@
 F5 BigIP API reference
 ======================
 
-Learn about |product name| API resources and operations, and see request and
-response examples. You can use the |apiservice| operations to manage ADX
-Brocade and F5 load balancers.
+Learn about |F5| API resources and operations, and see request and
+response examples.
+
+Use the following base endpoint to
+:ref:`submit API requests <send-api-requests>`.
+
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}``
 
 .. toctree::
    :maxdepth: 1

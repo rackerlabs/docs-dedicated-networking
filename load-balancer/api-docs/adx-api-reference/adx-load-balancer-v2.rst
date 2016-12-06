@@ -1,10 +1,7 @@
-**Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
-
 Retrieve device information
 ---------------------------
 
-Use the Device ID operation to get complete information about the device
+Use the device ID operation to get complete information about the device
 with the specified ID including associated customer, usage statistics,
 and configuration details for nodes, virtual IPs, and high availability.
 
@@ -14,10 +11,8 @@ and configuration details for nodes, virtual IPs, and high availability.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
-
-Successfully processed the request.
+Response
+^^^^^^^^^
 
 ::
 
@@ -109,24 +104,6 @@ Successfully processed the request.
       }
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
 
 Retrieve load balancer configuration details
 --------------------------------------------
@@ -251,24 +228,6 @@ Successfully processed the request.
       ]
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
 
 Add a Virtual IP
 ----------------
@@ -279,10 +238,12 @@ IPs operations to configure and manage the virtual IP addresses for the
 load balancer with the specified device ID.
 
 An IP can be passed into the add Virtual IP call as part of the request
-body, only if the IP exists within an existing Virtual.
+body, only if the IP exists within an existing virtual.
 
-*When adding a Virtual IP, these fields are required: account\_number,
-label, protocol, port, algorithm, persistence, admin\_state, comment*
+When adding a virtual IP, the following fields are required:
+``account\_number``,
+``label``, ``protocol``, ``port``, ``algorithm``, ``persistence``,
+``admin\_state``, ``comment\*``
 
 ::
 
@@ -308,8 +269,8 @@ label, protocol, port, algorithm, persistence, admin\_state, comment*
       "comment": req"comment"
     }
 
-POST Manage Virtual IPs 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -344,8 +305,8 @@ virtual IPs operation to find it.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -390,25 +351,6 @@ Successfully processed the request.
           "none": "none"
         }
       }
-    }
-
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
     }
 
 Update virtual IP information
@@ -477,7 +419,8 @@ configuration.
 If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
 
-*When deleting, these fields are required: account\_number, comment*
+The following fields are required for the delete operation:
+``account\_number``, ``comment*``.
 
 ::
 
@@ -485,8 +428,8 @@ virtual IPs operation to find it.
 
 *This operation accepts a request body:*
 
-**Request**
-
+Request body
+^^^^^^^^^^^^
 ::
 
     {
@@ -494,8 +437,8 @@ virtual IPs operation to find it.
       "comment": "<comment>"
     }
 
-DELETE Virtual IPs information 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -510,7 +453,7 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-List nodes for the specified virtual IP.
+List nodes for the specified virtual IP
 ----------------------------------------
 
 Retrieve information about the nodes associated with a specified virtual
@@ -522,8 +465,8 @@ IP.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -574,8 +517,8 @@ account\_number*
       "account_number": "<Account Number>"
     }
 
-POST Manage virtual IP node configuration 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -596,15 +539,13 @@ Remove node from virtual IP configuration
 Use the virtual IP node configuration operations to add or remove a
 specified node from the virtual IP configuration.
 
-*When assigning a node to a virtual, this field is required:
-account\_number*
 
 ::
 
     DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 
-DELETE Manage virtual IP node configuration 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -629,8 +570,8 @@ virtual IP configured for a specified device.
 
     POST /{device_id}/vips/{vip_id}/configuration
 
-POST Manage Virtual IP status 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -655,8 +596,8 @@ virtual IP configured for a specified device.
 
     DELETE /{device_id}/vips/{vip_id}/configuration
 
-DELETE Manage Virtual IP status 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -682,8 +623,8 @@ Retrieves usage data for the specified virtual IP.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -701,24 +642,6 @@ Successfully processed the request.
         }
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
 
 Nodes in a device for the given device id
 -----------------------------------------
@@ -742,8 +665,8 @@ vendor\_extensions, comment*
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -782,22 +705,6 @@ Successfully processed the request.
       ]
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
 
 Add a node to a device
 ----------------------
@@ -811,9 +718,9 @@ for a specified device and to add a node.
 After a node has been defined, use the virtual IP nodes configuration
 operations to assign the node to one or more virtual IPs.
 
-*When adding a node to a device, these fields are rquired:
-account\_number, label, ip, port, admin\_state, health\_strategy,
-vendor\_extensions, comment*
+When adding a node to a device, the following fields are required:
+``account\_number``, ``label``, ``ip``, ``port``, ``admin\_state``,
+``health\_strategy``, ``vendor\_extensions``, ``comment*``
 
 ::
 
@@ -837,8 +744,8 @@ vendor\_extensions, comment*
       "comment": "comment (required)"
     }
 
-POST Nodes 202 response
-^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -864,8 +771,8 @@ Use the node operations to view, update, or remove a specified node.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -920,24 +827,6 @@ Successfully processed the request.
       }
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
 
 Update node information
 -----------------------
@@ -965,8 +854,8 @@ Use the node operations to view, update, or remove a specified node.
       "comment": "<comment> (required)"
     }
 
-PUT Manage node information 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -990,8 +879,8 @@ Use the node operations to view, update, or remove a specified node.
 
     DELETE /{device_id}/nodes/{node_id}
 
-DELETE Manage node information 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -1019,8 +908,8 @@ delete node operation.
 
     POST /{device_id}/nodes/{node_id}/configuration
 
-POST Manage node status 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -1048,8 +937,8 @@ delete node operation.
 
     DELETE /{device_id}/nodes/{node_id}/configuration
 
-DELETE Manage node status 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -1075,8 +964,8 @@ Retrieves usage data for a specified node ID.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -1094,25 +983,6 @@ Successfully processed the request.
       }
     }
 
-GET 404 response
-^^^^^^^^^^^^^^^^
-
-Not found.
-
-::
-
-    {
-      "status_code": 404,
-      "response": {
-        "transactionId": "456a50ccecc3da8fbc4b03ea3956bf40",
-        "statusCode": 404,
-        "details": "The requested resource was not found.",
-        "title": "404 Not Found"
-      },
-      "source_of_error": "FIRE_ENGINE",
-      "error": "404 Client Error: Object Not Found"
-    }
-
 List events
 -----------
 
@@ -1125,8 +995,8 @@ modify load balancer resources.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -1173,8 +1043,8 @@ specific event including event type, status, message, and timestamp.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 

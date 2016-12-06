@@ -114,8 +114,8 @@ Retrieve all nodes that have been configured in the load balancer.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Retrieve a list of nodes
 
@@ -2207,8 +2207,8 @@ balancer.
 
 *This operation does not accept a request body.*
 
-GET 200 response
-^^^^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Retrieve a list of stats.
 
