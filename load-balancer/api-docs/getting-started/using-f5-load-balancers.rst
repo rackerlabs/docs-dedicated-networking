@@ -23,7 +23,8 @@ Before running the examples, review the dedicated load balancer
      variables<configure-environment-variables>` before running the code
      samples.
 
-.. _base-url-f5:
+
+.. _baseurlf5:
 
 Base URL
 ~~~~~~~~

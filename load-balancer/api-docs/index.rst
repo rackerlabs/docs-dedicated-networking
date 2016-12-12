@@ -11,16 +11,15 @@ manage their existing dedicated hardware load balancer resources such as
 virtual IPs (vips), nodes and health checks. You cannot use the API to
 provision dedicated hardware load balancers.
 
-The |apiservice| enables you to manage the following load balancer types.
+You can use the |apiservice| manage the following load balancer models.
 
-- |F5| manages load balancing for applications that scale up
-  or down.
+- |F5| 1600 and 2000 series
 
 - |ADX| manages traffic between dedicated and cloud servers.
 
 .. note::
 
-   For details about load balancer types, see
+   For details about using these load balancer types for hybrid hosting, see
    :how-to:`Using dedicated load balancers with RackConnect v2.0\
    <using-dedicated-load-balancers-with-rackconnect-v20>`.
 

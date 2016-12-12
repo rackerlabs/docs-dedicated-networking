@@ -266,7 +266,7 @@ Returns information about the node associated with the node ID.
 
     GET /nodes/{nodeId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 Response
 ^^^^^^^^
@@ -348,7 +348,7 @@ the node ID to complete this operation.
 
     DELETE /nodes/{nodeId}
 
-This operation does not accept a request body.
+*This operation does not accept a request body.*
 
 Response
 ^^^^^^^^
@@ -635,8 +635,8 @@ Response
         ]
     }
 
-Retrieve a pool statistics
---------------------------
+Retrieve pool statistics
+------------------------
 
 Retrieve statistics for all pools associated have been created in a load
 balancer.
@@ -858,16 +858,144 @@ Delete a pool specified by a Pool id
         }
     }
 
-Retrieve pool member statistics
--------------------------------
+Retrieve monitor rule for a pool
+--------------------------------
 
-Retrieve statistics for each pool member in a specified pool
-including configuration settings, availability and monitoring status.
-The response includes links to access a detail view for each member.
+Retrieve a monitor rule associated with a specified pool.
 
 ::
 
-    GET /pools/{poolId}/stats
+   GET /pools/{poolId}/monitor-rule
+
+*This operation does not accept a request body.*
+
+Response
+^^^^^^^^
+
+Retrieve the monitor-rule specified.
+
+    ::
+
+        {
+            "data": [
+                {
+                    "names": [
+                        "https_443",
+                        "real_server",
+                        "tcp_echo"
+                    ],
+                    "minimum": 1
+                }
+            ]
+        }
+
+Update monitor rule for a pool
+--------------------------------
+
+Update the monitor rule applied to a specified pool. Use the retrieve monitors
+by pool ID operation to find the monitor rule name.
+
+::
+
+   PUT /pools/{poolId}/monitor-rule
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+   {
+      "names": [
+         "tcp"
+         ],
+      "minimum": "all"
+   }
+
+Response
+^^^^^^^^
+::
+
+   {
+      "data": {
+      "eventId": "<eventId:str)",
+      "status": "PROCESSING",
+      "resource": "<poolId:str>",
+      "timestamp": "2016-03-16T17:09:53.1059638Z",
+      "eventRef": "/events/<eventId:str>"
+      }
+   }
+
+Add a monitor rule to a pool
+----------------------------
+
+Add a monitor rule to a specified pool. To find the names of the available
+monitors, submit a ``GET monitors`` request.
+
+::
+
+   POST /pools/{poolId}/monitor-rule
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+   {
+      "names": [
+         "tcp"
+      ],
+      "minimum": 1
+   }
+
+    Response
+    ^^^^^^^^
+    ::
+
+        {
+          "data": {
+            "eventId": "<eventId:str>",
+            "status": "PROCESSING",
+            "timestamp": "2016-03-18T03:18:35.5077939Z",
+            "resource": "<poolId:str>",
+            "eventRef": "/events/<eventId:str>"
+          }
+        }
+
+Remove monitor rule from a pool
+--------------------------------
+
+Delete a monitor rule for the specified pool.
+
+::
+
+   DELETE /pools/{poolId}/monitor-rule
+
+*This operation does not accept a request body.*
+
+Response
+^^^^^^^^
+   ::
+
+      {
+         "data": {
+            "eventId": "<eventId:str]",
+            "status": "PROCESSING",
+            "resource": "<poolId:str>",
+            "timestamp": "2016-03-16T17:09:53.1059638Z",
+            "eventRef": "/events/<eventId:str>"
+         }
+      }
+
+Retrieve pool member statistics for a pool
+------------------------------------------
+
+Retrieve statistics for each pool member in a specified pool including
+configuration settings, availability and monitoring status. The response
+includes links to access a detail view for each member.
+
+::
+
+   GET /pools/{poolId}/stats
 
 
 *This operation does not accept a request body.*
@@ -877,188 +1005,75 @@ Response
 
 .. code::
 
-   {
-     "data": [
-       {
-         "id": "test1:80",
-         "address": "127.0.0.1",
-         "connq": {
-           "ageEdm": 0,
-           "ageEma": 0,
-           "ageHead": 0,
-           "ageMax": 0,
-           "depth": 0,
-           "serviced": 0
-         },
-         "curSessions": 0,
-         "monitorRule": {
-           "monitors": [
-             "default"
-           ],
-           "minimum": "all"
-         },
-         "monitorStatus": "unchecked",
-         "nodeName": "test1",
-         "poolName": "test2",
-         "port": {
-           "type": "equal",
-           "value": 80
-         },
-         "serverside": {
-           "bitsIn": 0,
-           "bitsOut": 0,
-           "curConns": 0,
-           "maxConns": 0,
-           "pktsIn": 0,
-           "pktsOut": 0,
-           "totConns": 0
-         },
-         "sessionStatus": "enabled",
-         "status": {
-           "availabilityState": "unknown",
-           "enabledState": "enabled",
-           "statusReason": "Pool member does not have service checking enabled"
-         },
-         "totRequests": 0,
-         "links": [
-           {
-             "rel": "self",
-             "href": "https://localhost/f5/12345/pools/test2/members/test1:80/stats"
-           }
-         ]
-       }
-     ]
-   }
-
-
-Retrieve monitor rule for a pool
---------------------------------
-
-Retrieve a monitor rule associated with a specified pool.
-
-::
-
-    GET /pools/{poolId}/monitor-rule
-
-*This operation does not accept a request body.*
-
-Response
-^^^^^^^^
-
-Retrieve the monitor-rule specified.
-
-::
-
-    {
-        "data": [
+      {
+         "data": [
             {
-                "names": [
-                    "https_443",
-                    "real_server",
-                    "tcp_echo"
-                ],
-                "minimum": 1
+               "id": "test1:80",
+               "address": "127.0.0.1",
+               "connq": {
+               "ageEdm": 0,
+               "ageEma": 0,
+               "ageHead": 0,
+               "ageMax": 0,
+               "depth": 0,
+               "serviced": 0
+            },
+               "curSessions": 0,
+               "monitorRule": {
+               "monitors": [
+               "default"
+               ],
+               "minimum": "all"
+               },
+               "monitorStatus": "unchecked",
+               "nodeName": "test1",
+               "poolName": "test2",
+               "port": {
+               "type": "equal",
+               "value": 80
+               },
+               "serverside": {
+               "bitsIn": 0,
+               "bitsOut": 0,
+               "curConns": 0,
+               "maxConns": 0,
+               "pktsIn": 0,
+               "pktsOut": 0,
+               "totConns": 0
+               },
+               "sessionStatus": "enabled",
+               "status": {
+               "availabilityState": "unknown",
+               "enabledState": "enabled",
+               "statusReason": "Pool member does not have service checking enabled"
+               },
+               "totRequests": 0,
+               "links": [
+               {
+                  "rel": "self",
+                     "href": "https://localhost/f5/12345/pools/test2/members/test1:80/stats"
+                }
+               ]
             }
-        ]
-    }
-
-Update monitor rule for a pool
---------------------------------
-
-Update the monitor rule applied to a specified pool.
-Use the retrieve monitors by pool ID operation to find the monitor rule
-name.
-
-::
-
-    PUT /pools/{poolId}/monitor-rule
-
-Request body
-^^^^^^^^^^^^
-::
-
-    {
-        "names": [
-            "tcp"
-        ],
-        "minimum": "all"
-    }
-
-Response
-^^^^^^^^
-::
-
-    {
-        "data": {
-            "eventId": "<eventId:str)",
-            "status": "PROCESSING",
-            "resource": "<poolId:str>",
-            "timestamp": "2016-03-16T17:09:53.1059638Z",
-            "eventRef": "/events/<eventId:str>"
-        }
-    }
-
-Add a monitor rule to a pool
-----------------------------
-
-Add a monitor rule to a specified pool.
-To find the names of the available monitors, submit
-a ``GET monitors`` request.
-
-::
-
-    POST /pools/{poolId}/monitor-rule
-
-Request body
-^^^^^^^^^^^^
-
-::
-
-    {
-        "names": [
-            "tcp"
-        ],
-        "minimum": 1
-    }
-
-Response
-^^^^^^^^
-::
-
-    {
-      "data": {
-        "eventId": "<eventId:str>",
-        "status": "PROCESSING",
-        "timestamp": "2016-03-18T03:18:35.5077939Z",
-        "resource": "<poolId:str>",
-        "eventRef": "/events/<eventId:str>"
+         ]
       }
-    }
 
-Remove monitor rule from a pool
---------------------------------
 
-Delete a monitor rule for the specified pool.
 
-::
+Pool members
+~~~~~~~~~~~~
 
-    DELETE /pools/{poolId}/monitor-rule
+Pool members are logical physical objects that represent a single internal
+physical server IP address and listener port. Pool members are assigned to
+pools and are used to load balance traffic directed to the pool associated with
+by a virtual server configured in the load balancer.
 
-*This operation does not accept a request body.*
+Use the following operations to view and manage pool members.
 
-Response
-^^^^^^^^
-::
+.. contents::
+	 :depth: 1
+	 :local:
 
-    {
-        "data": {
-            "eventId": "<eventId:str]",
-            "status": "PROCESSING",
-            "resource": "<poolId:str>",
-            "timestamp": "2016-03-16T17:09:53.1059638Z",
-            "eventRef": "/events/<eventId:str>"
-        }
-    }
 
 Retrieve pool members for a pool
 --------------------------------
@@ -2130,8 +2145,8 @@ Response
         }
     }
 
-Create a persist profile
-------------------------
+Create a persistent profile
+---------------------------
 
 Create a persistent profile configuration for a specified
 virtual server.

@@ -3,7 +3,7 @@ Retrieve load balancer details
 
 You can get detailed information about a load balancer associated
 with your account by submitting a GET request to the
-ref:`base URL <base-url-f5>`. Information includes
+:ref:`base URL <baseurlf5>`. Information includes
 customer account associated with the load balancer, hardware and software
 specifications, network configuration, high availability status,
 uptime, CPU status and other information about the device.

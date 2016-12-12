@@ -13,7 +13,7 @@ change.
 The Early Access program is an opportunity for customers to work
 in partnership with Rackspace to ensure that the implemented features
 align with business needs and can be used with maximum efficiency.
-Existing Rackspace Dedicated customers with Brocade Load Balancers are eligible
+Existing Rackspace Dedicated customers with |F5| and |ADX| are eligible
 to participate in the Dedicated Load Balancer API EA Program.
 
 To obtain access to the |product name| API or to provide

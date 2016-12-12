@@ -38,7 +38,7 @@ virtual servers with real server resources. A real
 server is a configuration object that exists within the ADX that defines the
 IP address of the internal, back-end server. You associate server resources
 with a virtual server using the virtual server binding syntax as shown in
-the following examplee.
+the following example.
 
 .. list-table:: **Brocade ADX load balancer configuration**
    :widths: 20 50
@@ -64,7 +64,7 @@ the following examplee.
 
 On a |F5|, you configure the backend devices associated with a virtual server
 by using :ref:`pools <pools-concept>` that specify the configuration for the
-backend devices, :ref:`pool members <pool-member-concept>` for managing
+backend devices and :ref:`pool members <pool-member-concept>` for managing
 traffic.
 
 .. list-table:: **BIG-IP F5 load balancer configuration**
@@ -127,7 +127,7 @@ A node is a logical object that provides the IP address of a single, physical
 backend device like a web server. Nodes are the base configuration
 object when creating a virtual server.
 
-In a |F5|, a node is added automatically when you add a member to a pool.
+In an |F5|, a node is added automatically when you add a member to a pool.
 
 .. _event-concept:
 
@@ -154,9 +154,10 @@ Monitor
 For a |F5|, monitors verify the health and availability of a node, pool, or a
 group of nodes in a pool.
 
-A health monitor, or a health check, is a configuration object that is
-configured to check the status of a load balancer component such as a pool
-member on an ongoing basis, using a set interval. If the component does not
+A health monitor, or a health check, is a configuration object that specifies
+a check and parameter values to verify the health and status of a load
+balancer component like a pool. Checks are run continuously at a time interval
+specified in the monitor configuration. If the component does not
 reply correctly to the health monitor before the timeout value expires, it is
 identified as having degraded performance, and it is removed from the
 availability pool.
@@ -164,7 +165,7 @@ availability pool.
 A monitor does not take effect until you apply it to a virtual server,
 a pool, or a pool member. You apply it by submitting an API request to
 create a monitor rule. After applying a rule, you can use the update monitor
-rule operations to change configuration settings.e
+rule operations to change configuration settings.
 
 On the |F5|, the default interval timer is 5 seconds, with a default timeout
 value of 16 seconds.
