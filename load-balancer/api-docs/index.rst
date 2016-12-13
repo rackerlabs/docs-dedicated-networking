@@ -50,7 +50,7 @@ using the |product name| service REST API:
 
 * :ref:`Getting started<getting-started-intro>`
 * :ref:`F5 Big-IP load balancer API Reference<f5-api-reference>`
-* :ref:`Brocade ADX API Reference<adx-api-reference>`
+* :ref:`Brocade ADX load balancer API Reference<adx-api-reference>`
 
 
 .. toctree:: :hidden:
