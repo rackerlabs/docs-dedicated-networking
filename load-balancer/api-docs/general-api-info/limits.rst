@@ -13,6 +13,6 @@ The number of requests that can be processed is determined by the number
 of concurrent connections a device can accept. This value is configurable in
 the device settings.
 
-If you send to many requests at the same time, the operations fail because
-the device is overloaded. You can resolve the issue by waiting for an
-open connection and submitting the request again.  
+If you send too many requests, the device is overloaded and the API operations
+fail with an error. You can resolve the problem by waiting for an
+open connection and submitting the request again.
