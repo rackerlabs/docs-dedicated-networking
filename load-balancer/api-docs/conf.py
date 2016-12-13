@@ -151,7 +151,9 @@ extlinks = {
 rst_epilog = """
 .. |apiservice| replace:: Dedicated Load Balancer API
 .. |service| replace:: Dedicated Load Balancer
-.. |ADX| replace:: ADX Brocade load balancer
+.. |ADX| replace:: Brocade ADX load balancer
+.. |F5Product| replace:: F5 BIG-IP 1600 2000 series
+.. |ADXProduct| replace:: ADX 1000
 .. |F5| replace:: F5 BIG-IP load balancer
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0

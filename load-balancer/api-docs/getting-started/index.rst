@@ -24,10 +24,8 @@ following items:
 - :ref:`Command-line tool or browser client <send-api-requests>` for
   communicating with the API service
 
-You also need the baseURL for the load balancer that you want to view and
-manage.
-
-
+You also need the :ref:`service access endpoint<service-access-endpoints>`
+for the load balancer that you want to view and manage.
 
 .. note::
 

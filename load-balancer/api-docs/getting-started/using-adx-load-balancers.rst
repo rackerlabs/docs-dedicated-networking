@@ -1,11 +1,8 @@
 .. _using-adx-load-balancers:
 
-====================================
-View and manage an ADX load balancer
-====================================
-
-TO DO:  Update headings to reflect common dedicated LB use cases
-
+======================================
+View and manage an |ADX| load balancer
+======================================
 
 You can use the examples in the following sections to create and manage load
 balancers by using |apiservice| operations.
