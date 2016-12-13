@@ -24,7 +24,7 @@ descriptions.
    * - Unauthorized
      - 401
      - The supplied token is not authorized to access the resources. The token
-        is either expired or invalid.
+       is either expired or invalid.
    * - Not Found
      - 404
      - The back-end services did not find anything matching the request URI.

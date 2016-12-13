@@ -19,6 +19,7 @@ details about specific operations, see the API reference sections.
    request-and-response-types
    date-time-format
    faults
+   limits
    role-based-access-control
 
 

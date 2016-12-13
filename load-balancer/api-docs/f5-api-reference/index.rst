@@ -1,8 +1,8 @@
 .. _f5-api-reference:
 
-=============================
-|F5| API reference
-=============================
+=====================================
+F5 Big-IP load balancer API reference
+=====================================
 
 Learn about the API resources and operations to manage |F5| and review reques
 and response examples.

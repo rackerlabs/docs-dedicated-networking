@@ -1,8 +1,8 @@
 .. _adx-api-reference:
 
-=====================
-ADX load balancer API
-=====================
+=======================================
+Brocade ADX load balancer API reference
+=======================================
 
 Learn about |ADX| API resources and operations, and see request and
 response examples.

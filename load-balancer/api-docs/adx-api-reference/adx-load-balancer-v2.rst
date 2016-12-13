@@ -249,9 +249,9 @@ When adding a virtual IP, the following fields are required:
 
     POST /{device_id}/vips
 
-*This operation accepts a request body:*
 
-**Request**
+Request
+^^^^^^^
 
 ::
 
@@ -365,15 +365,16 @@ configuration.
 If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
 
-*When deleting, these fields are required: account\_number, comment*
+*The following fields are required when you delete a virtual IP,
+account\_number, comment*
 
 ::
 
     PUT /{device_id}/vips/{vip_id}
 
-*This operation accepts a request body:*
 
-**Request**
+Request body
+^^^^^^^^^^^^
 
 ::
 
@@ -425,8 +426,6 @@ The following fields are required for the delete operation:
 ::
 
     DELETE /{device_id}/vips/{vip_id}
-
-*This operation accepts a request body:*
 
 Request body
 ^^^^^^^^^^^^
@@ -500,17 +499,16 @@ Assign node to virtual IP
 Use the virtual IP node configuration operations to add or remove a
 specified node from the virtual IP configuration.
 
-*When assigning a node to a virtual, this field is required:
-account\_number*
+*When you assign a node to a virtual IP, the following field is required:
+account\_number.*
 
 ::
 
     POST /{device_id}/vips/{vip_id}/nodes/{node_id}
 
-*This operation accepts a request body:*
 
-**Request**
-
+Request body
+^^^^^^^^^^^^
 ::
 
     {
@@ -570,8 +568,11 @@ virtual IP configured for a specified device.
 
     POST /{device_id}/vips/{vip_id}/configuration
 
-Response
-^^^^^^^^
+
+*This operation does not accept a request body.*
+
+202 Response
+^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -596,8 +597,10 @@ virtual IP configured for a specified device.
 
     DELETE /{device_id}/vips/{vip_id}/configuration
 
-Response
-^^^^^^^^
+*This operation does not accept a request body.*
+
+202 Response
+^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -665,8 +668,8 @@ vendor\_extensions, comment*
 
 *This operation does not accept a request body.*
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^
 
 Successfully processed the request.
 
@@ -726,9 +729,8 @@ When adding a node to a device, the following fields are required:
 
     POST /{device_id}/nodes
 
-*This operation accepts a request body:*
-
-**Request**
+Request body
+^^^^^^^^^^^^^
 
 ::
 
@@ -744,8 +746,8 @@ When adding a node to a device, the following fields are required:
       "comment": "comment (required)"
     }
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -771,8 +773,8 @@ Use the node operations to view, update, or remove a specified node.
 
 *This operation does not accept a request body.*
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^^
 
 Successfully processed the request.
 
@@ -837,9 +839,11 @@ Use the node operations to view, update, or remove a specified node.
 
     PUT /{device_id}/nodes/{node_id}
 
-*This operation accepts a request body:*
 
-**Request**
+*This operation does not accept a request body.*
+
+Request body
+^^^^^^^^^^^^
 
 ::
 
@@ -854,8 +858,8 @@ Use the node operations to view, update, or remove a specified node.
       "comment": "<comment> (required)"
     }
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -879,8 +883,11 @@ Use the node operations to view, update, or remove a specified node.
 
     DELETE /{device_id}/nodes/{node_id}
 
-Response
-^^^^^^^^
+*This operation does not accept a request body.*
+
+
+202 Response
+^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -908,8 +915,11 @@ delete node operation.
 
     POST /{device_id}/nodes/{node_id}/configuration
 
-Response
-^^^^^^^^
+*This operation does not accept a request body.*
+
+
+202 Response
+^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -937,8 +947,11 @@ delete node operation.
 
     DELETE /{device_id}/nodes/{node_id}/configuration
 
-Response
-^^^^^^^^
+*This operation does not accept a request body.*
+
+
+202 Response
+^^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -964,8 +977,8 @@ Retrieves usage data for a specified node ID.
 
 *This operation does not accept a request body.*
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^
 
 Successfully processed the request.
 
@@ -995,8 +1008,8 @@ modify load balancer resources.
 
 *This operation does not accept a request body.*
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^
 
 Successfully processed the request.
 
@@ -1043,8 +1056,8 @@ specific event including event type, status, message, and timestamp.
 
 *This operation does not accept a request body.*
 
-Response
-^^^^^^^^
+202 Response
+^^^^^^^^^^^^
 
 Successfully processed the request.
 

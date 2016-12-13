@@ -11,17 +11,23 @@ manage their existing dedicated hardware load balancer resources such as
 virtual IPs (vips), nodes and health checks. You cannot use the API to
 provision dedicated hardware load balancers.
 
-You can use the |apiservice| manage the following load balancer models.
+You can use the |apiservice| to manage the following load balancer models.
 
-- |F5| 1600 and 2000 series
+- |F5Product|
 
-- |ADX| manages traffic between dedicated and cloud servers.
+- |ADXProduct|
 
-.. note::
+For details about using these load balancer models for hybrid hosting, see
+:how-to:`Using dedicated load balancers with RackConnect v2.0\
+<using-dedicated-load-balancers-with-rackconnect-v20>`.
 
-   For details about using these load balancer types for hybrid hosting, see
-   :how-to:`Using dedicated load balancers with RackConnect v2.0\
-   <using-dedicated-load-balancers-with-rackconnect-v20>`.
+.. warning::
+
+   The |product name| provides direct access to the |F5Product| and
+   |ADXProduct| device hardware. When you submit an API request
+   to add, update, or remove configuration settings the changes are applied
+   to the device as soon as the request completes successfully.
+   Make sure you understand the impact of an API request before you submit it.
 
 
 About this guide
@@ -43,8 +49,8 @@ Use the following links to jump direct to user and reference information for
 using the |product name| service REST API:
 
 * :ref:`Getting started<getting-started-intro>`
-* :ref:`F5 BigIP API Reference<f5-api-reference>`
-* :ref:`ADX API Reference<adx-api-reference>`
+* :ref:`F5 Big-IP load balancer API Reference<f5-api-reference>`
+* :ref:`Brocade ADX API Reference<adx-api-reference>`
 
 
 .. toctree:: :hidden:
