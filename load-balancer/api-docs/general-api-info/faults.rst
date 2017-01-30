@@ -25,6 +25,9 @@ descriptions.
      - 401
      - The supplied token is not authorized to access the resources. The token
        is either expired or invalid.
+   * - Forbidden
+     - 403
+     - The request is for something forbidden. Authorization will not help.
    * - Not Found
      - 404
      - The back-end services did not find anything matching the request URI.
