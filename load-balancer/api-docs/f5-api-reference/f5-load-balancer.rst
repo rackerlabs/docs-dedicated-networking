@@ -970,6 +970,11 @@ Remove monitor rule from a pool
 
 Delete a monitor rule for the specified pool.
 
+.. note::
+   When a monitor-rule is deleted, all monitors associated to
+   the pool will be deleted as well.
+::
+
 ::
 
    DELETE /pools/{poolId}/monitor-rule
