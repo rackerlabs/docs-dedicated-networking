@@ -31,6 +31,9 @@ descriptions.
    * - Conflict
      - 409
      - The requested resource cannot currently be operated on.
+   * - Internal Server Error
+     - 500
+     - The server encountered an unexpected condition which prevented it from fulfilling the request.
    * - Not implemented
      - 501
      - Retrieving a specific monitor is not implemented.
