@@ -82,32 +82,6 @@ Response
       }
     }
 
-
-Retrieve load balancer configuration details
---------------------------------------------
-
-Retrieves the load balancer configuration information for the specified
-device ID.
-
-::
-
-    GET /{device_id}/configuration
-
-*This operation does not accept a request body.*
-
-GET 200 response
-^^^^^^^^^^^^^^^^
-
-Successfully processed the request.
-
-::
-
-    {
-      "load_balancer_data": {
-        "b64": "key"
-      }
-    }
-
 Show high availability template
 -------------------------------
 
