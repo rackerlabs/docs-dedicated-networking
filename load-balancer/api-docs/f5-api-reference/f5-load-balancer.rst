@@ -105,7 +105,7 @@ Retrieve a list of nodes
                 "description": "a node",
                 "dynamicRatio": 1,
                 "logging": "disabled",
-                    "metadata": {},
+                "metadata": {},
                 "monitors": {},
                 "partition": "Common",
                 "rateLimit": "disabled",
