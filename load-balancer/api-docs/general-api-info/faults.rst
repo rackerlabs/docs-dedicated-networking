@@ -25,12 +25,18 @@ descriptions.
      - 401
      - The supplied token is not authorized to access the resources. The token
        is either expired or invalid.
+   * - Forbidden
+     - 403
+     - The request is for something forbidden. Authorization will not help.
    * - Not Found
      - 404
      - The back-end services did not find anything matching the request URI.
    * - Conflict
      - 409
      - The requested resource cannot currently be operated on.
+   * - Internal Server Error
+     - 500
+     - The server encountered an unexpected condition which prevented it from fulfilling the request.
    * - Not implemented
      - 501
      - Retrieving a specific monitor is not implemented.

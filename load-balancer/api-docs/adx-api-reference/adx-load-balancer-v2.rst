@@ -21,28 +21,6 @@ Response
         "customer": "2222222",
         "uptime": "unimplemented",
         "hostname": "adx1000-cyberdyne.iad3.netdev.net",
-        "links": {
-          "device": {
-            "href": "https://api-qual.netsec.rackspace.net/devices/111111",
-            "rel": "alternate"
-          },
-          "lb": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers",
-            "rel": "up"
-          },
-          "self": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111",
-            "rel": "self"
-          },
-          "vips": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/vips",
-            "rel": "related"
-          },
-          "nodes": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/nodes",
-            "rel": "related"
-          }
-        },
         "ha_role": "high",
         "ram_mem": [
           {
@@ -474,16 +452,6 @@ Successfully processed the request.
     {
       "load_balancer_data": [
         {
-          "links": {
-            "self": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
-              "rel": "self"
-            },
-            "rel": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
-              "rel": "up"
-            }
-          },
           "label": "Node-Test-32fce25d",
           "port_name": "HTTP",
           "address": "29.181.84.2",
@@ -687,16 +655,6 @@ Successfully processed the request.
             "conn_cur": 0,
             "bytes_out": 0
           },
-          "links": {
-            "self": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
-              "rel": "self"
-            },
-            "rel": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
-              "rel": "up"
-            }
-          },
           "runtime_state": "UNHEALTHY",
           "label": "Node-Test-c4b3b8a5",
           "port_name": "12345",
@@ -784,16 +742,6 @@ Successfully processed the request.
       "load_balancer_data": {
         "protocol": "TCP",
         "description": null,
-        "links": {
-          "self": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
-            "rel": "self"
-          },
-          "rel": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
-            "rel": "up"
-          }
-        },
         "runtime_state": "UNHEALTHY",
         "label": "Node-Test-c4b3b8a5",
         "port_name": "12345",

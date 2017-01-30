@@ -19,32 +19,6 @@ CPU statistics, and so on.
         "customer": "1234567",
         "uptime": "396 days,  9:22",
         "ha_role": "true",
-        "links": {
-          "vips": {
-            "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/1234567/vips",
-            "rel": "related"
-          },
-          "self": {
-            "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/1234567",
-            "rel": "self"
-          },
-          "device": {
-            "href": "https://fe-staging.netsec.rackspace.net/devices/1234567",
-            "rel": "alternate"
-          },
-          "lb": {
-            "href": "https://fe-staging.netsec.rackspace.net/loadbalancers",
-            "rel": "up"
-          },
-          "nodes": {
-            "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/1234567/nodes",
-            "rel": "related"
-          },
-          "availability": {
-            "href": "https://fe-staging.netsec.rackspace.net/loadbalancers/1234567/availability",
-            "rel": "related"
-          }
-        },
         "hostname": "1234567-lb1.example.rackspace.com",
         "ram_mem": [{
           "total_kbytes": "4158218",
@@ -131,23 +105,13 @@ Retrieve a list of nodes
                 "description": "a node",
                 "dynamicRatio": 1,
                 "logging": "disabled",
-                    "metadata": {
-                        "href": "https://localhost/f5/127.0.0.1/metadata"
-                    },
-                "monitors": {
-                    "href": "https://localhost/f5/12345/nodes/127.0.0.1/monitors"
-                },
+                "metadata": {},
+                "monitors": {},
                 "partition": "Common",
                 "rateLimit": "disabled",
                 "ratio": 1,
                 "session": "user-enabled",
                 "state": "unchecked",
-                "links": [
-                    {
-                        "rel": "self",
-                        "href": "https://localhost/f5/12345/nodes/127.0.0.1"
-                    }
-                ]
             }
         ]
     }
@@ -243,16 +207,6 @@ Response
                     "statusReason": "because"
                 },
                 "totRequests": 3,
-                "links": [
-                    {
-                        "ref": "self",
-                        "href": "https://localhost/f5/232323/nodes/my-special-node/stats"
-                    },
-                    {
-                        "rel": "node",
-                        "href": "https://localhost/f5/232323/nodes/my-special-node"
-                    }
-                ]
             }
         ]
     }
@@ -283,12 +237,8 @@ Response
                 "description": "a node",
                 "dynamicRatio": 1,
                 "logging": "disabled",
-                "monitors": {
-                  "href": "https://localhost/f5/12345/nodes/127.0.0.1/monitors"
-                },
-                "metadata": {
-                  "href": "https://localhost/f5/12345/nodes/127.0.0.1/metadata"
-                },
+                "monitors": {},
+                "metadata": {},
                 "partition": "Common",
                 "rateLimit": "disabled",
                 "session": "user-enabled",
@@ -312,7 +262,6 @@ Request body
 ::
 
     {
-        "address": "162.242.206.208",
         "appService": null,
         "connectionLimit": 2,
         "description": "Updated node",
@@ -534,11 +483,15 @@ Remove monitor rule from a node
 
 Remove the monitor rule from the specified node.
 
+
+
 .. note::
 
    This operation does not remove the monitor from the load balancer
    configuration.
-
+   
+   When a monitor-rule is deleted, all monitors associated to 
+   the node will be deleted as well.
 ::
 
     DELETE /nodes/{nodeId}/monitor-rule
@@ -603,9 +556,7 @@ Response
                 "linkQosToClient": "pass-through",
                 "linkQosToServer": "pass-through",
                 "loadBalancingMode": "round-robin",
-                "metadata": {
-                    "href": "http://localhost:8000/f5/12345/pools/POOL-127.0.0.1-80/members"
-                },
+                "metadata": {},
                 "minActiveMembers": 0,
                 "minUpMembers": 0,
                 "minUpMembersAction": "failover",
@@ -619,18 +570,8 @@ Response
                 "serviceDownAction": null,
                 "slowRampTime": 10,
                 "description": null,
-                "members": {
-                    "href": "http://localhost:8000/f5/12345/pools/POOL-127.0.0.1-80/members"
-                },
-                "monitors": {
-                    "href": "http://localhost:8000/f5/12345/monitors"
-                },
-                "links": [
-                    {
-                        "rel": "self",
-                        "href": "https://localhost/f5/12345/pools/test1/POOL-127.0.0.1-80"
-                    }
-                ]
+                "members": {},
+                "monitors": {},
             }
         ]
     }
@@ -699,16 +640,6 @@ Retrieve a list of stats.
             "enabledState": "enabled",
             "statusReason": "The pool is available"
           },
-          "links": [
-            {
-              "rel": "self",
-              "href": "https://localhost/f5/12345/pools/POOL-127.0.0.1-80/stats"
-            },
-            {
-              "rel": "pool",
-              "href": "https://localhost/f5/12345/pools/POOL-162.242.187.83-80"
-            }
-          ]
         }
       ]
     }
@@ -748,9 +679,7 @@ Retrieve the pool specified.
                 "linkQosToClient": "pass-through",
                 "linkQosToServer": "pass-through",
                 "loadBalancingMode": "round-robin",
-                "metadata": {
-                    "href": "https://fe.netsec.rackspace.net/f5/12345/pools/POOL-127.0.0.1-80/metadata"
-                },
+                "metadata": {},
                 "minActiveMembers": 0,
                 "minUpMembers": 0,
                 "minUpMembersAction": "failover",
@@ -764,12 +693,8 @@ Retrieve the pool specified.
                 "serviceDownAction": null,
                 "slowRampTime": 10,
                 "description": "none",
-                "members": {
-                    "href": "https://fe.netsec.rackspace.net/f5/12345/pools/POOL-127.0.0.1-80/members"
-                },
-                "monitors": {
-                    "href": "http://fe.netsec.rackspace.net/f5/12345/healthmonitors/MON-TCP-80"
-                }
+                "members": {},
+                "monitors": {}
             }
         ]
     }
@@ -966,6 +891,11 @@ Remove monitor rule from a pool
 
 Delete a monitor rule for the specified pool.
 
+.. note::
+   When a monitor-rule is deleted, all monitors associated to
+   the pool will be deleted as well.
+::
+
 ::
 
    DELETE /pools/{poolId}/monitor-rule
@@ -1048,12 +978,6 @@ Response
                "statusReason": "Pool member does not have service checking enabled"
                },
                "totRequests": 0,
-               "links": [
-               {
-                  "rel": "self",
-                     "href": "https://localhost/f5/12345/pools/test2/members/test1:80/stats"
-                }
-               ]
             }
          ]
       }
@@ -1098,9 +1022,7 @@ Response
             "type": "equal",
             "value": 80
           },
-          "monitors": {
-            "href": "https://fe.netsec.rackspace.net/f5/12345/monitors"
-          },
+          "monitors": {},
           "address": "127.0.0.1",
           "appService": "none",
           "connectionLimit": 0,
@@ -1114,16 +1036,8 @@ Response
           "ratio": 1,
           "session": "monitor-enabled",
           "state": "down",
-          "metadata": {
-            "href": "https://fe.netsec.rackspace.net/f5/12345/metadata"
-          },
+          "metadata": {},
           "profiles": [],
-          "links": [
-            {
-              "rel": "self",
-              "href": "https://fe.netsec.rackspace.net/f5/12345/pools/my-pool/members/127.0.0.1:80"
-            }
-          ]
         }
       ]
     }
@@ -1223,12 +1137,6 @@ Response
             "statusReason": "Pool member does not have service checking enabled"
           },
           "totRequests": 0,
-          "links": [
-            {
-              "rel": "self",
-              "href": "https://localhost/f5/12345/pools/test2/members/test1:80/stats"
-            }
-          ]
         }
       ]
     }
@@ -1266,12 +1174,8 @@ Response
                 "ratio": 1,
                 "session": "monitor-enabled",
                 "state": "down",
-                "metadata": {
-                    "href": "https://localhost/f5/12345/nodes/127.0.0.1/metadata"
-                },
-                "monitors": {
-                    "href": "https://localhost/f5/12345/nodes/127.0.0.1/monitors"
-                },
+                "metadata": {},
+                "monitors": {},
                 "profiles": []
             }
         ]
@@ -1369,12 +1273,6 @@ Response
         {
           "minimum": "all",
           "address": "127.0.0.1",
-          "links": [
-            {
-              "rel": "self",
-              "href": "https://fe-staging.netsec.net/f5/12345/pools/ppol1/members/test1:80"
-            }
-          ]
         }
       ]
     }
@@ -1614,9 +1512,7 @@ Response
                     }
                 },
                 "policies": "none",
-                "pool": {
-                    "href": "https://fe.netsec.rackspace.net/f5/12345/pools/POOL-127.0.0.1-80"
-                },
+                "pool": {},
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -1968,9 +1864,7 @@ Response
                     }
                 },
                 "policies": "none",
-                "pool": {
-                    "href": "https://fe.netsec.rackspace.net/f5/12345/pools/POOL-127.0.0.1-80"
-                },
+                "pool": {},
                 "port": {
                     "type": "equal",
                     "value": 80
@@ -2451,11 +2345,6 @@ Response
         "data": [
             {
                 "name": "test_pool",
-                "_links": {
-                    "self": {
-                        "href": "http://localhost:8000/f5/12345/virtuals/VIP-127.0.0.1-80/pool/"
-                    }
-                }
             }
         ]
     }
