@@ -4,9 +4,13 @@ https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
 Retrieve device information
 ---------------------------
 
-Use the Device ID operation to get complete information about the device
-with the specified ID including associated customer, usage statistics,
-and configuration details for nodes, virtual IPs, and high availability.
+Using the device resource will allow you to retrieve information for the
+given device.
+
+The resource also allows you to create, update, retrieve and delete on
+several of the device's sub-resources for the device you selected. You
+will be able to make these actions on the following sub-resources -
+configuration, ha, vips, nodes, and events.
 
 ::
 
@@ -23,12 +27,12 @@ Successfully processed the request.
 
     {
       "load_balancer_data": {
-        "customer": "2222222",
+        "customer": "1234567",
         "uptime": "unimplemented",
-        "hostname": "adx1000-cyberdyne.iad3.netdev.net",
+        "hostname": "adx1000-examplehost.iad3.netdev.net",
         "links": {
           "device": {
-            "href": "https://api-qual.netsec.rackspace.net/devices/111111",
+            "href": "https://api-qual.netsec.rackspace.net/devices/1234567",
             "rel": "alternate"
           },
           "lb": {
@@ -36,15 +40,15 @@ Successfully processed the request.
             "rel": "up"
           },
           "self": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111",
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567",
             "rel": "self"
           },
           "vips": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/vips",
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/vips",
             "rel": "related"
           },
           "nodes": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/111111/nodes",
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
             "rel": "related"
           }
         },
@@ -63,9 +67,9 @@ Successfully processed the request.
             "used_kbytes": "109788"
           }
         ],
-        "id": "111111",
-        "os_version": "12.4.00sT403",
-        "management_ip": "10.17.25.108",
+        "id": "1234567",
+        "os_version": "127.0.00sT403",
+        "management_ip": "127..0.0.1",
         "role": "unimplemented",
         "cpu_load": [
           {
@@ -105,7 +109,7 @@ Successfully processed the request.
           }
         ],
         "ha_status": "none",
-        "model_name": "SI-1216-4-PREM"
+        "model_name": "SI-1216-4-EXAMPLE"
       }
     }
 
@@ -153,11 +157,11 @@ Successfully processed the request.
       }
     }
 
-Show high availability template
--------------------------------
+Show high availability configuration
+------------------------------------
 
-Retrieves the high availability configuration template for a device with
-the specified ID.
+Retrieves the high availability configuration for the specified device
+ID.
 
 ::
 
@@ -182,10 +186,10 @@ Retrieve virtual IPs configuration
 Load balancers must have at least one virtual IP address that clients
 can use to balance traffic across nodes. You can use the manage virtual
 IPs operations to configure and manage the virtual IP addresses for the
-load balancer with the specified device ID.
+load balancer using the specified device ID.
 
-An IP can be passed into the add Virtual IP call as part of the request
-body, only if the IP exists within an existing Virtual.
+An IP can be passed into the ``add Virtual IP`` call as part of the
+request body, only if the IP exists within an existing Virtual.
 
 *When adding a Virtual IP, these fields are required: account\_number,
 label, protocol, port, algorithm, persistence, admin\_state, comment*
@@ -212,7 +216,7 @@ Successfully processed the request.
             "name": "LEAST_CONNECTION",
             "persistence": null
           },
-          "ip": "152.181.84.2",
+          "ip": "127.0.0.1",
           "runtime_state": "UNHEALTHY",
           "label": "Vip-Test-32fce25d",
           "port_number": 80,
@@ -231,19 +235,19 @@ Successfully processed the request.
             {
               "label": "Node-Test-32fce25d",
               "port_name": "HTTP",
-              "address": "29.181.84.2",
+              "address": "127.0.0.1",
               "port_number": 80,
-              "id": "Node-Test-32fce25d:29.181.84.2:80"
+              "id": "Node-Test-32fce25d:127.0.0.1:80"
             },
             {
               "label": "Node-Test-8df4d3b7",
               "port_name": "HTTP",
-              "address": "29.181.84.3",
+              "address": "127.0.0.1",
               "port_number": 80,
-              "id": "Node-Test-8df4d3b7:29.181.84.3:80"
+              "id": "Node-Test-8df4d3b7:127.0.0.1:80"
             }
           ],
-          "id": "Vip-Test-32fce25d:152.181.84.2:80",
+          "id": "Vip-Test-32fce25d:127.0.0.1:80",
           "vendor_extensions": {
             "none": "none"
           }
@@ -276,10 +280,10 @@ Add a Virtual IP
 Load balancers must have at least one virtual IP address that clients
 can use to balance traffic across nodes. You can use the manage virtual
 IPs operations to configure and manage the virtual IP addresses for the
-load balancer with the specified device ID.
+load balancer using the specified device ID.
 
-An IP can be passed into the add Virtual IP call as part of the request
-body, only if the IP exists within an existing Virtual.
+An IP can be passed into the ``add Virtual IP`` call as part of the
+request body, only if the IP exists within an existing Virtual.
 
 *When adding a Virtual IP, these fields are required: account\_number,
 label, protocol, port, algorithm, persistence, admin\_state, comment*
@@ -295,17 +299,17 @@ label, protocol, port, algorithm, persistence, admin\_state, comment*
 ::
 
     {
-      "account_number": req"<Account Number>",
-      "label": req"<Label>",
+      "account_number": "<Account Number> (required)",
+      "label": "<Label> (required)",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": req"<protocol>",
-      "port": req"<port>",
-      "algorithm": req{},
-      "persistence": req{},
+      "protocol": "<protocol> (required)",
+      "port": "<port> (required)",
+      "algorithm": {} (required),
+      "persistence": {} (required),
       "nodes": {},
-      "admin_state": req"<enabled|disabled>",
-      "comment": req"comment"
+      "admin_state": "<enabled|disabled> (required)",
+      "comment": "comment (required)"
     }
 
 POST Manage Virtual IPs 202 response
@@ -324,7 +328,7 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Retrieve virtual IP information
+Retrieve Virtual IP information
 -------------------------------
 
 Use the virtual IPs information operations to retrieve and update
@@ -361,7 +365,7 @@ Successfully processed the request.
           "persistence": "ENABLED",
           "subnet_prefix_length": 0
         },
-        "ip": "152.181.84.2",
+        "ip": "127.0.0.1",
         "runtime_state": "UNHEALTHY",
         "label": "Vip-Test-32fce25d",
         "port_number": 80,
@@ -380,12 +384,12 @@ Successfully processed the request.
           {
             "label": "Node-Test-32fce25d",
             "port_name": "HTTP",
-            "address": "29.181.84.2",
+            "address": "127.0.0.1",
             "port_number": 80,
-            "id": "Node-Test-32fce25d:29.181.84.2:80"
+            "id": "Node-Test-32fce25d:127.0.0.1:80"
           }
         ],
-        "id": "Vip-Test-32fce25d:152.181.84.2:80",
+        "id": "Vip-Test-32fce25d:127.0.0.1:80",
         "vendor_extensions": {
           "none": "none"
         }
@@ -411,7 +415,7 @@ Not found.
       "error": "404 Client Error: Object Not Found"
     }
 
-Update virtual IP information
+Update Virtual IP information
 -----------------------------
 
 Use the virtual IPs information operations to retrieve and update
@@ -436,21 +440,21 @@ virtual IPs operation to find it.
 ::
 
     {
-      "account_number": req"<Account Number>",
-      "label": req"<Label>",
+      "account_number": "<Account Number> (required)",
+      "label": "<Label> (required)",
       "description": "<description>",
       "ip": "<ip>",
-      "protocol": req"<protocol>",
-      "port": req"<port>",
-      "algorithm": req{},
-      "persistence": req{},
+      "protocol": "<protocol> (required)",
+      "port": "<port> (required)",
+      "algorithm": {} (required),
+      "persistence": {} (required),
       "nodes": {},
-      "admin_state": req"<enabled|disabled>",
-      "comment": req"comment"
+      "admin_state": "<enabled|disabled> (required)",
+      "comment": "comment (required)"
     }
 
-PUT Virtual IPs information 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PUT Virtual IP 202 response
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -465,7 +469,7 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Delete a virtual IP
+Delete a Virtual IP
 -------------------
 
 Use the virtual IPs information operations to retrieve and update
@@ -490,12 +494,12 @@ virtual IPs operation to find it.
 ::
 
     {
-      "account_number": "<Account Number>",
-      "comment": "<comment>"
+      "account_number": "<Account Number> (required)",
+      "comment": "<comment> (required)"
     }
 
-DELETE Virtual IPs information 202 response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+DELETE Virtual IP 202 response
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
 
@@ -510,11 +514,11 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-List nodes for the specified virtual IP.
+List nodes for the specified Virtual IP.
 ----------------------------------------
 
-Retrieve information about the nodes associated with a specified virtual
-IP.
+Retrieve information about the nodes associated with the specified
+Virtual IP.
 
 ::
 
@@ -534,28 +538,28 @@ Successfully processed the request.
         {
           "links": {
             "self": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
+              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-32fce25d%3A29.181.84.2%3A80",
               "rel": "self"
             },
             "rel": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
               "rel": "up"
             }
           },
           "label": "Node-Test-32fce25d",
           "port_name": "HTTP",
-          "address": "29.181.84.2",
+          "address": "127.0.0.1",
           "port_number": 80,
           "id": "Node-Test-32fce25d:29.181.84.2:80"
         }
       ]
     }
 
-Assign node to virtual IP
+Assign node to Virtual IP
 -------------------------
 
-Use the virtual IP node configuration operations to add or remove a
-specified node from the virtual IP configuration.
+Use the Virtual IP node configuration operations to add or remove a
+specified node from the Virtual IP configuration.
 
 *When assigning a node to a virtual, this field is required:
 account\_number*
@@ -574,7 +578,7 @@ account\_number*
       "account_number": "<Account Number>"
     }
 
-POST Manage virtual IP node configuration 202 response
+POST Manage Virtual IP node configuration 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -590,11 +594,11 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Remove node from virtual IP configuration
+Remove node from Virtual IP configuration
 -----------------------------------------
 
-Use the virtual IP node configuration operations to add or remove a
-specified node from the virtual IP configuration.
+Use the Virtual IP node configuration operations to add or remove a
+specified node from the Virtual IP configuration.
 
 *When assigning a node to a virtual, this field is required:
 account\_number*
@@ -603,7 +607,7 @@ account\_number*
 
     DELETE /{device_id}/vips/{vip_id}/nodes/{node_id}
 
-DELETE Manage virtual IP node configuration 202 response
+DELETE Manage Virtual IP node configuration 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -619,20 +623,28 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Enable a virtual IP
--------------------
+Activate the Virtual IP.
+------------------------
 
-Use the virtual IP configuration operations to enable or disable a
-virtual IP configured for a specified device.
+Use the Virtual IP configuration operations to enable or disable a
+Virtual IP configured for a specified device.
 
 ::
 
     POST /{device_id}/vips/{vip_id}/configuration
 
+*This operation accepts a request body:*
+
+**Request**
+
+::
+
+    {
+      "account_number": "<Account Number> (required)"
+    }
+
 POST Manage Virtual IP status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The request has been accepted for processing.
 
 ::
 
@@ -645,15 +657,25 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Disable a virtual IP
---------------------
+Deactivate the Virtual IP.
+--------------------------
 
-Use the virtual IP configuration operations to enable or disable a
-virtual IP configured for a specified device.
+Use the Virtual IP configuration operations to enable or disable a
+Virtual IP configured for a specified device.
 
 ::
 
     DELETE /{device_id}/vips/{vip_id}/configuration
+
+*This operation accepts a request body:*
+
+**Request**
+
+::
+
+    {
+      "account_number": "<Account Number> (required)"
+    }
 
 DELETE Manage Virtual IP status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -671,10 +693,10 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Show virtual IP statistics
+Show Virtual IP statistics
 --------------------------
 
-Retrieves usage data for the specified virtual IP.
+Retrieves usage data for the specified Virtual IP.
 
 ::
 
@@ -723,14 +745,14 @@ Not found.
 Nodes in a device for the given device id
 -----------------------------------------
 
-A node is a back-end device providing a service on a specified IP and
+A Node is a back-end device providing a service on a specified IP and
 port.
 
 Use the nodes operations to get information about the nodes configured
 for a specified device and to add a node.
 
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
+After a node has been defined, use the Virtual IP nodes configuration
+operations to assign the node to one or more Virtual IPs.
 
 *When adding a node to a device, these fields are rquired:
 account\_number, label, ip, port, admin\_state, health\_strategy,
@@ -763,11 +785,11 @@ Successfully processed the request.
           },
           "links": {
             "self": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
               "rel": "self"
             },
             "rel": {
-              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+              "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
               "rel": "up"
             }
           },
@@ -775,7 +797,7 @@ Successfully processed the request.
           "label": "Node-Test-c4b3b8a5",
           "port_name": "12345",
           "admin_state": "ENABLED",
-          "address": "29.235.243.3",
+          "address": "127.0.0.1",
           "port_number": 12345,
           "id": "Node-Test-c4b3b8a5:29.235.243.3:12345"
         }
@@ -799,17 +821,17 @@ GET 404 response
       "error": "404 Client Error: Object Not Found"
     }
 
-Add a node to a device
+Add a Node to a device
 ----------------------
 
-A node is a back-end device providing a service on a specified IP and
+A Node is a back-end device providing a service on a specified IP and
 port.
 
 Use the nodes operations to get information about the nodes configured
 for a specified device and to add a node.
 
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
+After a node has been defined, use the Virtual IP nodes configuration
+operations to assign the node to one or more Virtual IPs.
 
 *When adding a node to a device, these fields are rquired:
 account\_number, label, ip, port, admin\_state, health\_strategy,
@@ -853,7 +875,7 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Retrieve node information
+Retrieve Node information
 -------------------------
 
 Use the node operations to view, update, or remove a specified node.
@@ -877,11 +899,11 @@ Successfully processed the request.
         "description": null,
         "links": {
           "self": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes/Node-Test-c4b3b8a5%3A29.235.243.3%3A12345",
             "rel": "self"
           },
           "rel": {
-            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/534583/nodes",
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/1234567/nodes",
             "rel": "up"
           }
         },
@@ -891,7 +913,7 @@ Successfully processed the request.
         "port_number": 12345,
         "limit": 1000,
         "admin_state": "ENABLED",
-        "address": "29.235.243.3",
+        "address": "127.0.0.1",
         "stats": {
           "conn_max": 0,
           "pkts_out": 0,
@@ -901,7 +923,7 @@ Successfully processed the request.
           "conn_cur": 0,
           "bytes_out": 0
         },
-        "id": "Node-Test-c4b3b8a5:29.235.243.3:12345",
+        "id": "Node-Test-c4b3b8a5:127.0.0.1.3:12345",
         "vendor_extensions": {
           "reassign_count": 0
         },
@@ -965,7 +987,7 @@ Use the node operations to view, update, or remove a specified node.
       "comment": "<comment> (required)"
     }
 
-PUT Manage node information 202 response
+PUT Manage Node information 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -981,8 +1003,8 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Delete node from the device configuration
------------------------------------------
+Delete the Node.
+----------------
 
 Use the node operations to view, update, or remove a specified node.
 
@@ -990,7 +1012,17 @@ Use the node operations to view, update, or remove a specified node.
 
     DELETE /{device_id}/nodes/{node_id}
 
-DELETE Manage node information 202 response
+*This operation accepts a request body:*
+
+**Request**
+
+::
+
+    {
+      "account_number": "<Account Number> (required)"
+    }
+
+DELETE Manage Node information 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -1006,10 +1038,10 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Enable a node
--------------
+Activate the Node.
+------------------
 
-Use the node status operations to enable or disable a specified node
+Use the node status operations to enable or disable a specified Node
 included in the device configuration.
 
 If you want to delete the node from the configuration file, use the
@@ -1019,7 +1051,17 @@ delete node operation.
 
     POST /{device_id}/nodes/{node_id}/configuration
 
-POST Manage node status 202 response
+*This operation accepts a request body:*
+
+**Request**
+
+::
+
+    {
+      "account_number": "<Account Number> (required)"
+    }
+
+POST Manage Node status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -1035,10 +1077,10 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Disable a node
---------------
+Deactivate the Node.
+--------------------
 
-Use the node status operations to enable or disable a specified node
+Use the node status operations to enable or disable a specified Node
 included in the device configuration.
 
 If you want to delete the node from the configuration file, use the
@@ -1048,7 +1090,17 @@ delete node operation.
 
     DELETE /{device_id}/nodes/{node_id}/configuration
 
-DELETE Manage node status 202 response
+*This operation accepts a request body:*
+
+**Request**
+
+::
+
+    {
+      "account_number": "<Account Number> (required)"
+    }
+
+DELETE Manage Node status 202 response
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The request has been accepted for processing.
@@ -1064,10 +1116,10 @@ The request has been accepted for processing.
       "timestamp": "2015-04-01T10:05:01.55Z",
     }
 
-Show node statistics
+Show Node statistics
 --------------------
 
-Retrieves usage data for a specified node ID.
+Retrieves usage data for a specified Node ID.
 
 ::
 
@@ -1113,7 +1165,7 @@ Not found.
       "error": "404 Client Error: Object Not Found"
     }
 
-List events
+List Events
 -----------
 
 Use the events operations to get information about requests to create or
@@ -1161,8 +1213,8 @@ Successfully processed the request.
       ]
     }
 
-Retrieves event information by event ID.
-----------------------------------------
+Retrieves Event information using the specified event ID.
+---------------------------------------------------------
 
 Use the event ID details operation to get information about about a
 specific event including event type, status, message, and timestamp.
