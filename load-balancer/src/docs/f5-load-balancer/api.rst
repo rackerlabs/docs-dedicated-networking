@@ -313,7 +313,6 @@ Retrieve, update and delete an existing Node specified by a Node id.
 ::
 
     {
-        "address": "162.242.206.208",
         "appService": null,
         "connectionLimit": 2,
         "description": "Updated node",
