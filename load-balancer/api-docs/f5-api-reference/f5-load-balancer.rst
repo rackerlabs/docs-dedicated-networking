@@ -534,11 +534,15 @@ Remove monitor rule from a node
 
 Remove the monitor rule from the specified node.
 
+
+
 .. note::
 
    This operation does not remove the monitor from the load balancer
    configuration.
-
+   
+   When a monitor-rule is deleted, all monitors associated to 
+   the node will be deleted as well.
 ::
 
     DELETE /nodes/{nodeId}/monitor-rule
