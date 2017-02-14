@@ -120,26 +120,6 @@ GET 404 response
       "error": "404 Client Error: Object Not Found"
     }
 
-Config info for a given node.
------------------------------
-
-::
-
-    GET /{device_id}/configuration
-
-*This operation does not accept a request body.*
-
-GET 200 response
-^^^^^^^^^^^^^^^^
-
-::
-
-    {
-      "load_balancer_data": {
-        "b64": "key"
-      }
-    }
-
 High Availability template.
 ---------------------------
 

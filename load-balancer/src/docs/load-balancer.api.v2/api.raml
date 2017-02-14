@@ -70,21 +70,6 @@ securedBy: [internalIdentity]
                 body:
                     application/json:
                         example: !include error.sample
-                                                                
-    /configuration:
-        displayName: Display the node configuration key.
-        get:
-            description: Config info for a given node.
-            responses:
-                200:
-                    body:
-                        application/json:
-                            example: |
-                                {
-                                  "load_balancer_data": {
-                                    "b64": "key"
-                                  }
-                                }
 
     /ha:
         displayName: Information about High Availability configuration.
