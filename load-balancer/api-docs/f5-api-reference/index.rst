@@ -15,4 +15,4 @@ Use the following :ref:`Base URL <baseurlf5>` to
 .. toctree::
    :maxdepth: 1
 
-   f5-load-balancer.rst
+   api.rst

@@ -16,4 +16,4 @@ https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
 .. toctree:: :hidden:
    :maxdepth: 2
 
-   adx-load-balancer-v2.rst
+   api.rst
