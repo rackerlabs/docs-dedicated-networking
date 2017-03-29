@@ -31,7 +31,7 @@ Base URL
 
 Submit API requests for |F5| to the following URL:
 
-``https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_ID}/f5loadbalancers/{device_id}``
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_ID}/f5loadbalancers/{device_id}``
 
 To make it easier to run the cURL requests, export this URL to
 an environment variable. Replace the tenant and device ID with the values for
@@ -39,7 +39,7 @@ your account.
 
 .. code:: console
 
-   export BASE_URL="https://bpi.automation.api.rackspacecloud.com/2.0/$tenant_id/f5loadbalancers/$device_id"
+   export BASE_URL="https://lb.dedicated.api.rackspacecloud.com/2.0/$tenant_id/f5loadbalancers/$device_id"
 
 .. include:: examples/retrieve-lb-info.rst
 .. include:: examples/manage-nodes.rst

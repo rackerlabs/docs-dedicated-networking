@@ -14,12 +14,12 @@ specific type:
 |F5|
 ~~~~
 
-    ``https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/``
+    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/``
 
 |ADX|
 ~~~~~
 
-    ``https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers/``
+    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers/``
 
 .. note::
 
