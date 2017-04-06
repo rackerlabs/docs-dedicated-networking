@@ -11,7 +11,7 @@
 			 "name": "<username:string>",
 			 "roles": [
 				 {
-					 "name": "bpi_lbs_write"
+					 "name": "<role:string>"
 				 },
 			 ],
 		 },
