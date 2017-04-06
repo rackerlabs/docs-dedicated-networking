@@ -134,24 +134,11 @@ In an |F5|, a node is added automatically when you add a member to a pool.
 Event
 ~~~~~
 
-The API keeps a historic record of all the events that get created when using
-a resource that modifies an existing load balancer. These events are stored 
-in a database system. Each event includes a unique event ID, event type, status
-of the request, and a time when the event was created.
-
-You can use the Events API resource to retrieve event information from the database.
-
-Please note, these events are triggered by the owner of the load balancer. If you
-wish to view a change done by a network security engineer, please view this in 
-the changelog API?
-
-The Event resource returns information that is stored in a database system.
-These events are triggered when a user does an action on the load balancer device, 
-an asynchronous action takes place which generates an event ID. This event ID is
-returned as part of the response object. It also includes an event type, status
-of the request, and a timestamp when the event was created.
-
-
+Events are used to track asynchronous backend processing status. These events 
+are generated when a user performs an action on the load balancer device that 
+updates the device. An event ID is returned as part of the response object, 
+which also includes an event type, status of the request, and a timestamp when 
+the event was created.
 
 .. _monitor-concept:
 
