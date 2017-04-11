@@ -13,9 +13,13 @@ provision dedicated hardware load balancers.
 
 You can use the |apiservice| to manage the following load balancer models.
 
-- |F5Product|
+ - |F5Product|
+     
+     - |F5Version|
 
-- |ADXProduct|
+ - |ADXProduct|
+     
+     - |ADXVersion|
 
 For details about using these load balancer models for hybrid hosting, see
 :how-to:`Using dedicated load balancers with RackConnect v2.0\

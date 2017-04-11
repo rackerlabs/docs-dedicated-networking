@@ -134,17 +134,11 @@ In an |F5|, a node is added automatically when you add a member to a pool.
 Event
 ~~~~~
 
-The load balancer logs events locally to the log directory (``/var/log``).
-Depending on the type of log event, the log message is stored in a specific
-file. Each event includes a unique event ID, event type, status of the
-request,
-
-You can use the Events API resource to retrieve event information from the log.
-
-On the |F5|, anytime you submit an API request to change the load balancer
-configuration, the response includes an event ID that you can use to check
-the status of the operation.
-
+Events are used to track asynchronous backend processing status. These events 
+are generated when a user performs an action on the load balancer device that 
+updates the device. An event ID is returned as part of the response object, 
+which also includes an event type, status of the request, and a timestamp when 
+the event was created.
 
 .. _monitor-concept:
 

@@ -69,46 +69,6 @@ followed a listing of the load balancer information.
                "ha_status": "active",
                "hostname": "tlb1-example-1600.rackspace.com",
                "id": "349737",
-               "links": [
-                   {
-                       "availability": {
-                           "href": "https://fe.netsec.rackspace.net/loadbalancers/127.0.0.1/availability",
-                           "rel": "related"
-                       },
-                       "config": {
-                           "href": "https://localhost/f5/127.0.0.1/config",
-                           "rel": "related"
-                       },
-                       "device": {
-                           "href": "https://fe.netsec.rackspace.net/devices/127.0.0.1",
-                           "rel": "alternate"
-                       },
-                       "lb": {
-                           "href": "https://fe.netsec.rackspace.net/f5",
-                           "rel": "up"
-                       },
-                       "monitors": {
-                           "href": "https://localhost/f5/127.0.0.1/monitors",
-                           "rel": "related"
-                       },
-                       "nodes": {
-                           "href": "https://localhost/f5/127.0.0.1/nodes",
-                           "rel": "related"
-                       },
-                       "pools": {
-                           "href": "https://localhost/f5/127.0.0.1/pools",
-                           "rel": "related"
-                       },
-                       "self": {
-                           "href": "https://localhost/f5/127.0.0.1",
-                           "rel": "self"
-                       },
-                       "virtuals": {
-                           "href": "https://localhost/f5/127.0.0.1/virtuals",
-                           "rel": "related"
-                       }
-                   }
-               ],
                "management_ip": "10.12.144.24",
                "model_name": "BIG-IP 1600",
                "os_version": "11.5.4, build: 2.0.291, edition: Hotfix HF2",

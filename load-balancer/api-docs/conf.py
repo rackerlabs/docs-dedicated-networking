@@ -153,7 +153,9 @@ rst_epilog = """
 .. |service| replace:: Dedicated Load Balancer
 .. |ADX| replace:: Brocade ADX load balancer
 .. |F5Product| replace:: F5 BIG-IP 1600 2000 series
+.. |F5Version| replace:: Supported OS version: **11.5.X**
 .. |ADXProduct| replace:: ADX 1000
+.. |ADXVersion| replace:: Supported OS version: **12.X**
 .. |F5| replace:: F5 BIG-IP load balancer
 .. |no changes| replace:: None for this release.
 .. |contract version| replace:: 2.0

@@ -14,7 +14,6 @@ tasks:
    send-request-ovw
    authenticate
    concepts
-   using-f5-load-balancers
 
 
 To start using the API and run the examples in this section, you need the
