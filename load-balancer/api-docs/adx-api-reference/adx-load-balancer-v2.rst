@@ -108,16 +108,7 @@ Successfully processed the request.
 Retrieve virtual IPs configuration
 ----------------------------------
 
-Load balancers must have at least one virtual IP address that clients
-can use to balance traffic across nodes. You can use the manage virtual
-IPs operations to configure and manage the virtual IP addresses for the
-load balancer with the specified device ID.
-
-An IP can be passed into the add Virtual IP call as part of the request
-body, only if the IP exists within an existing Virtual.
-
-*When adding a Virtual IP, these fields are required: account\_number,
-label, protocol, port, algorithm, persistence, admin\_state, comment*
+Retrieve information about all virtual servers configured in the load balancer including configuration data and status information.
 
 ::
 
@@ -183,19 +174,7 @@ Successfully processed the request.
 
 Add a Virtual IP
 ----------------
-
-Load balancers must have at least one virtual IP address that clients
-can use to balance traffic across nodes. You can use the manage virtual
-IPs operations to configure and manage the virtual IP addresses for the
-load balancer with the specified device ID.
-
-An IP can be passed into the add Virtual IP call as part of the request
-body, only if the IP exists within an existing virtual.
-
-When adding a virtual IP, the following fields are required:
-``account\_number``,
-``label``, ``protocol``, ``port``, ``algorithm``, ``persistence``,
-``admin\_state``, ``comment\*``
+Add a virtual server configuration to the load balancer.
 
 ::
 
@@ -240,16 +219,12 @@ The request has been accepted for processing.
 Retrieve virtual IP information
 -------------------------------
 
-Use the virtual IPs information operations to retrieve and update
+Use the virtual IPs information operations to retrieve 
 information for a virtual IP configured for the specified device ID.
 
-Use the delete operation to remove a virtual IP from the device
-configuration.
-
 If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it.
+virtual IPs configuration operation to find it.
 
-*When deleting, these fields are required: account\_number, comment*
 
 ::
 
@@ -308,17 +283,12 @@ Successfully processed the request.
 Update virtual IP information
 -----------------------------
 
-Use the virtual IPs information operations to retrieve and update
+Use the virtual IPs information operations to  update
 information for a virtual IP configured for the specified device ID.
 
-Use the delete operation to remove a virtual IP from the device
-configuration.
-
 If you don't know the ID for a specified virtual IP, use the retrieve
-virtual IPs operation to find it.
+virtual IPs configuration operation to find it.
 
-*The following fields are required when you delete a virtual IP,
-account\_number, comment*
 
 ::
 
@@ -362,9 +332,6 @@ The request has been accepted for processing.
 
 Delete a virtual IP
 -------------------
-
-Use the virtual IPs information operations to retrieve and update
-information for a virtual IP configured for the specified device ID.
 
 Use the delete operation to remove a virtual IP from the device
 configuration.
@@ -438,7 +405,7 @@ Successfully processed the request.
 Assign node to virtual IP
 -------------------------
 
-Use the virtual IP node configuration operations to add or remove a
+Use the virtual IP node configuration operations to add 
 specified node from the virtual IP configuration.
 
 *When you assign a node to a virtual IP, the following field is required:
@@ -476,7 +443,7 @@ The request has been accepted for processing.
 Remove node from virtual IP configuration
 -----------------------------------------
 
-Use the virtual IP node configuration operations to add or remove a
+Use the virtual IP node configuration operations to remove a
 specified node from the virtual IP configuration.
 
 
@@ -503,15 +470,20 @@ The request has been accepted for processing.
 Enable a virtual IP
 -------------------
 
-Use the virtual IP configuration operations to enable or disable a
+Use the virtual IP configuration operations to enable a
 virtual IP configured for a specified device.
 
 ::
 
     POST /{device_id}/vips/{vip_id}/configuration
 
+Request body
+^^^^^^^^^^^^
+::
 
-*This operation does not accept a request body.*
+{
+  "account_number": "<Account Number> (required)"
+}
 
 202 Response
 ^^^^^^^^^^^^
@@ -532,14 +504,21 @@ The request has been accepted for processing.
 Disable a virtual IP
 --------------------
 
-Use the virtual IP configuration operations to enable or disable a
+Use the virtual IP configuration operations to  disable a
 virtual IP configured for a specified device.
 
 ::
 
     DELETE /{device_id}/vips/{vip_id}/configuration
 
-*This operation does not accept a request body.*
+
+Request body
+^^^^^^^^^^^^
+::
+
+{
+  "account_number": "<Account Number> (required)"
+}
 
 202 Response
 ^^^^^^^^^^^^
@@ -588,21 +567,15 @@ Successfully processed the request.
     }
 
 
-Nodes in a device for the given device id
------------------------------------------
+Show Nodes for the given device id
+-----------------------------------
 
 A node is a back-end device providing a service on a specified IP and
 port.
 
 Use the nodes operations to get information about the nodes configured
-for a specified device and to add a node.
+for a specified device
 
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
-
-*When adding a node to a device, these fields are rquired:
-account\_number, label, ip, port, admin\_state, health\_strategy,
-vendor\_extensions, comment*
 
 ::
 
@@ -610,8 +583,8 @@ vendor\_extensions, comment*
 
 *This operation does not accept a request body.*
 
-202 Response
-^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -644,14 +617,7 @@ Successfully processed the request.
 Add a node to a device
 ----------------------
 
-A node is a back-end device providing a service on a specified IP and
-port.
-
-Use the nodes operations to get information about the nodes configured
-for a specified device and to add a node.
-
-After a node has been defined, use the virtual IP nodes configuration
-operations to assign the node to one or more virtual IPs.
+Use the nodes operations to add a node for a specified device
 
 When adding a node to a device, the following fields are required:
 ``account\_number``, ``label``, ``ip``, ``port``, ``admin\_state``,
@@ -697,7 +663,7 @@ The request has been accepted for processing.
 Retrieve node information
 -------------------------
 
-Use the node operations to view, update, or remove a specified node.
+Use the node operations to view a specified node.
 
 ::
 
@@ -705,8 +671,8 @@ Use the node operations to view, update, or remove a specified node.
 
 *This operation does not accept a request body.*
 
-202 Response
-^^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -755,14 +721,12 @@ Successfully processed the request.
 Update node information
 -----------------------
 
-Use the node operations to view, update, or remove a specified node.
+Use the node operations to  update a specified node.
 
 ::
 
     PUT /{device_id}/nodes/{node_id}
 
-
-*This operation does not accept a request body.*
 
 Request body
 ^^^^^^^^^^^^
@@ -799,14 +763,20 @@ The request has been accepted for processing.
 Delete node from the device configuration
 -----------------------------------------
 
-Use the node operations to view, update, or remove a specified node.
+Use the node operations to remove a specified node.
 
 ::
 
     DELETE /{device_id}/nodes/{node_id}
 
-*This operation does not accept a request body.*
+Request body
+^^^^^^^^^^^^
 
+::
+
+{
+  "account_number": "<Account Number> (required)"
+}
 
 202 Response
 ^^^^^^^^^^^^
@@ -827,18 +797,21 @@ The request has been accepted for processing.
 Enable a node
 -------------
 
-Use the node status operations to enable or disable a specified node
+Use the node  operations to enable  specified node
 included in the device configuration.
 
-If you want to delete the node from the configuration file, use the
-delete node operation.
 
 ::
 
     POST /{device_id}/nodes/{node_id}/configuration
 
-*This operation does not accept a request body.*
+Request body
+^^^^^^^^^^^^
+::
 
+{
+  "account_number": "<Account Number> (required)"
+}
 
 202 Response
 ^^^^^^^^^^^^
@@ -859,11 +832,17 @@ The request has been accepted for processing.
 Disable a node
 --------------
 
-Use the node status operations to enable or disable a specified node
+Use the node status operations to   disable a specified node
 included in the device configuration.
 
-If you want to delete the node from the configuration file, use the
-delete node operation.
+Request body
+^^^^^^^^^^^^
+
+::
+
+{
+  "account_number": "<Account Number> (required)"
+}
 
 ::
 
@@ -899,8 +878,8 @@ Retrieves usage data for a specified node ID.
 
 *This operation does not accept a request body.*
 
-202 Response
-^^^^^^^^^^^^
+Response
+^^^^^^^^
 
 Successfully processed the request.
 
@@ -921,8 +900,7 @@ Successfully processed the request.
 List events
 -----------
 
-Use the events operations to get information about requests to create or
-modify load balancer resources.
+Retrieve all event information for a device
 
 ::
 
@@ -930,8 +908,8 @@ modify load balancer resources.
 
 *This operation does not accept a request body.*
 
-202 Response
-^^^^^^^^^^^^
+Response
+^^^^^^^^^
 
 Successfully processed the request.
 
@@ -969,8 +947,7 @@ Successfully processed the request.
 Retrieves event information by event ID.
 ----------------------------------------
 
-Use the event ID details operation to get information about about a
-specific event including event type, status, message, and timestamp.
+Retrieve event information by event ID.
 
 ::
 
