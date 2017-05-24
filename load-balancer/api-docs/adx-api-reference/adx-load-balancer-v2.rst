@@ -340,7 +340,7 @@ If you don't know the ID for a specified virtual IP, use the retrieve
 virtual IPs operation to find it.
 
 The following fields are required for the delete operation:
-``account\_number``, ``comment*``.
+``account_number``, ``comment*``.
 
 ::
 
@@ -481,9 +481,9 @@ Request body
 ^^^^^^^^^^^^
 ::
 
-{
-  "account_number": "<Account Number> (required)"
-}
+  {
+    "account_number": "<Account Number> (required)"
+  }
 
 202 Response
 ^^^^^^^^^^^^
@@ -516,9 +516,9 @@ Request body
 ^^^^^^^^^^^^
 ::
 
-{
-  "account_number": "<Account Number> (required)"
-}
+  {
+    "account_number": "<Account Number> (required)"
+  }
 
 202 Response
 ^^^^^^^^^^^^
@@ -620,8 +620,8 @@ Add a node to a device
 Use the nodes operations to add a node for a specified device
 
 When adding a node to a device, the following fields are required:
-``account\_number``, ``label``, ``ip``, ``port``, ``admin\_state``,
-``health\_strategy``, ``vendor\_extensions``, ``comment*``
+``account_number``, ``label``, ``ip``, ``port``, ``admin_state``,
+``health_strategy``, ``vendor_extensions``, ``comment*``
 
 ::
 
@@ -774,9 +774,9 @@ Request body
 
 ::
 
-{
-  "account_number": "<Account Number> (required)"
-}
+  {
+    "account_number": "<Account Number> (required)"
+  }
 
 202 Response
 ^^^^^^^^^^^^
@@ -840,9 +840,9 @@ Request body
 
 ::
 
-{
-  "account_number": "<Account Number> (required)"
-}
+  {
+    "account_number": "<Account Number> (required)"
+  }
 
 ::
 
