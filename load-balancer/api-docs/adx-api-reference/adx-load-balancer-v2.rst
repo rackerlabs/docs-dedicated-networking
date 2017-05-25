@@ -809,9 +809,9 @@ Request body
 ^^^^^^^^^^^^
 ::
 
-{
-  "account_number": "<Account Number> (required)"
-}
+  {
+    "account_number": "<Account Number> (required)"
+  }
 
 202 Response
 ^^^^^^^^^^^^
