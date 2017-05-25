@@ -10,7 +10,7 @@ and response examples.
 Use the following :ref:`Base URL <baseurlf5>` to
 :ref:`submit API requests <send-api-requests>`:
 
-``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}``
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{core_id}``
 
 .. toctree::
    :maxdepth: 1

@@ -579,7 +579,7 @@ Response
 Retrieve pool statistics
 ------------------------
 
-Retrieve statistics for all pools associated have been created in a load
+Retrieve statistics for all pools associated that have been created in a load
 balancer.
 
 ::
@@ -650,7 +650,7 @@ Retrieve a pool by ID
 ---------------------
 
 Retrieve information about a specified pool by pool ID.
-Use the retrieve pools operation to pool specified by a ool id.
+Use the retrieve pools operation to pool specified by a pool id.
 
 ::
 
@@ -862,7 +862,6 @@ monitors, submit a ``GET monitors`` request.
 
 Request body
 ^^^^^^^^^^^^
-
 ::
 
    {
@@ -872,19 +871,19 @@ Request body
       "minimum": 1
    }
 
-    Response
-    ^^^^^^^^
-    ::
+Response
+^^^^^^^^
+::
 
-        {
-          "data": {
-            "eventId": "<eventId:str>",
-            "status": "PROCESSING",
-            "timestamp": "2016-03-18T03:18:35.5077939Z",
-            "resource": "<poolId:str>",
-            "eventRef": "/events/<eventId:str>"
-          }
+    {
+        "data": {
+        "eventId": "<eventId:str>",
+        "status": "PROCESSING",
+        "timestamp": "2016-03-18T03:18:35.5077939Z",
+        "resource": "<poolId:str>",
+        "eventRef": "/events/<eventId:str>"
         }
+    }
 
 Remove monitor rule from a pool
 --------------------------------
@@ -896,7 +895,6 @@ Delete a monitor rule for the specified pool.
    the pool will be deleted as well.
 ::
 
-::
 
    DELETE /pools/{poolId}/monitor-rule
 
@@ -990,7 +988,7 @@ Pool members
 Pool members are logical physical objects that represent a single internal
 physical server IP address and listener port. Pool members are assigned to
 pools and are used to load balance traffic directed to the pool associated with
-by a virtual server configured in the load balancer.
+a virtual server configured in the load balancer.
 
 Use the following operations to view and manage pool members.
 
@@ -1141,8 +1139,8 @@ Response
       ]
     }
 
-Retrieve statistics for a pool member
--------------------------------------
+Retrieve pool member configuration
+----------------------------------
 
 Retrieve configuration, monitor settings, and other data for a pool member.
 
@@ -1321,7 +1319,7 @@ event ID to get event status and output information.
 Create a monitor rule for a pool member
 ---------------------------------------
 
-Add monitors to a pool member in a specified pool.
+Add monitors rule to a pool member in a specified pool.
 
 ::
 
@@ -1451,7 +1449,7 @@ Response
 Virtual servers
 ~~~~~~~~~~~~~~~
 
-Virtual servers are combination of an ip and a port that distribute trafic
+Virtual servers are combination of an IP and a port that distribute traffic
 among nodes in a pool. A virtual server can be associated with one or more
 pools.
 
@@ -1904,6 +1902,7 @@ Response
 
 Update a virtual server by ID
 -----------------------------
+Update a virtual in a device specified by virtual id
 
 When you update an existing virtual server, you must specify the address and
 port in the request.
@@ -2021,7 +2020,7 @@ Request body
 
     {
         "names": [
-        "hash",
+        "hash"
         ]
     }
 
@@ -2505,7 +2504,7 @@ Retrieve details about a specified monitor.
 Update a monitor
 ----------------
 
-Update a specified monitored configured in the load balancer.
+Update a specified monitor configured in the load balancer.
 
 
 ::
@@ -2635,9 +2634,6 @@ Response
 Events
 ~~~~~~
 
-The load balancer logs events locally to the log directory (/var/log).
-Depending on the type of log event, the log message is stored in a specific
-file. Each event includes a unique event ID, event type, status of the request.
 
 Retrieve events
 ---------------
