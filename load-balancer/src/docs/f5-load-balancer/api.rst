@@ -1,5 +1,5 @@
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/f5loadbalancers/{core\_id}
+https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/f5loadbalancers/{device_id}
 
 Retrieve load balancer details
 ------------------------------

@@ -137,7 +137,7 @@ request, prefix the variable name with a ``$``, for example ``$ENDPOINT``.
 
    .. code::
 
-      $ export TENANT_ID="tenant-id"
+      $ export account_id="tenant-id"
 
 
 #. In the ``service catalog`` section of the authentication response, copy the

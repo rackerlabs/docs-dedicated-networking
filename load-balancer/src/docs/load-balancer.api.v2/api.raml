@@ -1,7 +1,7 @@
 #%RAML 0.8
 title: BPI - Load Balancer Service
 version: v2.0 <br> <p style="font-size:17px; color:black"><em>Last modified date - Oct 28, 2016 </em></p><hr>
-baseUri: https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
+baseUri: https://bpi.automation.api.rackspacecloud.com/2.0/{account_id}/loadbalancers
 documentation:
 - title: API Overview
   content: |
@@ -26,10 +26,10 @@ documentation:
     - **510**: An indeterminate error occurred. This is caused by an unexpected error.
 
 baseUriParameters:
-  tenant_id:
+  account_id:
     displayName: Tenant ID
     description: |
-        The account number associated with the core_id
+        The account number associated with the device_id
     type: integer
 
 mediaType: application/json
