@@ -6,7 +6,7 @@ Service access
 
 Use the following global endpoint to submit requests to the |apiservice|.
 
-``https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}``
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}``
 
 Use the following URIs to submit requests to manage load balancers of a
 specific type:
@@ -14,12 +14,12 @@ specific type:
 |F5|
 ~~~~
 
-    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/f5loadbalancers/``
+    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/``
 
 |ADX|
 ~~~~~
 
-    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/loadbalancers/``
+    ``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers/``
 
 .. note::
 

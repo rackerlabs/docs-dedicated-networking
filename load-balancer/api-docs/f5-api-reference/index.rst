@@ -10,7 +10,7 @@ Learn about the API resources and operations to manage |F5| and review request a
 
 Use the following :ref:`Base URL <baseurlf5>` to submit API requests:
 
-``https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/f5loadbalancers/{device_id}``
+``https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{device_id}``
 
 .. toctree::
    :maxdepth: 1

@@ -14,7 +14,7 @@ Last modified date - June 6, 2016
 
    <hr>
 
-https://bpi.automation.api.rackspacecloud.com/2.0/{account_id}/f5loadbalancers/{device_id}
+https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{device_id}
 
 API Overview
 ~~~~~~~~~~~~

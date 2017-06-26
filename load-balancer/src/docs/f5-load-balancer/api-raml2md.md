@@ -1,5 +1,5 @@
 # F5 Load Balancer API documentation version 1 <br> <p style="font-size:17px; color:black"><em>Last modified date - June 6, 2016 </em></p><hr>
-https://bpi.automation.api.rackspacecloud.com/2.0/{account_id}/f5loadbalancers/{device_id}
+https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{device_id}
 
 ### API Overview
 This API exposes methods to view and manage F5 Load Balancer resources

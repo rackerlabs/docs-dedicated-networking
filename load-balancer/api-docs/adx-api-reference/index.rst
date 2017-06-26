@@ -10,7 +10,7 @@ response examples.
 Use the following base endpoint to
 :ref:`submit API requests <send-api-requests>`.
 
-https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/loadbalancers
+https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
 
 
 .. toctree:: :hidden:
