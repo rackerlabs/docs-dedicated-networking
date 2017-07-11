@@ -42,7 +42,7 @@ response that includes the following information:
 
 In the following example, the ellipsis (...)  represents other service
 endpoints, which  are not shown. The values shown in this and other examples
-vary because the information  returned is specific to your account.
+vary because the information returned is specific to your account.
 
 
 **Example: Authentication response**
@@ -137,7 +137,7 @@ request, prefix the variable name with a ``$``, for example ``$ENDPOINT``.
 
    .. code::
 
-      $ export TENANT_ID="tenant-id"
+      $ export TENANT="tenant-id"
 
 
 #. In the ``service catalog`` section of the authentication response, copy the

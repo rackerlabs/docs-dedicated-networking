@@ -4,7 +4,7 @@
 Rackspace |product name| API |contract version|
 ===============================================
 
-*Last updated:* |today|
+*Last updated:* |today| 
 
 The |product name| service enables developers to programmatically view and
 manage their existing dedicated hardware load balancer resources such as

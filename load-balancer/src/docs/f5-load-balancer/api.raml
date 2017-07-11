@@ -1,7 +1,7 @@
 #%RAML 0.8
 title: F5 Load Balancer
 version: 1 <br> <p style="font-size:17px; color:black"><em>Last modified date - June 6, 2016 </em></p><hr>
-baseUri: https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{core_id}
+baseUri: https://bpi.automation.api.rackspacecloud.com/2.0/{tenant_id}/f5loadbalancers/{device_id}
 documentation:
 - title: API Overview
   content: |
@@ -29,9 +29,9 @@ baseUriParameters:
   tenant_id:
     displayName: Tenant ID
     description: |
-        The account number associated with the core_id
+        The account number associated with the device_id
     type: integer
-  core_id:
+  device_id:
     displayName: CORE Device Number
     description: |
         The CORE device number for the loadbalancer.

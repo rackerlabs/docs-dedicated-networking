@@ -1,5 +1,5 @@
 **Endpoint:**
-https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant\_id}/loadbalancers
+https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
 
 Returns a complete info about loadbalancer
 ------------------------------------------

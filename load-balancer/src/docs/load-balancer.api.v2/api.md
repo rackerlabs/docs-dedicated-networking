@@ -1,4 +1,4 @@
-**Endpoint:** https://lb.dedicated.api.rackspacecloud.com/2.0/{tenant_id}/loadbalancers
+**Endpoint:** https://lb.dedicated.api.rackspacecloud.com/2.0/{account_id}/loadbalancers
 
 
 		
