@@ -1447,10 +1447,13 @@ Response
     }
 
 Disable Pool Member For Maintenance
-----------------------------------------
+-----------------------------------
 
 This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
 Use this feature to prevent new connections to a Pool Member without affecting existing client experience or other services on the same Node.
+
+To monitor connection status of a Pool Member, see: `Show Pool Member Connection Status`_.
+To re-enable the Pool Member, see: `Enable Pool Member For Maintenance`_.
 
 :: 
 
@@ -1483,10 +1486,10 @@ Response
     }
 
 Enable Pool Member For Maintenance
-----------------------------------------
+----------------------------------
 
-This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
-Use this feature to prevent new connections to a Pool Member without affecting existing client experience or other services on the same Node.
+This setting allows the Pool Member (combination of IP and Port) to continue accepting new connections.
+Use this feature to re-enable a Pool Member which has been disabled for maintenance.
 
 :: 
 
@@ -1517,6 +1520,67 @@ Response
             "eventRef": "/events/<eventId:str>"
         }
     }
+
+Show Pool Member Connection Status
+-------------------------------------
+
+This resource 
+
+::
+
+    GET /pools/{poolId}/members/{memberId}/stats
+
+Response body
+~~~~~~~~~~~~~
+
+{
+    "data": [
+        {
+            "id": "test1:80",
+            "address": "127.0.0.1",
+            "connq": {
+                "ageEdm": 0,
+                "ageEma": 0,
+                "ageHead": 0,
+                "ageMax": 0,
+                "depth": 0,
+                "serviced": 0
+            },
+            "curSessions": 0,
+            "monitorRule": {
+                "monitors": [
+                    "default"
+                ],
+                "minimum": "all"
+            },
+            "monitorStatus": "unchecked",
+            "nodeName": "test1",
+            "poolName": "test2",
+            "port": {
+                "type": "equal",
+                "value": 80
+            },
+            "serverside": {
+                "bitsIn": 0,
+                "bitsOut": 0,
+                "curConns": 0,
+                "maxConns": 0,
+                "pktsIn": 0,
+                "pktsOut": 0,
+                "totConns": 0
+            },
+            "sessionStatus": "enabled",
+            "status": {
+                "availabilityState": "unknown",
+                "enabledState": "enabled",
+                "statusReason": "Pool member does not have service checking enabled"
+            },
+            "totRequests": 0
+        }
+    ]
+}
+
+Review the first object in the data array. The serverside object shows stats on activity to the member.
 
 Virtual servers
 ~~~~~~~~~~~~~~~
