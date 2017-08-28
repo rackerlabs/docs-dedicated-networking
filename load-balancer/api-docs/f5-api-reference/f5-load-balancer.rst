@@ -1524,7 +1524,7 @@ Response
 Show Pool Member Connection Status
 -------------------------------------
 
-This resource 
+This resource returns statisticical metrics regarding the Pool Member.
 
 ::
 
@@ -1532,6 +1532,8 @@ This resource
 
 Response
 ~~~~~~~~
+
+Review the first object in the data array. The serverside object shows stats on activity to the member.
 
 ::
 
@@ -1582,7 +1584,7 @@ Response
         ]
     }
 
-Review the first object in the data array. The serverside object shows stats on activity to the member.
+
 
 Virtual servers
 ~~~~~~~~~~~~~~~
