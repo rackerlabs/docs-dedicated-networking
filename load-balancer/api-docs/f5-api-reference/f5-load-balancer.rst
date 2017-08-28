@@ -1530,8 +1530,8 @@ This resource
 
     GET /pools/{poolId}/members/{memberId}/stats
 
-Response body
-~~~~~~~~~~~~~
+Response
+~~~~~~~~
 
 ::
 
