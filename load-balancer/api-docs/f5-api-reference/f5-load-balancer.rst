@@ -1446,6 +1446,78 @@ Response
         ]
     }
 
+Disable Pool Member For Maintenance
+----------------------------------------
+
+This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
+Use this feature to prevent new connections to a Pool Member without affecting existing client experience or other services on the same Node.
+
+:: 
+
+    PUT /pools/{pool_ID}/members/{member_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "unchecked",
+        "session": "user-disabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+   {
+        "data": {
+            "eventId": "<eventId:str>",
+            "status": "PROCESSING",
+            "resource": "<poolId:str>",
+            "type": "<memberId:str>",
+            "timestamp": "2016-03-17T09:36:42.5274609Z",
+            "eventRef": "/events/<eventId:str>"
+        }
+    }
+
+Enable Pool Member For Maintenance
+----------------------------------------
+
+This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
+Use this feature to prevent new connections to a Pool Member without affecting existing client experience or other services on the same Node.
+
+:: 
+
+    PUT /pools/{pool_ID}/members/{member_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "unchecked",
+        "session": "user-enabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+   {
+        "data": {
+            "eventId": "<eventId:str>",
+            "status": "PROCESSING",
+            "resource": "<poolId:str>",
+            "type": "<memberId:str>",
+            "timestamp": "2016-03-17T09:36:42.5274609Z",
+            "eventRef": "/events/<eventId:str>"
+        }
+    }
+
 Virtual servers
 ~~~~~~~~~~~~~~~
 
