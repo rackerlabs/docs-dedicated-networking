@@ -1531,7 +1531,7 @@ This resource returns statisticical metrics regarding the Pool Member.
     GET /pools/{poolId}/members/{memberId}/stats
 
 Response
-~~~~~~~~
+^^^^^^^^
 
 Review the first object in the data array. The serverside object shows stats on activity to the member.
 
