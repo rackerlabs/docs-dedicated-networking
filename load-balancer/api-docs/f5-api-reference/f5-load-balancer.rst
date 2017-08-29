@@ -1,3 +1,24 @@
+Important Concepts
+~~~~~~~~~~~~~~~~~~
+
+.. contents::
+	 :depth: 1
+	 :local:
+
+Disable vs Offline
+^^^^^^^^^^^^^^^^^^
+
+Some resources can be configured to be disabled or forced offline. It's important to note the key differences.
+
+Disabling a pool member or node and/or marking offline, is around what connections they still permit. 
+
+* **Disable** - ONLY active and persistent connections are permitted.
+* **Offline** - ONLY active connections are permitted.
+
+These differences mainly come into use when connection draining is performed and granularity over what sessions are still permitted is required.
+
+
+
 Retrieve load balancer information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1452,7 +1473,8 @@ Disable Pool Member For Maintenance
 This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
 Use this feature to prevent new connections to a Pool Member without affecting existing client experience or other services on the same Node.
 
-To monitor connection status of a Pool Member, see: `Show Pool Member Connection Status`_.
+To monitor connection status of a Pool Member, see: `Show Pool Member Connection Status`_.  
+
 To re-enable the Pool Member, see: `Enable Pool Member For Maintenance`_.
 
 :: 
