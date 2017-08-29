@@ -394,6 +394,8 @@ Use this feature to prevent new connections to a Node without affecting existing
 
 To re-enable the Pool Member, see: `Enable Node After Maintenance`_.
 
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
 ::
 
     PUT /nodes/{node_ID}
@@ -1549,6 +1551,8 @@ Use this feature to prevent new connections to a Pool Member without affecting e
 To monitor connection stats of a Pool Member, see: `Retrieve statistics for pool members`_. Review the first object in the data array. The `serverside` object shows stats on activity to the member. 
 
 To re-enable the Pool Member, see: `Enable Pool Member For Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
 
 :: 
 
