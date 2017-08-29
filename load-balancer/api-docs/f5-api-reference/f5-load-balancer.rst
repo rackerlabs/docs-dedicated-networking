@@ -441,7 +441,7 @@ Request body
 ::
 
     {
-        "session": "user-disabled"
+        "session": "user-enabled"
     }
 
 Response
