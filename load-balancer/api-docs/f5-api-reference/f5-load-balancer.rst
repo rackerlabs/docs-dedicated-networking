@@ -1533,7 +1533,7 @@ This resource returns statisticical metrics regarding the Pool Member.
 Response
 ^^^^^^^^
 
-Review the first object in the data array. The serverside object shows stats on activity to the member.
+Review the first object in the data array. The serverside object shows stats on activity to the member. 
 
 ::
 
