@@ -1730,6 +1730,8 @@ Request body
 Response
 ^^^^^^^^
 
+::
+
     {
 	"data": {
 		"eventId": "<eventId:str>",
@@ -1739,6 +1741,7 @@ Response
 		"eventRef": "/events/<eventId:str>"
         }
     }
+
 
 
 Virtual servers
