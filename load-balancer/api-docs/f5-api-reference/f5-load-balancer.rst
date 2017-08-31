@@ -1632,8 +1632,8 @@ Response
 
 ::
 
-   {
-        "data": {
+    {
+        "data": { 
             "eventId": "<eventId:str>",
             "status": "PROCESSING",
             "resource": "<poolId:str>",
