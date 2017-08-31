@@ -392,7 +392,7 @@ Disable Node for Maintenance
 This setting allows the Node (all services on an IP address) to accept only new connections that match an existing persistence session.  
 Use this feature to prevent new connections to a Node without affecting existing client connections on the same Node.
 
-To re-enable the Pool Member, see: `Enable Node After Maintenance`_.
+To re-enable the Node, see: `Enable Node After Maintenance`_.
 
 *Note: It is important to understand differences between* `Disable vs Offline`_.
 
@@ -459,6 +459,66 @@ Response
         }
     }
 
+Offline Node for Maintenance
+----------------------------
+
+This setting allows a Node to be forced Offline and will only allow active connections.
+
+To bring the Node back online, see: `Online Node After Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Online Node After Maintenance
+----------------------------
+
+Use this setting to bring a Node back online (usually after a maintenance).
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
 
 
 Monitors
@@ -1618,6 +1678,67 @@ Response
         }
     }
 
+
+Offline Pool Member for Maintenance
+----------------------------
+
+This setting allows a Pool Member to be forced Offline and will only allow active connections.
+
+To bring the Pool Member back online, see: `Online Pool Member After Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Online Pool Member After Maintenance
+------------------------------------
+
+Use this setting to bring a Pool Member back online (usually after a maintenance).
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
 
 
 Virtual servers
