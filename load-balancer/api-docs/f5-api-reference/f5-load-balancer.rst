@@ -505,11 +505,13 @@ Request body
 ::
 
     {
-        "state": "user-down"
+        "state": "user-up"
     }
 
 Response
 ^^^^^^^^
+
+::
 
     {
 	"data": {
