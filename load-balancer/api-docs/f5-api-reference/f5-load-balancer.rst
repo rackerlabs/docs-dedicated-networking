@@ -1,3 +1,24 @@
+Important Concepts
+~~~~~~~~~~~~~~~~~~
+
+.. contents::
+	 :depth: 1
+	 :local:
+
+Disable vs Offline
+------------------
+
+Some resources can be configured to be disabled or forced offline. It's important to note the key differences.
+
+Disabling a pool member or node and/or marking offline, is around what connections they still permit. 
+
+* **Disable** - ONLY active and persistent connections are permitted.
+* **Offline** - ONLY active connections are permitted.
+
+These differences mainly come into use when connection draining is performed and granularity over what sessions are still permitted is required.
+
+
+
 Retrieve load balancer information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -364,6 +385,144 @@ Returns statistics for the specified node.
             }
         ]
     }
+
+Disable Node for Maintenance
+----------------------------
+
+This setting allows the Node (all services on an IP address) to accept only new connections that match an existing persistence session.  
+Use this feature to prevent new connections to a Node without affecting existing client connections on the same Node.
+
+To re-enable the Node, see: `Enable Node After Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+::
+
+    PUT /nodes/{node_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "session": "user-disabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Enable Node After Maintenance
+-----------------------------
+
+This setting allows the Node (all services on an IP address) to continue accepting new connections.  
+Use this feature to enable a Node after a maintenance.
+
+::
+
+    PUT /nodes/{node_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "session": "user-enabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Offline Node for Maintenance
+----------------------------
+
+This setting allows a Node to be forced Offline and will only allow active connections.
+
+To bring the Node back online, see: `Online Node After Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Online Node After Maintenance
+----------------------------
+
+Use this setting to bring a Node back online (usually after a maintenance).
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-up"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
 
 Monitors
 ~~~~~~~~
@@ -1445,6 +1604,148 @@ Response
             }
         ]
     }
+
+Disable Pool Member For Maintenance
+-----------------------------------
+
+This setting allows the Pool Member (combination of IP and Port) to accept only new connections that match an existing persistence session.
+Use this feature to prevent new connections to a Pool Member without affecting existing client connections on the same Pool Member.
+
+To monitor connection stats of a Pool Member, see: `Retrieve statistics for pool members`_. Review the first object in the data array. The `serverside` object shows stats on activity to the member. 
+
+To re-enable the Pool Member, see: `Enable Pool Member For Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+:: 
+
+    PUT /pools/{pool_ID}/members/{member_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "session": "user-disabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+        "data": { 
+            "eventId": "<eventId:str>",
+            "status": "PROCESSING",
+            "resource": "<poolId:str>",
+            "type": "<memberId:str>",
+            "timestamp": "2016-03-17T09:36:42.5274609Z",
+            "eventRef": "/events/<eventId:str>"
+        }
+    }
+
+Enable Pool Member After Maintenance
+------------------------------------
+
+This setting allows the Pool Member (combination of IP and Port) to continue accepting new connections.
+Use this feature to enable a Pool Member after a maintenance.
+
+:: 
+
+    PUT /pools/{pool_ID}/members/{member_ID}
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "session": "user-enabled"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+   {
+        "data": {
+            "eventId": "<eventId:str>",
+            "status": "PROCESSING",
+            "resource": "<poolId:str>",
+            "type": "<memberId:str>",
+            "timestamp": "2016-03-17T09:36:42.5274609Z",
+            "eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Offline Pool Member for Maintenance
+----------------------------
+
+This setting allows a Pool Member to be forced Offline and will only allow active connections.
+
+To bring the Pool Member back online, see: `Online Pool Member After Maintenance`_.
+
+*Note: It is important to understand differences between* `Disable vs Offline`_.
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
+Online Pool Member After Maintenance
+------------------------------------
+
+Use this setting to bring a Pool Member back online (usually after a maintenance).
+
+Request body
+^^^^^^^^^^^^
+
+::
+
+    {
+        "state": "user-down"
+    }
+
+Response
+^^^^^^^^
+
+::
+
+    {
+	"data": {
+		"eventId": "<eventId:str>",
+		"status": "PROCESSING",
+		"resource": "<nodeId:str>",
+		"timestamp": "2016-03-08T17:22:33.6249648Z",
+		"eventRef": "/events/<eventId:str>"
+        }
+    }
+
+
 
 Virtual servers
 ~~~~~~~~~~~~~~~
