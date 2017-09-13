@@ -61,7 +61,6 @@ using the |product name| service REST API:
    :maxdepth: 3
 
    Load Balancers API 2.0 <self>
-   early-access-program
    getting-started/index
    general-api-info/index
    f5-api-reference/index
