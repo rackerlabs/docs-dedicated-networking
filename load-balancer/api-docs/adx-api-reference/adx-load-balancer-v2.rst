@@ -507,7 +507,7 @@ Disable a virtual IP
 Use the virtual IP configuration operations to  disable a
 virtual IP configured for a specified device. 
 
-Note: When using this feature to set drain connections to a VIP, you must monitor the VIP stats for connection details. See `Show virtual IP statistics`_ for more.
+.. note:: When using this feature to set drain connections to a VIP, you must monitor the VIP stats for connection details. See `Show virtual IP statistics`_ for more.
 
 ::
 
@@ -838,7 +838,7 @@ Use the node status operations to   disable a specified node
 included in the device configuration.
 
 
-Note: When using this feature to set drain connections to a node (e.g. during a maintenance), you must monitor the node stats for connection details. See `Show node statistics`_ for more.
+.. note:: When using this feature to set drain connections to a node (e.g. during a maintenance), you must monitor the node stats for connection details. See `Show node statistics`_ for more.
 
 Request body
 ^^^^^^^^^^^^
