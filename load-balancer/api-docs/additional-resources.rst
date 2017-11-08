@@ -5,8 +5,8 @@ Additional resources
 ====================
 
 We welcome feedback, comments, and bug reports. Visit the Rackspace customer
-portal  at https://feedback.rackspace.com/. You can email all support questions
-to  |netdevice support email|.
+portal  at https://feedback.rackspace.com/. Contact your Rackspace Support team 
+for additional assistance.
 
 The `Rackspace website <http://support.rackspace.com>`_ offers information
 about Rackspace Cloud and Hybrid products,  links to official Rackspace support
