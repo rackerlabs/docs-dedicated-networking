@@ -162,7 +162,6 @@ rst_epilog = """
 .. |product name| replace:: Dedicated Load Balancer
 .. |release-update| replace:: release update date
 .. |product support email| replace:: rjackson@rackspace.com
-.. |netdevice support email| replace:: netdevice_api_support@rackspace.com
 .. |prerequisites for using the API| replace::  Update info or remove topic
 
 """
