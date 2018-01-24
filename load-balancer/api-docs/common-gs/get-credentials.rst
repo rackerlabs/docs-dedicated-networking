@@ -22,4 +22,4 @@ Complete the following steps to get your credentials:
 
 5. Click **Hide** to secure the API key value in the browser.
 
-.. _Log in to the MyRackspace portal: https://myrackspace.com
+.. _Log in to the MyRackspace portal: https://my.rackspace.com
