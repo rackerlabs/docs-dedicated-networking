@@ -4,8 +4,8 @@
 Get your credentials
 ====================
 
-To communicate with Rackspace services by using the REST API, you need
-your MyRackspace account username, API key, and account number.
+To communicate with Rackspace services by using the REST API, you
+need your MyRackspace account username, API key, and account number.
 
 Complete the following steps to get your credentials:
 
