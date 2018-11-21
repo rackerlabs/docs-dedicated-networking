@@ -4,7 +4,7 @@
 Rackspace |product name| API |contract version|
 ===============================================
 
-*Last updated:* |today| 
+*Last updated:* |today|
 
 The |product name| service enables developers to programmatically view and
 manage their existing dedicated hardware load balancer resources such as
@@ -14,11 +14,11 @@ provision dedicated hardware load balancers.
 You can use the |apiservice| to manage the following load balancer models.
 
  - |F5Product|
-     
+
      - |F5Version|
 
  - |ADXProduct|
-     
+
      - |ADXVersion|
 
 For details about using these load balancer models for hybrid hosting, see
@@ -68,3 +68,4 @@ using the |product name| service REST API:
    service-updates
    additional-resources
    copyright
+
