@@ -4,7 +4,7 @@ Babel==2.2.0
 cssselect==0.9.1
 docutils==0.12
 html2text==2015.11.4
-Jinja2==2.8
+Jinja2>=2.8.1
 Logbook==0.11.3
 lxml==3.5.0
 MarkupSafe==0.23
