@@ -76,4 +76,4 @@ using the |product name| service REST API:
    service-updates
    additional-resources
    copyright
-   **LOAD BALANCERS API 3.0 <https://docs.rackspace.com/docs/dedicated-load-balancer-v3/>**
+   LOAD BALANCERS API 3.0 <https://docs.rackspace.com/docs/dedicated-load-balancer-v3/>
