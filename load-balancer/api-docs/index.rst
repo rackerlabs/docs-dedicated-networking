@@ -6,6 +6,14 @@ Rackspace |product name| API |contract version|
 
 *Last updated:* |today|
 
+.. warning::
+
+   This API will be deprecated soon. We recommend that you use the new
+   `LOAD BALANCER API 3.0 <https://docs.rackspace.com/docs/dedicated-load-balancer-v3/`_
+   that enables seamless access across Rackspace products and services. If you
+   face any issues, contact your account administrator, or Rackspace Support.
+
+
 The |product name| service enables developers to programmatically view and
 manage their existing dedicated hardware load balancer resources such as
 virtual IPs (vips), nodes and health checks. You cannot use the API to
@@ -68,4 +76,4 @@ using the |product name| service REST API:
    service-updates
    additional-resources
    copyright
-
+   Load Balancers API 3.0 <https://docs.rackspace.com/docs/dedicated-load-balancer-v3/>
