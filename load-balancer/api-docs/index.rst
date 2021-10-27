@@ -11,7 +11,7 @@ Rackspace |product name| API |contract version|
    This API will be deprecated soon. We recommend that you use the new
    `LOAD BALANCER API 3.0 <https://docs.rackspace.com/docs/dedicated-load-balancer-v3/>`_
    that enables seamless access across Rackspace products and services. If you
-   face any issues, contact your account administrator, or `Rackspace Support <https://support.rackspace.com/>c_.
+   face any issues, contact your account administrator, or `Rackspace Support <https://support.rackspace.com/>`_.
 
 
 The |product name| service enables developers to programmatically view and
